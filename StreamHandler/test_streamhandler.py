@@ -43,7 +43,14 @@ USECASES = {
             [(650, 440), (1400, 550)], # IN line
             [(650, 510), (1400, 620)]  # OUT line
         ]
+    },
+    "crowd_density": {
+        "queue": "queue_crowd_density",
+        "name": "Crowd_Density",
+        "zones":["kuch_bhi"],
+        "colors": [(255, 255, 255)]
     }
+
 }
 
 def interactive_draw_zones(frame, usecase_info):
@@ -137,9 +144,9 @@ def get_rabbitmq_channel(queue_name):
     return channel, connection
 
 def main():
-    parser = argparse.ArgumentParser(description="Unified Streamhandler for Loitering, Tailgating, and In/Out Person Count")
+    parser = argparse.ArgumentParser(description="Unified Streamhandler for Loitering, Tailgating, In/Out Person Count and CrowdDensity")
     parser.add_argument("--video", type=str, required=True, help="Path to video file")
-    parser.add_argument("--usecase", type=str, choices=["loitering", "tailgating", "in_out_person_count"], required=True, help="Select usecase")
+    parser.add_argument("--usecase", type=str, choices=["loitering", "tailgating", "in_out_person_count", "crowd_density"], required=True, help="Select usecase")
     parser.add_argument("--fps", type=int, default=5, help="Simulation FPS")
     parser.add_argument("--batch_size", type=int, default=1, help="Frames per batch")
     args = parser.parse_args()
