@@ -40,6 +40,9 @@ def dispatch_vision_task(detector: Any, secondary_model: Any, validated_msg_with
         elif usecase_name == Constants.IN_OUT_PERSON_COUNT_USECASE:
             from src.executers.InOutPersonCount_executer import execute_in_out_person_count
             results = execute_in_out_person_count(validated_msg_with_frames_and_metadatas, detector=detector)
+        elif usecase_name == Constants.CROWD_DENSITY_USECASE:
+            from src.executers.CrowdDensity_executer import execute_crowd_density
+            results = execute_crowd_density(validated_msg_with_frames_and_metadatas, detector=detector)   # add
         else:
             logger.error(f"dispatch_vision_task: Unsupported use case: {usecase_name}")
             return

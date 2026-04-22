@@ -114,6 +114,8 @@ class Constants:
     # config environments
     LOITERING_DETECTION = "LOITERING_DETECTION"
     TAILGATE_DETECTION = "TAILGATE_DETECTION"
+    CROWD_DENSITY = "CROWD_DENSITY"      #add
+    CROWD_LIMIT = "CROWD_LIMIT"           # add
     IN_OUT_PERSON_COUNT = "IN_OUT_PERSON_COUNT"
     DEFAULT_ENVIRONMENT="DEFAULT"
     DEVICE = "DEVICE"
@@ -126,10 +128,12 @@ class Constants:
     LOITERING_DETECTION_USECASE = "Loitering_Detection"
     TAILGATE_DETECTION_USECASE = "Tailgate_Detection"
     IN_OUT_PERSON_COUNT_USECASE = "In_Out_Person_Count"
+    CROWD_DENSITY_USECASE = "Crowd_Density"               # add
     
     LOITERING_DETECTION_MODEL_PATH = "LOITERING_DETECTION_MODEL_PATH"
     TAILGATE_DETECTION_MODEL_PATH = "TAILGATE_DETECTION_MODEL_PATH"
     IN_OUT_PERSON_COUNT_MODEL_PATH = "IN_OUT_PERSON_COUNT_MODEL_PATH"
+    CROWD_DENSITY_MODEL_PATH = "CROWD_DENSITY_MODEL_PATH"           # add
     PERSON_CLASS_ID="PERSON_CLASS_ID"
 
     CASE = "CASE"
@@ -142,6 +146,7 @@ class Constants:
     LOITERING_DETECTION_CONFIDENCE = "LOITERING_DETECTION_CONFIDENCE"
     TAILGATE_DETECTION_CONFIDENCE = "TAILGATE_DETECTION_CONFIDENCE"
     IN_OUT_CONFIDENCE = "IN_OUT_CONFIDENCE"
+    CROWD_DENSITY_CONFIDENCE = "CROWD_DENSITY_CONFIDENCE"               # add
     TAILGATE_MIN_TAILGATE_COUNT = "TAILGATE_MIN_TAILGATE_COUNT"
     TAILGATE_MIN_CONSECUTIVE_FRAMES = "TAILGATE_MIN_CONSECUTIVE_FRAMES"
     TAILGATE_MIN_SUSTAIN_FRAMES = "TAILGATE_MIN_SUSTAIN_FRAMES"
@@ -186,7 +191,8 @@ class Constants:
     COMPONENTS_MAPPING = {
         "queue_loitering_detection":"ai-loitering-detection",
         "queue_tailgate_detection":"tailgate",
-        "queue_in_out_person_count":"in_out_person_count"
+        "queue_in_out_person_count":"in_out_person_count",
+        "queue_crowd_density":"crowd_density"                          # add
     }
  
     # Video and Camera Metadata
@@ -262,12 +268,14 @@ class Constants:
     LOITERING_DETECTION_QUEUE = "queue_loitering_detection"
     TAILGATE_DETECTION_QUEUE = "queue_tailgate_detection"
     IN_OUT_PERSON_COUNT_QUEUE = "queue_in_out_person_count"
+    CROWD_DENSITY_QUEUE = "queue_crowd_density"             # add
  
     # Usecase to Queue Mapping
     USECASE_QUEUE_MAPPING = {
         LOITERING_DETECTION_QUEUE:LOITERING_DETECTION_USECASE,
         TAILGATE_DETECTION_QUEUE:TAILGATE_DETECTION_USECASE,
-        IN_OUT_PERSON_COUNT_QUEUE:IN_OUT_PERSON_COUNT_USECASE
+        IN_OUT_PERSON_COUNT_QUEUE:IN_OUT_PERSON_COUNT_USECASE,
+        CROWD_DENSITY_QUEUE:CROWD_DENSITY_USECASE    # add
     }
 
     RED = "red"
