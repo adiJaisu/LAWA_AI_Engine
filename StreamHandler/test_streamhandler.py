@@ -50,11 +50,28 @@ USECASES = {
         "zones":["kuch_bhi"],
         "colors": [(255, 255, 255)]
     },
+    "train_arrival_depart_monitor": {
+        "queue": "queue_train_arrival_depart_monitor",
+        "name": "Train_Arrival_Depart_Monitor",
+        "zones": ["Train_Zone (Purple)"],
+        "colors": [(128, 0, 128)]},
     "person_count_inside_compartment":{
         "queue": "queue_person_count_inside_compartment",
         "name": "Person_Count_Inside_Compartment",
         "zones":["kuch_bhi"],
         "colors": [(255, 255, 255)]
+    },
+
+    "person_entered_inside_train": {
+        "queue": "queue_person_entered_inside_train",
+        "name": "Person_Entered_Inside_Train",
+        "zones": ["Platform (Blue)", "Gate1 (Yellow)", "Gate2 (Cyan)"],
+        "colors": [(255, 0, 0), (0, 255, 255), (255, 255, 0)],
+        "hardcoded_rois": [
+            [(100, 719), (600, 420), (1100, 420), (1279, 540), (1279, 719)],
+            [(120, 300), (280, 300), (280, 620), (120, 620)],
+            [(400, 300), (460, 300), (460, 520), (400, 520)]
+        ]
     }
 
 }
@@ -150,6 +167,9 @@ def get_rabbitmq_channel(queue_name):
     return channel, connection
 
 def main():
+    parser = argparse.ArgumentParser(description="Unified Streamhandler for Loitering, Tailgating, In/Out Person Count, CrowdDensity and PersonCountInsideCompartment")
+    parser.add_argument("--video", type=str, required=True, help="Path to video file")
+    parser.add_argument("--usecase", type=str, choices=["loitering", "tailgating", "train_arrival_depart_monitor", "in_out_person_count", "person_entered_inside_train", "crowd_density"], required=True, help="Select usecase")
     parser = argparse.ArgumentParser(description="Unified Streamhandler for Loitering, Tailgating, In/Out Person Count, CrowdDensity and PersonCountInsideCompartment")
     parser.add_argument("--video", type=str, required=True, help="Path to video file")
     parser.add_argument("--usecase", type=str, choices=["loitering", "tailgating", "in_out_person_count", "crowd_density", "person_count_inside_compartment"], required=True, help="Select usecase")
