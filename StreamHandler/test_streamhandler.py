@@ -49,8 +49,24 @@ USECASES = {
         "name": "Crowd_Density",
         "zones":["kuch_bhi"],
         "colors": [(255, 255, 255)]
-    }
+    },
+    "train_arrival_depart_monitor": {
+        "queue": "queue_train_arrival_depart_monitor",
+        "name": "Train_Arrival_Depart_Monitor",
+        "zones": ["Train_Zone (Purple)"],
+        "colors": [(128, 0, 128)]},
 
+    "person_entered_inside_train": {
+        "queue": "queue_person_entered_inside_train",
+        "name": "Person_Entered_Inside_Train",
+        "zones": ["Platform (Blue)", "Gate1 (Yellow)", "Gate2 (Cyan)"],
+        "colors": [(255, 0, 0), (0, 255, 255), (255, 255, 0)],
+        "hardcoded_rois": [
+            [(100, 719), (600, 420), (1100, 420), (1279, 540), (1279, 719)],
+            [(120, 300), (280, 300), (280, 620), (120, 620)],
+            [(400, 300), (460, 300), (460, 520), (400, 520)]
+        ]
+    }
 }
 
 def interactive_draw_zones(frame, usecase_info):
@@ -144,9 +160,9 @@ def get_rabbitmq_channel(queue_name):
     return channel, connection
 
 def main():
-    parser = argparse.ArgumentParser(description="Unified Streamhandler for Loitering, Tailgating, In/Out Person Count and CrowdDensity")
+    parser = argparse.ArgumentParser(description="Unified Streamhandler for Loitering, Tailgating,train_arrival_depart_monitor, In/Out Person Count, Person_Entered_Inside_Train and CrowdDensity")
     parser.add_argument("--video", type=str, required=True, help="Path to video file")
-    parser.add_argument("--usecase", type=str, choices=["loitering", "tailgating", "in_out_person_count", "crowd_density"], required=True, help="Select usecase")
+    parser.add_argument("--usecase", type=str, choices=["loitering", "tailgating", "train_arrival_depart_monitor", "in_out_person_count", "person_entered_inside_train", "crowd_density"], required=True, help="Select usecase")
     parser.add_argument("--fps", type=int, default=5, help="Simulation FPS")
     parser.add_argument("--batch_size", type=int, default=1, help="Frames per batch")
     args = parser.parse_args()

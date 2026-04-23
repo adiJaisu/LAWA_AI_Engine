@@ -46,6 +46,9 @@ def dispatch_vision_task(detector: Any, secondary_model: Any, validated_msg_with
         elif usecase_name == Constants.CROWD_DENSITY_USECASE:
             from src.executers.CrowdDensity_executer import execute_crowd_density
             results = execute_crowd_density(validated_msg_with_frames_and_metadatas, detector=detector)
+        elif usecase_name == Constants.PERSON_ENTERED_INSIDE_TRAIN_USECASE:
+            from src.executers.PersonEnteredInsideTrain_executer import execute_person_entered_inside_train
+            results = execute_person_entered_inside_train(validated_msg_with_frames_and_metadatas, detector=detector)
         else:
             logger.error(f"dispatch_vision_task: Unsupported use case: {usecase_name}")
             return
