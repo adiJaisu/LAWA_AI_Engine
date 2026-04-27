@@ -66,6 +66,18 @@ USECASES = {
             [(120, 300), (280, 300), (280, 620), (120, 620)],
             [(400, 300), (460, 300), (460, 520), (400, 520)]
         ]
+    },
+    
+    "restroom_person_tracking": {
+        "queue": "queue_restroom_person_tracking",
+        "name": "Restroom_Person_Tracking",
+        "zones": ["Inside Zone (Green)", "Zone A (Blue)", "Zone B (Red)"],
+        "colors": [(0, 255, 0), (255, 0, 0), (0, 0, 255)],
+        "hardcoded_rois": [
+            [(303, 93), (490, 92), (486, 410), (302, 402)], # Inside Zone points
+            [(316, 360), (464, 398), (471, 359), (312, 311)], # Zone A points
+            [(506, 413), (490, 448), (269, 398), (302, 364)]  # Zone B points
+        ]
     }
 }
 
@@ -160,9 +172,9 @@ def get_rabbitmq_channel(queue_name):
     return channel, connection
 
 def main():
-    parser = argparse.ArgumentParser(description="Unified Streamhandler for Loitering, Tailgating,train_arrival_depart_monitor, In/Out Person Count, Person_Entered_Inside_Train and CrowdDensity")
+    parser = argparse.ArgumentParser(description="Unified Streamhandler for Loitering, Tailgating,train_arrival_depart_monitor, In/Out Person Count, Person_Entered_Inside_Train, CrowdDensity and Restroom_Person_Tracking")
     parser.add_argument("--video", type=str, required=True, help="Path to video file")
-    parser.add_argument("--usecase", type=str, choices=["loitering", "tailgating", "train_arrival_depart_monitor", "in_out_person_count", "person_entered_inside_train", "crowd_density"], required=True, help="Select usecase")
+    parser.add_argument("--usecase", type=str, choices=["loitering", "tailgating", "train_arrival_depart_monitor", "in_out_person_count", "person_entered_inside_train", "crowd_density", "restroom_person_tracking"], required=True, help="Select usecase")
     parser.add_argument("--fps", type=int, default=5, help="Simulation FPS")
     parser.add_argument("--batch_size", type=int, default=1, help="Frames per batch")
     args = parser.parse_args()

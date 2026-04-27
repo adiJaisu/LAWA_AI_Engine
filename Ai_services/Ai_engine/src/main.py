@@ -49,6 +49,9 @@ def dispatch_vision_task(detector: Any, secondary_model: Any, validated_msg_with
         elif usecase_name == Constants.PERSON_ENTERED_INSIDE_TRAIN_USECASE:
             from src.executers.PersonEnteredInsideTrain_executer import execute_person_entered_inside_train
             results = execute_person_entered_inside_train(validated_msg_with_frames_and_metadatas, detector=detector)
+        elif usecase_name == Constants.RESTROOM_PERSON_TRACKING_USECASE:
+            from src.executers.RestroomPersonTracking_executer import execute_restroom_person_tracking
+            results = execute_restroom_person_tracking(validated_msg_with_frames_and_metadatas, detector=detector)
         else:
             logger.error(f"dispatch_vision_task: Unsupported use case: {usecase_name}")
             return
