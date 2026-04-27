@@ -52,6 +52,9 @@ def dispatch_vision_task(detector: Any, secondary_model: Any, validated_msg_with
         elif usecase_name == Constants.RESTROOM_PERSON_TRACKING_USECASE:
             from src.executers.RestroomPersonTracking_executer import execute_restroom_person_tracking
             results = execute_restroom_person_tracking(validated_msg_with_frames_and_metadatas, detector=detector)
+        elif usecase_name == Constants.PERSON_COUNT_INSIDE_COMPARTMENT_USECASE:
+            from src.executers.PersonCountInsideCompartment_executer import execute_person_count_inside_compartment
+            results = execute_person_count_inside_compartment(validated_msg_with_frames_and_metadatas, detector=detector)
         else:
             logger.error(f"dispatch_vision_task: Unsupported use case: {usecase_name}")
             return

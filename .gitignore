@@ -1,1 +1,8 @@
+<<<<<<< HEAD
 Ai_services/Ai_engine/src/models/*.pt
+=======
+__pycache__/
+*.pyc
+*.pyo
+*.db
+>>>>>>> origin/japneet_dev
