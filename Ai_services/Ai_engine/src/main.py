@@ -29,6 +29,7 @@ def dispatch_vision_task(detector: Any, secondary_model: Any, validated_msg_with
     """Dispatches and executes the appropriate vision detection task for a given use case."""
     
     usecase_name = validated_msg_with_frames_and_metadatas[Constants.ZERO][Constants.FRAME_METADATA][Constants.USECASE_NAME]
+    logger.info(f"[TASK] Starting vision task for usecase: {usecase_name}")
     try:
         if usecase_name == Constants.LOITERING_DETECTION_USECASE:
             from src.executers.LoiteringDetector_executer import execute_loitering_detection
@@ -55,14 +56,26 @@ def dispatch_vision_task(detector: Any, secondary_model: Any, validated_msg_with
         elif usecase_name == Constants.PERSON_COUNT_INSIDE_COMPARTMENT_USECASE:
             from src.executers.PersonCountInsideCompartment_executer import execute_person_count_inside_compartment
             results = execute_person_count_inside_compartment(validated_msg_with_frames_and_metadatas, detector=detector)
+        elif usecase_name == Constants.QUEUE_MANAGEMENT_USECASE:
+            from src.executers.QueueManagement_executer import execute_queue_management
+            results = execute_queue_management(validated_msg_with_frames_and_metadatas, detector=detector)
+        elif usecase_name == Constants.BIRD_EYE_VIEW_USECASE:
+            from src.executers.BirdEyeView_executer import execute_bird_eye_view
+            results = execute_bird_eye_view(validated_msg_with_frames_and_metadatas, detector=detector)
         else:
+
             logger.error(f"dispatch_vision_task: Unsupported use case: {usecase_name}")
             return
 
         event_manager_evidence = process_detection_results(results)
+        logger.info(f"[TASK] Finished vision task for {usecase_name}. Alerts to send: {len(event_manager_evidence) if event_manager_evidence else 0}")
         if event_manager_evidence and len(event_manager_evidence) != Constants.ZERO:
             logger.debug(f"total evidence for event_manager of length {len(event_manager_evidence)}")
-            threading_pool_executer.submit(send_msg_to_event_manager, event_manager_evidence)
+            # threading_pool_executer.submit(send_msg_to_event_manager, event_manager_evidence)
+            try:
+                send_msg_to_event_manager(event_manager_evidence)
+            except Exception as e:
+                logger.error(f"EXCEPTION IN SENDING EVIDENCE: {e}", exc_info=True)
         
     except Exception as e:
         logger.error(f"dispatch_vision_task: Error processing use case {usecase_name}: {e}", exc_info=True)

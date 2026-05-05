@@ -45,7 +45,7 @@ class Constants:
     LOG_LEVEL = "LOG_LEVEL"
     TRUE= "true"
     FALSE="false"
-    TIME_ZONE_INFO = "America/Mexico_City"
+    TIME_ZONE_INFO = "Asia/Kolkata"
     TIME_ZONE_FORMAT = "%Y-%m-%dT%H:%M:%S.%f"
     UNDER_SCORE = '_'
     TARGET_HOUR = 0
@@ -119,7 +119,10 @@ class Constants:
     PERSON_ENTERED_INSIDE_TRAIN = "PERSON_ENTERED_INSIDE_TRAIN"
     RESTROOM_PERSON_TRACKING = "RESTROOM_PERSON_TRACKING"
     PERSON_COUNT_INSIDE_COMPARTMENT = "PERSON_COUNT_INSIDE_COMPARTMENT"    #add
-    CROWD_DENSITY = "CROWD_DENSITY"     
+    CROWD_DENSITY = "CROWD_DENSITY"
+    QUEUE_MANAGEMENT = "QUEUE_MANAGEMENT"
+    BIRD_EYE_VIEW = "BIRD_EYE_VIEW"
+
     
     DEFAULT_ENVIRONMENT="DEFAULT"
     DEVICE = "DEVICE"
@@ -137,6 +140,9 @@ class Constants:
     PERSON_ENTERED_INSIDE_TRAIN_USECASE = "Person_Entered_Inside_Train"
     RESTROOM_PERSON_TRACKING_USECASE = "Restroom_Person_Tracking"
     PERSON_COUNT_INSIDE_COMPARTMENT_USECASE = "Person_Count_Inside_Compartment"   #add
+    QUEUE_MANAGEMENT_USECASE = "Queue_Management"
+    BIRD_EYE_VIEW_USECASE = "Bird_Eye_View"
+
 
     LOITERING_DETECTION_MODEL_PATH = "LOITERING_DETECTION_MODEL_PATH"
     TAILGATE_DETECTION_MODEL_PATH = "TAILGATE_DETECTION_MODEL_PATH"
@@ -146,6 +152,9 @@ class Constants:
     PERSON_ENTERED_INSIDE_TRAIN_MODEL_PATH = "PERSON_ENTERED_INSIDE_TRAIN_MODEL_PATH"
     RESTROOM_PERSON_TRACKING_MODEL_PATH = "RESTROOM_PERSON_TRACKING_MODEL_PATH"
     PERSON_COUNT_INSIDE_COMPARTMENT_MODEL_PATH = "PERSON_COUNT_INSIDE_COMPARTMENT_MODEL_PATH"   #add
+    QUEUE_MANAGEMENT_MODEL_PATH = "QUEUE_MANAGEMENT_MODEL_PATH"
+    BIRD_EYE_VIEW_MODEL_PATH = "BIRD_EYE_VIEW_MODEL_PATH"
+
 
     
 
@@ -166,8 +175,11 @@ class Constants:
     CROWD_LIMIT = "CROWD_LIMIT"
     TRAIN_ARRIVAL_DEPART_MONITOR_CONFIDENCE = "TRAIN_ARRIVAL_DEPART_MONITOR_CONFIDENCE"
     PERSON_ENTERED_INSIDE_TRAIN_CONFIDENCE = "PERSON_ENTERED_INSIDE_TRAIN_CONFIDENCE"
-    RESTROOM_PERSON_TRACKING_CONFIDENCE = "RESTROOM_PERSON_TRACKING_CONFIDENCE"
     RESTROOM_ALERT_THRESHOLD = "RESTROOM_ALERT_THRESHOLD"
+    QUEUE_MANAGEMENT_CONFIDENCE = "QUEUE_MANAGEMENT_CONFIDENCE"
+    QUEUE_MANAGEMENT_ALERT_THRESHOLD = "QUEUE_MANAGEMENT_ALERT_THRESHOLD"
+    BIRD_EYE_VIEW_CONFIDENCE = "BIRD_EYE_VIEW_CONFIDENCE"
+
     REID_MODEL_NAME = "REID_MODEL_NAME"
     REID_NUM_CLASSES = "REID_NUM_CLASSES"
     REID_IMAGE_SIZE = "REID_IMAGE_SIZE"
@@ -244,9 +256,11 @@ class Constants:
         "queue_crowd_density":"crowd_density",
         "queue_person_entered_inside_train":"person_entered_inside_train",
         "queue_restroom_person_tracking":"restroom_person_tracking",
-        "queue_crowd_density":"crowd_density" ,
-        "queue_person_count_inside_compartment":"person_count_inside_compartment"   #add
+        "queue_person_count_inside_compartment":"person_count_inside_compartment",   #add
+        "queue_queue_management":"queue_management",
+        "queue_bird_eye_view":"bird_eye_view"
     }
+
  
     # Video and Camera Metadata
     VIDEO_WRITER = "video_writer"
@@ -298,7 +312,6 @@ class Constants:
     CONFIG_METADATA = "config_metadata"
     PERSON_DETECTION_CONFIDENCE="PERSON DETECTION CONFIDENCE"
     
-    FRAME_SENT_QUALITY_TO_EVENT_MANAGER = 'FRAME_SENT_QUALITY_TO_EVENT_MANAGER'
     FRAME_QUALITY_THRESHOLDS = 'FRAME_QUALITY_THRESHOLDS'
     BLUR_THRESHOLD = 'BLUR_THRESHOLD'
     MIN_CONTRAST = 'MIN_CONTRAST'
@@ -316,7 +329,7 @@ class Constants:
     AVG_GRADIENT = 'avg_gradient'
 
     EVENT_MANAGER_QUEUE="EVENT_MANAGER_QUEUE"
-    
+
     # Queue Constants
     LOITERING_DETECTION_QUEUE = "queue_loitering_detection"
     TAILGATE_DETECTION_QUEUE = "queue_tailgate_detection"
@@ -326,6 +339,9 @@ class Constants:
     PERSON_ENTERED_INSIDE_TRAIN_QUEUE = "queue_person_entered_inside_train"
     RESTROOM_PERSON_TRACKING_QUEUE = "queue_restroom_person_tracking"
     PERSON_COUNT_INSIDE_COMPARTMENT_QUEUE = "queue_person_count_inside_compartment"    #add
+    QUEUE_MANAGEMENT_QUEUE = "queue_queue_management"
+    BIRD_EYE_VIEW_QUEUE = "queue_bird_eye_view"
+
  
     # Usecase to Queue Mapping
     USECASE_QUEUE_MAPPING = {
@@ -336,7 +352,9 @@ class Constants:
         CROWD_DENSITY_QUEUE:CROWD_DENSITY_USECASE,
         PERSON_ENTERED_INSIDE_TRAIN_QUEUE:PERSON_ENTERED_INSIDE_TRAIN_USECASE,
         RESTROOM_PERSON_TRACKING_QUEUE:RESTROOM_PERSON_TRACKING_USECASE,
-        PERSON_COUNT_INSIDE_COMPARTMENT_QUEUE:PERSON_COUNT_INSIDE_COMPARTMENT_USECASE       #add
+        PERSON_COUNT_INSIDE_COMPARTMENT_QUEUE:PERSON_COUNT_INSIDE_COMPARTMENT_USECASE,       #add
+        QUEUE_MANAGEMENT_QUEUE:QUEUE_MANAGEMENT_USECASE,
+        BIRD_EYE_VIEW_QUEUE:BIRD_EYE_VIEW_USECASE
     }
 
     RED = "red"

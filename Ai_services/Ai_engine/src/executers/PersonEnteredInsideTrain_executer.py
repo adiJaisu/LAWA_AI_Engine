@@ -5,8 +5,8 @@ import os
 from src.utils.Logger import LoggingConfig
 from src.constant.constants import Constants
 from src.constant.global_constant import VisionPipeline
-from src.business_cases.PersonEnteredInsideTrain import PersonEnteredInsideTrain, PersonEnteredInsideTrainException
-from src.Exception.Exception import FrameProcessingException
+from src.business_cases.PersonEnteredInsideTrain import PersonEnteredInsideTrain
+from src.Exception.Exception import FrameProcessingException, PersonEnteredInsideTrainException
 
 logging_config = LoggingConfig()
 logger = logging_config.setup_logging()
@@ -51,10 +51,10 @@ def execute_person_entered_inside_train(validated_msg_with_frames_and_metadatas:
                 processed_frames.append(msg)
 
             except PersonEnteredInsideTrainException as e:
-                logger.error(f"Frame {idx}: person entered inside train error: {str(e)}", exc_info=True)
+                logger.error(f"Frame {idx}: Person entered inside train error: {str(e)}")
                 continue
             except Exception as e:
-                logger.error(f"Frame {idx}: Error during person entered inside train: {str(e)}", exc_info=True)
+                logger.error(f"Frame {idx}: Unexpected error during person entered inside train detection: {str(e)}", exc_info=True)
                 continue
 
         if alert_count > Constants.ZERO:

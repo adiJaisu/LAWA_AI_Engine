@@ -155,7 +155,7 @@ class RabbitMQService:
 
         try:
             channel = self._get_channel()
-
+            # channel.queue_declare(queue=queue_name, durable=True)
             channel.basic_qos(prefetch_count=prefetch_count)
             
             channel.basic_consume(
@@ -173,7 +173,7 @@ class RabbitMQService:
             logger.warning(f"[{threading.current_thread().name}] Connection lost/closed during consumption")
 
         except Exception as e:
-            logger.error(f"[{threading.current_thread().name}] Failed to receive messages")
+            logger.error(f"[{threading.current_thread().name}] Failed to receive messages: {e}", exc_info=True)
 
     def close_connection(self) -> None:
         """Close the RabbitMQ connection for current thread if open."""

@@ -7,7 +7,7 @@ from src.utils.Logger import LoggingConfig
 from src.constant.constants import Constants
 from src.constant.global_constant import VisionPipeline
 from src.business_cases.LoiteringDetection import LoiteringDetection
-from src.Exception.Exception import FrameProcessingException
+from src.Exception.Exception import FrameProcessingException, LoiteringDetectionException
 
 logging_config = LoggingConfig()
 logger = logging_config.setup_logging()
@@ -73,8 +73,11 @@ def execute_loitering_detection(validated_msg_with_frames_and_metadatas: List[Di
                 msg[Constants.FRAME_METADATA][Constants.DETECTIONS] = live_status
                 processed_frames.append(msg)
 
+            except LoiteringDetectionException as e:
+                logger.error(f"Frame {idx}: Loitering detection error: {str(e)}")
+                continue
             except Exception as e:
-                logger.error(f"Frame {idx}: Error during detection: {str(e)}", exc_info=True)
+                logger.error(f"Frame {idx}: Unexpected error during detection: {str(e)}", exc_info=True)
                 continue
                 
         return processed_frames if alert_count > Constants.ZERO else []

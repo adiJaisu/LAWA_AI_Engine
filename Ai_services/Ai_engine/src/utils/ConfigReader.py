@@ -56,11 +56,16 @@ class ReadConfigFile:
         Returns:
             Parameter value
         """
+        # Prioritize environment variables from Docker/System
+        env_val = os.environ.get(param)
+        if env_val is not None:
+            return env_val
+
         try:
             env_config = self.obj_config[Constants.DEFAULT_ENVIRONMENT]
             return env_config[param]
-        except NotImplementedError as e:
-            raise Exception("The selected parameter is not correct")
+        except Exception:
+            raise Exception(f"Parameter '{param}' not found in environment or [DEFAULT] config")
 
     def get_value_config(self, section, param):
         """

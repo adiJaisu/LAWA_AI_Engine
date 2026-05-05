@@ -16,9 +16,6 @@ from src.Exception.Exception import  FrameProcessingError
 logging_config = LoggingConfig()
 quality_checker = FrameQualityChecker()
 logger = logging_config.setup_logging()
-# 原代码保留 / Original turbojpeg usage:
-# from turbojpeg import TurboJPEG
-# jpeg = TurboJPEG()
 
 import turbojpeg
 try:
@@ -57,55 +54,34 @@ def _prepare_frame_data(processed_msg: Dict[str, Any]) -> Dict[str, Any]:
     """Prepares and cleans frame data for the vision pipeline."""
     try:
         frame_metadata = processed_msg.get(Constants.FRAME_METADATA, {})
-        detections = frame_metadata.get(Constants.DETECTION_DETAILS, [])
+        detections = frame_metadata.get(Constants.DETECTIONS, [])
 
-        for det in detections:
-            conf = det.get(Constants.CONF)
-            if isinstance(conf, np.float32):
-                det[Constants.CONF] = float(conf)
+        if isinstance(detections, list):
+            for det in detections:
+                if isinstance(det, dict):
+                    conf = det.get(Constants.CONF)
+                    if isinstance(conf, np.float32):
+                        det[Constants.CONF] = float(conf)
 
-        if frame_metadata[Constants.USECASE_NAME] == Constants.SPEEDING_USECASE and  not frame_metadata[Constants.ALERT]:
-            return None
-        elif frame_metadata[Constants.USECASE_NAME] == Constants.SPEEDING_USECASE and  frame_metadata[Constants.ALERT]:
-            frames = frame_metadata.get(Constants.FRAME)
-            raw_frames = frame_metadata.get(Constants.RAW_FRAME)
-            
-            # Original Speeding Logic with aggressive TurboJPEG usage
-            # frame_list = [base64.b64encode(jpeg.encode(img,quality=int(cfg.get_env_config(Constants.FRAME_SENT_QUALITY_TO_EVENT_MANAGER)))).decode(Constants.UTF_8_ENCODING)for img in frames]
-            # raw_frame_list = [base64.b64encode(jpeg.encode(img,quality=int(cfg.get_env_config(Constants.FRAME_SENT_QUALITY_TO_EVENT_MANAGER)))).decode(Constants.UTF_8_ENCODING)for img in raw_frames]
-            
-            q = int(cfg.get_env_config(Constants.FRAME_SENT_QUALITY_TO_EVENT_MANAGER) or 45)
-            
-            if jpeg is not None:
-                frame_list = [base64.b64encode(jpeg.encode(img, quality=q)).decode(Constants.UTF_8_ENCODING) for img in frames]
-                raw_frame_list = [base64.b64encode(jpeg.encode(img, quality=q)).decode(Constants.UTF_8_ENCODING) for img in raw_frames]
-            else:
-                frame_list = [base64.b64encode(cv2.imencode('.jpg', img, [cv2.IMWRITE_JPEG_QUALITY, q])[1]).decode(Constants.UTF_8_ENCODING) for img in frames]
-                raw_frame_list = [base64.b64encode(cv2.imencode('.jpg', img, [cv2.IMWRITE_JPEG_QUALITY, q])[1]).decode(Constants.UTF_8_ENCODING) for img in raw_frames]
+        frame = frame_metadata.get(Constants.FRAME)
+        raw_frame = frame_metadata.get(Constants.RAW_FRAME)
 
-            processed_msg[Constants.FRAME_METADATA][Constants.FRAME] = frame_list
-            processed_msg[Constants.FRAME_METADATA][Constants.RAW_FRAME] = raw_frame_list
+        if frame is None or raw_frame is None:
+            raise FrameProcessingError("Frame or raw_frame missing from metadata")
 
+        # Original Single Frame Encoding Logic
+        # encoded_frame = base64.b64encode(jpeg.encode(frame, quality=45)).decode(Constants.UTF_8)
+        # encoded_raw_frame = base64.b64encode(jpeg.encode(raw_frame, quality=45)).decode(Constants.UTF_8)
+
+        if jpeg is not None:
+            encoded_frame = base64.b64encode(jpeg.encode(frame, quality=45)).decode(Constants.UTF_8)
+            encoded_raw_frame = base64.b64encode(jpeg.encode(raw_frame, quality=45)).decode(Constants.UTF_8)
         else:
-            frame = frame_metadata.get(Constants.FRAME)
-            raw_frame = frame_metadata.get(Constants.RAW_FRAME)
+            encoded_frame = base64.b64encode(cv2.imencode('.jpg', frame, [cv2.IMWRITE_JPEG_QUALITY, 45])[1]).decode(Constants.UTF_8)
+            encoded_raw_frame = base64.b64encode(cv2.imencode('.jpg', raw_frame, [cv2.IMWRITE_JPEG_QUALITY, 45])[1]).decode(Constants.UTF_8)
 
-            if frame is None or raw_frame is None:
-                raise FrameProcessingError("Frame or raw_frame missing from metadata")
-
-            # Original Single Frame Encoding Logic
-            # encoded_frame = base64.b64encode(jpeg.encode(frame, quality=45)).decode(Constants.UTF_8)
-            # encoded_raw_frame = base64.b64encode(jpeg.encode(raw_frame, quality=45)).decode(Constants.UTF_8)
-
-            if jpeg is not None:
-                encoded_frame = base64.b64encode(jpeg.encode(frame, quality=45)).decode(Constants.UTF_8)
-                encoded_raw_frame = base64.b64encode(jpeg.encode(raw_frame, quality=45)).decode(Constants.UTF_8)
-            else:
-                encoded_frame = base64.b64encode(cv2.imencode('.jpg', frame, [cv2.IMWRITE_JPEG_QUALITY, 45])[1]).decode(Constants.UTF_8)
-                encoded_raw_frame = base64.b64encode(cv2.imencode('.jpg', raw_frame, [cv2.IMWRITE_JPEG_QUALITY, 45])[1]).decode(Constants.UTF_8)
-
-            processed_msg[Constants.FRAME_METADATA][Constants.FRAME] = encoded_frame
-            processed_msg[Constants.FRAME_METADATA][Constants.RAW_FRAME] = encoded_raw_frame
+        processed_msg[Constants.FRAME_METADATA][Constants.FRAME] = encoded_frame
+        processed_msg[Constants.FRAME_METADATA][Constants.RAW_FRAME] = encoded_raw_frame
 
         processed_msg[Constants.FRAME_METADATA][Constants.USECASE_TIMESTAMP] = datetime.datetime.now(ZoneInfo(Constants.TIME_ZONE_INFO)).strftime(Constants.TIME_ZONE_FORMAT)
         return processed_msg
@@ -143,6 +119,6 @@ def send_msg_to_event_manager(
             )
             logger.debug(f"Sent {len(event_manager_evidence)} events to event manager queue '{event_manager_queue}'.")
         else:
-            logger.warning("Event manager queue environment variable not set. Cannot send events.")
+            logger.error("Event manager queue environment variable not set. Cannot send events.")
     except Exception as e:
         logger.error(f"Error sending event manager evidence: {str(e)}")

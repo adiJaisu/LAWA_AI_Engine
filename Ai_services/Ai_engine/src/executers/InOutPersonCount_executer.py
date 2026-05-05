@@ -7,7 +7,7 @@ from src.utils.Logger import LoggingConfig
 from src.constant.constants import Constants
 from src.constant.global_constant import VisionPipeline
 from src.business_cases.InOutPersonCount import InOutPersonCount
-from src.Exception.Exception import FrameProcessingException
+from src.Exception.Exception import FrameProcessingException, InOutPersonCountException
 
 logging_config = LoggingConfig()
 logger = logging_config.setup_logging()
@@ -48,8 +48,11 @@ def execute_in_out_person_count(validated_msg_with_frames_and_metadatas: List[Di
                 msg[Constants.FRAME_METADATA][Constants.DETECTIONS] = live_status
                 processed_frames.append(msg)
 
+            except InOutPersonCountException as e:
+                logger.error(f"Frame {idx}: In/Out person count detection error: {str(e)}")
+                continue
             except Exception as e:
-                logger.error(f"Frame {idx}: Error during detection: {str(e)}", exc_info=True)
+                logger.error(f"Frame {idx}: Unexpected error during detection: {str(e)}", exc_info=True)
                 continue
                 
         # Return all processed frames for downstream (Event Manager, streaming, etc)

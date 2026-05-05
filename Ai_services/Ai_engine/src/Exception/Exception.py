@@ -78,3 +78,44 @@ class ConfigurationError(BaseException):
 class InvalidInputError(BaseException):
     def __init__(self, message="Invalid input data", status_code=400):
         super().__init__(message, status_code)
+
+# --- Business Case Specific Exceptions ---
+
+class BirdEyeViewException(BaseException):
+    def __init__(self, message="Bird Eye View processing error", status_code=500):
+        super().__init__(message, status_code)
+class CrowdDensityException(BaseException):
+    def __init__(self, message="Crowd Density processing error", status_code=500):
+        super().__init__(message, status_code)
+
+class InOutPersonCountException(BaseException):
+    def __init__(self, message="In-Out Person Count processing error", status_code=500):
+        super().__init__(message, status_code)
+
+class LoiteringDetectionException(BaseException):
+    def __init__(self, message="Loitering Detection processing error", status_code=500):
+        super().__init__(message, status_code)
+
+class PersonCountInsideCompartmentException(BaseException):
+    def __init__(self, message="Person Count Inside Compartment processing error", status_code=500):
+        super().__init__(message, status_code)
+
+class PersonEnteredInsideTrainException(BaseException):
+    def __init__(self, message="Person Entered Inside Train processing error", status_code=500):
+        super().__init__(message, status_code)
+
+class QueueManagementException(BaseException):
+    def __init__(self, message="Queue Management processing error", status_code=500):
+        super().__init__(message, status_code)
+
+class RestroomPersonTrackingException(BaseException):
+    def __init__(self, message="Restroom Person Tracking processing error", status_code=500):
+        super().__init__(message, status_code)
+
+class TailgateDetectionException(BaseException):
+    def __init__(self, message="Tailgate Detection processing error", status_code=500):
+        super().__init__(message, status_code)
+
+class TrainArrivalDepartMonitorException(BaseException):
+    def __init__(self, message="Train Arrival/Departure Monitoring error", status_code=500):
+        super().__init__(message, status_code)

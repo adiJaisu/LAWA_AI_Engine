@@ -13,6 +13,9 @@ RUN apt-get update && \
         python3-pip \
         ffmpeg \
         ca-certificates \
+        libsm6 \
+        libxext6 \
+        libgl1 \
         libturbojpeg && \
     ln -sf /usr/bin/python3.10 /usr/bin/python3 && \
     python3.10 -m pip install --upgrade pip setuptools wheel && \

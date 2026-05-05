@@ -1,0 +1,424 @@
+version: "3.8"
+
+services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: lawa_rabbitmq
+    ports:
+      - "5672:5672"   # AMQP protocol port
+      - "15672:15672" # Management UI port
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+    healthcheck:
+      test: rabbitmq-diagnostics -q ping
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    networks:
+      - lawa_network
+
+  postgres:
+    image: postgres:15-alpine
+    container_name: lawa_postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 12345
+      POSTGRES_DB: ai_vms
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      # Automatically initialize database schema if it's the first run
+      - ./Database/schema.sql:/docker-entrypoint-initdb.d/schema.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d ai_vms"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - lawa_network
+
+  event-manager:
+    build: 
+      context: ./EventManager
+      dockerfile: Dockerfile
+    container_name: lawa_event_manager
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+    environment:
+      - RABBITMQ_HOST=rabbitmq
+      - RABBITMQ_PORT=5672
+      - RABBITMQ_USERNAME=guest
+      - RABBITMQ_PASSWORD=guest
+      - EXCHANGE_NAME=LAWA_exchange
+      - EXCHANGE_TYPE=direct
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_NAME=ai_vms
+      - DB_USER=postgres
+      - DB_PASSWORD=12345
+      - WEBSOCKET_HOST=0.0.0.0
+      - WEBSOCKET_PORT=9004
+      - EVIDENCE_VIDEO_FPS=1
+    ports:
+      - "9004:9004" # WebSocket Port
+    volumes:
+      # - event_evidence:/app/evidence_storage
+      - ./EventManager/evidence_storage:/app/evidence_storage
+      - ./logs/event-manager:/app/logs
+      - ./EventManager/src:/app/src
+    networks:
+      - lawa_network
+
+  ai-crowd-density:
+    build:
+      context: ./ai-crowd-density
+      dockerfile: Dockerfile
+    container_name: lawa_ai_crowd_density
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    environment:
+      - RABBITMQ_HOST=rabbitmq
+      - RABBITMQ_PORT=5672
+      - RABBITMQ_USERNAME=guest
+      - RABBITMQ_PASSWORD=guest
+      - EXCHANGE_NAME=LAWA_exchange
+      - EXCHANGE_TYPE=direct
+      - QUEUE_NAME=queue_crowd_density
+      - EVENT_MANAGER_QUEUE=crowd_density_event_queue
+      - NUMBERS_OF_WORKER=2
+      - DEVICE=cuda
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=compute,utility
+    volumes:
+      - ./logs/ai-crowd-density:/app/logs
+      - ./Ai_services/Ai_engine/src:/app/src
+    networks:
+      - lawa_network
+
+  # ai-bird-eye-view:
+  #   build:
+  #     context: ./ai-bird-eye-view
+  #     dockerfile: Dockerfile
+  #   container_name: lawa_ai_bird_eye_view
+  #   depends_on:
+  #     rabbitmq:
+  #       condition: service_healthy
+  #   deploy:
+  #     resources:
+  #       reservations:
+  #         devices:
+  #           - driver: nvidia
+  #             count: 1
+  #             capabilities: [gpu]
+  #   environment:
+  #     - RABBITMQ_HOST=rabbitmq
+  #     - RABBITMQ_PORT=5672
+  #     - RABBITMQ_USERNAME=guest
+  #     - RABBITMQ_PASSWORD=guest
+  #     - EXCHANGE_NAME=LAWA_exchange
+  #     - EXCHANGE_TYPE=direct
+  #     - QUEUE_NAME=queue_bird_eye_view
+  #     - EVENT_MANAGER_QUEUE=bird_eye_view_event_queue
+  #     - NUMBERS_OF_WORKER=1
+  #     - DEVICE=cuda
+  #     - NVIDIA_VISIBLE_DEVICES=all
+  #     - NVIDIA_DRIVER_CAPABILITIES=compute,utility
+  #   volumes:
+  #     - ./logs/ai-bird-eye-view:/app/logs
+  #     - ./Ai_services/Ai_engine/src:/app/src
+  #   networks:
+  #     - lawa_network
+
+  # ai-in-out-person-count:
+  #   build:
+  #     context: ./ai-in-out-person-count
+  #     dockerfile: Dockerfile
+  #   container_name: lawa_ai_in_out_person_count
+  #   depends_on:
+  #     rabbitmq:
+  #       condition: service_healthy
+  #   deploy:
+  #     resources:
+  #       reservations:
+  #         devices:
+  #           - driver: nvidia
+  #             count: 1
+  #             capabilities: [gpu]
+  #   environment:
+  #     - RABBITMQ_HOST=rabbitmq
+  #     - RABBITMQ_PORT=5672
+  #     - RABBITMQ_USERNAME=guest
+  #     - RABBITMQ_PASSWORD=guest
+  #     - EXCHANGE_NAME=LAWA_exchange
+  #     - EXCHANGE_TYPE=direct
+  #     - QUEUE_NAME=queue_in_out_person_count
+  #     - EVENT_MANAGER_QUEUE=in_out_person_count_event_queue
+  #     - NUMBERS_OF_WORKER=1
+  #     - DEVICE=cuda
+  #     - NVIDIA_VISIBLE_DEVICES=all
+  #     - NVIDIA_DRIVER_CAPABILITIES=compute,utility
+  #   volumes:
+  #     - ./logs/ai-in-out-person-count:/app/logs
+  #     - ./Ai_services/Ai_engine/src:/app/src
+  #   networks:
+  #     - lawa_network
+
+  # ai-loitering-detection:
+  #   build:
+  #     context: ./ai-loitering-detection
+  #     dockerfile: Dockerfile
+  #   container_name: lawa_ai_loitering_detection
+  #   depends_on:
+  #     rabbitmq:
+  #       condition: service_healthy
+  #   deploy:
+  #     resources:
+  #       reservations:
+  #         devices:
+  #           - driver: nvidia
+  #             count: 1
+  #             capabilities: [gpu]
+  #   environment:
+  #     - RABBITMQ_HOST=rabbitmq
+  #     - RABBITMQ_PORT=5672
+  #     - RABBITMQ_USERNAME=guest
+  #     - RABBITMQ_PASSWORD=guest
+  #     - EXCHANGE_NAME=LAWA_exchange
+  #     - EXCHANGE_TYPE=direct
+  #     - QUEUE_NAME=queue_loitering_detection
+  #     - EVENT_MANAGER_QUEUE=loitering_detection_event_queue
+  #     - NUMBERS_OF_WORKER=1
+  #     - DEVICE=cuda
+  #     - NVIDIA_VISIBLE_DEVICES=all
+  #     - NVIDIA_DRIVER_CAPABILITIES=compute,utility
+  #   volumes:
+  #     - ./logs/ai-loitering-detection:/app/logs
+  #     - ./Ai_services/Ai_engine/src:/app/src
+  #   networks:
+  #     - lawa_network
+
+  # ai-person-count-inside-compartment:
+  #   build:
+  #     context: ./ai-person-count-inside-compartment
+  #     dockerfile: Dockerfile
+  #   container_name: lawa_ai_person_count_inside_compartment
+  #   depends_on:
+  #     rabbitmq:
+  #       condition: service_healthy
+  #   deploy:
+  #     resources:
+  #       reservations:
+  #         devices:
+  #           - driver: nvidia
+  #             count: 1
+  #             capabilities: [gpu]
+  #   environment:
+  #     - RABBITMQ_HOST=rabbitmq
+  #     - RABBITMQ_PORT=5672
+  #     - RABBITMQ_USERNAME=guest
+  #     - RABBITMQ_PASSWORD=guest
+  #     - EXCHANGE_NAME=LAWA_exchange
+  #     - EXCHANGE_TYPE=direct
+  #     - QUEUE_NAME=queue_person_count_inside_compartment
+  #     - EVENT_MANAGER_QUEUE=person_count_inside_compartment_event_queue
+  #     - NUMBERS_OF_WORKER=1
+  #     - DEVICE=cuda
+  #     - NVIDIA_VISIBLE_DEVICES=all
+  #     - NVIDIA_DRIVER_CAPABILITIES=compute,utility
+  #   volumes:
+  #     - ./logs/ai-person-count-inside-compartment:/app/logs
+  #     - ./Ai_services/Ai_engine/src:/app/src
+  #   networks:
+  #     - lawa_network
+
+  # ai-person-entered-inside-train:
+  #   build:
+  #     context: ./ai-person-entered-inside-train
+  #     dockerfile: Dockerfile
+  #   container_name: lawa_ai_person_entered_inside_train
+  #   depends_on:
+  #     rabbitmq:
+  #       condition: service_healthy
+  #   deploy:
+  #     resources:
+  #       reservations:
+  #         devices:
+  #           - driver: nvidia
+  #             count: 1
+  #             capabilities: [gpu]
+  #   environment:
+  #     - RABBITMQ_HOST=rabbitmq
+  #     - RABBITMQ_PORT=5672
+  #     - RABBITMQ_USERNAME=guest
+  #     - RABBITMQ_PASSWORD=guest
+  #     - EXCHANGE_NAME=LAWA_exchange
+  #     - EXCHANGE_TYPE=direct
+  #     - QUEUE_NAME=queue_person_entered_inside_train
+  #     - EVENT_MANAGER_QUEUE=person_entered_inside_train_event_queue
+  #     - NUMBERS_OF_WORKER=1
+  #     - DEVICE=cuda
+  #     - NVIDIA_VISIBLE_DEVICES=all
+  #     - NVIDIA_DRIVER_CAPABILITIES=compute,utility
+  #   volumes:
+  #     - ./logs/ai-person-entered-inside-train:/app/logs
+  #     - ./Ai_services/Ai_engine/src:/app/src
+  #   networks:
+  #     - lawa_network
+
+  # ai-queue-management:
+  #   build:
+  #     context: ./ai-queue-management
+  #     dockerfile: Dockerfile
+  #   container_name: lawa_ai_queue_management
+  #   depends_on:
+  #     rabbitmq:
+  #       condition: service_healthy
+  #   deploy:
+  #     resources:
+  #       reservations:
+  #         devices:
+  #           - driver: nvidia
+  #             count: 1
+  #             capabilities: [gpu]
+  #   environment:
+  #     - RABBITMQ_HOST=rabbitmq
+  #     - RABBITMQ_PORT=5672
+  #     - RABBITMQ_USERNAME=guest
+  #     - RABBITMQ_PASSWORD=guest
+  #     - EXCHANGE_NAME=LAWA_exchange
+  #     - EXCHANGE_TYPE=direct
+  #     - QUEUE_NAME=queue_queue_management
+  #     - EVENT_MANAGER_QUEUE=queue_management_event_queue
+  #     - NUMBERS_OF_WORKER=1
+  #     - DEVICE=cuda
+  #     - NVIDIA_VISIBLE_DEVICES=all
+  #     - NVIDIA_DRIVER_CAPABILITIES=compute,utility
+  #   volumes:
+  #     - ./logs/ai-queue-management:/app/logs
+  #     - ./Ai_services/Ai_engine/src:/app/src
+  #   networks:
+  #     - lawa_network
+
+  # ai-restroom-person-tracking:
+  #   build:
+  #     context: ./ai-restroom-person-tracking
+  #     dockerfile: Dockerfile
+  #   container_name: lawa_ai_restroom_person_tracking
+  #   depends_on:
+  #     rabbitmq:
+  #       condition: service_healthy
+  #   deploy:
+  #     resources:
+  #       reservations:
+  #         devices:
+  #           - driver: nvidia
+  #             count: 1
+  #             capabilities: [gpu]
+  #   environment:
+  #     - RABBITMQ_HOST=rabbitmq
+  #     - RABBITMQ_PORT=5672
+  #     - RABBITMQ_USERNAME=guest
+  #     - RABBITMQ_PASSWORD=guest
+  #     - EXCHANGE_NAME=LAWA_exchange
+  #     - EXCHANGE_TYPE=direct
+  #     - QUEUE_NAME=queue_restroom_person_tracking
+  #     - EVENT_MANAGER_QUEUE=restroom_person_tracking_event_queue
+  #     - NUMBERS_OF_WORKER=1
+  #     - DEVICE=cuda
+  #     - NVIDIA_VISIBLE_DEVICES=all
+  #     - NVIDIA_DRIVER_CAPABILITIES=compute,utility
+  #   volumes:
+  #     - ./logs/ai-restroom-person-tracking:/app/logs
+  #     - ./Ai_services/Ai_engine/src:/app/src
+  #   networks:
+  #     - lawa_network
+
+  # ai-tailgate-detection:
+  #   build:
+  #     context: ./ai-tailgate-detection
+  #     dockerfile: Dockerfile
+  #   container_name: lawa_ai_tailgate_detection
+  #   depends_on:
+  #     rabbitmq:
+  #       condition: service_healthy
+  #   deploy:
+  #     resources:
+  #       reservations:
+  #         devices:
+  #           - driver: nvidia
+  #             count: 1
+  #             capabilities: [gpu]
+  #   environment:
+  #     - RABBITMQ_HOST=rabbitmq
+  #     - RABBITMQ_PORT=5672
+  #     - RABBITMQ_USERNAME=guest
+  #     - RABBITMQ_PASSWORD=guest
+  #     - EXCHANGE_NAME=LAWA_exchange
+  #     - EXCHANGE_TYPE=direct
+  #     - QUEUE_NAME=queue_tailgate_detection
+  #     - EVENT_MANAGER_QUEUE=tailgate_detection_event_queue
+  #     - NUMBERS_OF_WORKER=1
+  #     - DEVICE=cuda
+  #     - NVIDIA_VISIBLE_DEVICES=all
+  #     - NVIDIA_DRIVER_CAPABILITIES=compute,utility
+  #   volumes:
+  #     - ./logs/ai-tailgate-detection:/app/logs
+  #     - ./Ai_services/Ai_engine/src:/app/src
+  #   networks:
+  #     - lawa_network
+
+  # ai-train-arrival-depart-monitor:
+  #   build:
+  #     context: ./ai-train-arrival-depart-monitor
+  #     dockerfile: Dockerfile
+  #   container_name: lawa_ai_train_arrival_depart_monitor
+  #   depends_on:
+  #     rabbitmq:
+  #       condition: service_healthy
+  #   deploy:
+  #     resources:
+  #       reservations:
+  #         devices:
+  #           - driver: nvidia
+  #             count: 1
+  #             capabilities: [gpu]
+  #   environment:
+  #     - RABBITMQ_HOST=rabbitmq
+  #     - RABBITMQ_PORT=5672
+  #     - RABBITMQ_USERNAME=guest
+  #     - RABBITMQ_PASSWORD=guest
+  #     - EXCHANGE_NAME=LAWA_exchange
+  #     - EXCHANGE_TYPE=direct
+  #     - QUEUE_NAME=queue_train_arrival_depart_monitor
+  #     - EVENT_MANAGER_QUEUE=train_arrival_depart_monitor_event_queue
+  #     - NUMBERS_OF_WORKER=1
+  #     - DEVICE=cuda 
+  #     - NVIDIA_VISIBLE_DEVICES=all
+  #     - NVIDIA_DRIVER_CAPABILITIES=compute,utility
+  #   volumes:
+  #     - ./logs/ai-train-arrival-depart-monitor:/app/logs
+  #     - ./Ai_services/Ai_engine/src:/app/src
+  #   networks:
+  #     - lawa_network
+
+
+volumes:
+  pgdata:
+  event_evidence:
+
+networks:
+  lawa_network:
+    driver: bridge

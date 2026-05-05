@@ -28,4 +28,5 @@ class VisionPipeline:
     cursor=None 
     db_connection=None
     camera_tracker={}
+    location_buffer={}
     person_id=None

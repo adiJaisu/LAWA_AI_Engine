@@ -7,7 +7,7 @@ from src.utils.Logger import LoggingConfig
 from src.constant.constants import Constants
 from src.constant.global_constant import VisionPipeline
 from src.business_cases.PersonCountInsideCompartment import PersonCountInsideCompartment
-from src.Exception.Exception import FrameProcessingException
+from src.Exception.Exception import FrameProcessingException, PersonCountInsideCompartmentException
 
 logging_config = LoggingConfig()
 logger = logging_config.setup_logging()
@@ -68,8 +68,11 @@ def execute_person_count_inside_compartment(
 
                 processed_frames.append(msg)
 
+            except PersonCountInsideCompartmentException as e:
+                logger.error(f"Frame {idx}: Person count inside compartment detection error: {str(e)}")
+                continue
             except Exception as e:
-                logger.error(f"Frame {idx}: Error during processing: {str(e)}", exc_info=True)
+                logger.error(f"Frame {idx}: Unexpected error during processing: {str(e)}", exc_info=True)
                 continue
 
         # ---------------- RETURN LOGIC ----------------

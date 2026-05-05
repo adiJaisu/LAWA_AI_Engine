@@ -1,0 +1,1222 @@
+2026-04-29 02:34:51 | RabbitmqConsumer.py.start_multiple_consumer_threads | [INFO ] | Starting 4 RabbitMQ consumer threads for queue 'queue_bird_eye_view'
+2026-04-29 02:34:51 | RabbitmqConsumer.py.start_consumer_process    | [INFO ] | [Consumer Thread] Starting consumer loop for queue: queue_bird_eye_view
+2026-04-29 02:34:51 | RabbitmqServices.py.initialize_rabbitmq_connection | [INFO ] | Initializing RabbitMQ connection...
+2026-04-29 02:34:51 | RabbitmqConsumer.py._start_single_thread      | [INFO ] | Started thread RabbitMQConsumerThreadAI-Bird_Eye_View-0
+2026-04-29 02:34:51 | RabbitmqConsumer.py.start_consumer_process    | [INFO ] | [Consumer Thread] Starting consumer loop for queue: queue_bird_eye_view
+2026-04-29 02:34:51 | RabbitmqConsumer.py._start_single_thread      | [INFO ] | Started thread RabbitMQConsumerThreadAI-Bird_Eye_View-1
+2026-04-29 02:34:51 | RabbitmqServices.py.initialize_rabbitmq_connection | [INFO ] | Initializing RabbitMQ connection...
+2026-04-29 02:34:51 | RabbitmqConsumer.py.start_consumer_process    | [INFO ] | [Consumer Thread] Starting consumer loop for queue: queue_bird_eye_view
+2026-04-29 02:34:51 | RabbitmqConsumer.py._start_single_thread      | [INFO ] | Started thread RabbitMQConsumerThreadAI-Bird_Eye_View-2
+2026-04-29 02:34:51 | RabbitmqServices.py.initialize_rabbitmq_connection | [INFO ] | Initializing RabbitMQ connection...
+2026-04-29 02:34:51 | RabbitmqConsumer.py.start_consumer_process    | [INFO ] | [Consumer Thread] Starting consumer loop for queue: queue_bird_eye_view
+2026-04-29 02:34:51 | RabbitmqConsumer.py._start_single_thread      | [INFO ] | Started thread RabbitMQConsumerThreadAI-Bird_Eye_View-3
+2026-04-29 02:34:51 | RabbitmqServices.py.initialize_rabbitmq_connection | [INFO ] | Initializing RabbitMQ connection...
+2026-04-29 02:34:51 | app.py.execute_VisionAiPipeline  | [INFO ] | Launching Vision AI Bird Eye View detection pipeline...
+2026-04-29 02:34:52 | RabbitmqServices.py._ensure_connection        | [INFO ] | [RabbitMQConsumerThreadAI-Bird_Eye_View-1] RabbitMQ connected successfully
+2026-04-29 02:34:52 | RabbitmqServices.py.initialize_rabbitmq_connection | [INFO ] | RabbitMQ connection ready on localhost:5672 using exchange 'LAWA_exchange'
+2026-04-29 02:34:52 | ObjectDetector.py.__init__                  | [INFO ] | Model will be loaded on device: cuda:0
+2026-04-29 02:34:52 | ObjectDetector.py._load_model               | [INFO ] | Loading YOLO model from: /home/adi/WorkSpace/CodexWork/LAWA_AI_Engine/Ai_services/Ai_engine/src/models/yolov8x.pt
+2026-04-29 02:34:52 | RabbitmqServices.py._ensure_connection        | [INFO ] | [RabbitMQConsumerThreadAI-Bird_Eye_View-0] RabbitMQ connected successfully
+2026-04-29 02:34:52 | RabbitmqServices.py.initialize_rabbitmq_connection | [INFO ] | RabbitMQ connection ready on localhost:5672 using exchange 'LAWA_exchange'
+2026-04-29 02:34:52 | RabbitmqServices.py.receive_messages_batch    | [INFO ] | Consumer started on queue 'queue_bird_eye_view' with prefetch=50
+2026-04-29 02:34:52 | RabbitmqServices.py.receive_messages_batch    | [INFO ] | Consumer started on queue 'queue_bird_eye_view' with prefetch=50
+2026-04-29 02:34:52 | RabbitmqServices.py._ensure_connection        | [INFO ] | [RabbitMQConsumerThreadAI-Bird_Eye_View-3] RabbitMQ connected successfully
+2026-04-29 02:34:52 | RabbitmqServices.py.initialize_rabbitmq_connection | [INFO ] | RabbitMQ connection ready on localhost:5672 using exchange 'LAWA_exchange'
+2026-04-29 02:34:52 | RabbitmqServices.py._ensure_connection        | [INFO ] | [RabbitMQConsumerThreadAI-Bird_Eye_View-2] RabbitMQ connected successfully
+2026-04-29 02:34:52 | RabbitmqServices.py.initialize_rabbitmq_connection | [INFO ] | RabbitMQ connection ready on localhost:5672 using exchange 'LAWA_exchange'
+2026-04-29 02:34:52 | RabbitmqServices.py.receive_messages_batch    | [INFO ] | Consumer started on queue 'queue_bird_eye_view' with prefetch=50
+2026-04-29 02:34:52 | RabbitmqServices.py.receive_messages_batch    | [INFO ] | Consumer started on queue 'queue_bird_eye_view' with prefetch=50
+2026-04-29 02:34:58 | app.py.initialize_detectors      | [INFO ] | Successfully initialized Bird Eye View detection model and GPU manager.
+2026-04-29 02:34:58 | RabbitmqServices.py.initialize_rabbitmq_connection | [INFO ] | Initializing RabbitMQ connection...
+2026-04-29 02:34:58 | RabbitmqServices.py._ensure_connection        | [INFO ] | [MainThread] RabbitMQ connected successfully
+2026-04-29 02:34:58 | RabbitmqServices.py.initialize_rabbitmq_connection | [INFO ] | RabbitMQ connection ready on localhost:5672 using exchange 'LAWA_exchange'
+2026-04-29 02:34:58 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0363 seconds
+2026-04-29 02:34:58 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0369 seconds
+2026-04-29 02:34:58 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:34:58 | BirdEyeView.py.__init__                  | [INFO ] | Initializing BirdEyeView class with Parallel Batch Inference support
+2026-04-29 02:34:58 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0249 seconds
+2026-04-29 02:34:58 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0252 seconds
+2026-04-29 02:34:58 | main.py.process_vision_stream     | [INFO ] | Task assigned: False
+2026-04-29 02:34:59 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:34:59 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 1.6534 seconds
+2026-04-29 02:34:59 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0309 seconds
+2026-04-29 02:34:59 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0314 seconds
+2026-04-29 02:34:59 | main.py.process_vision_stream     | [INFO ] | Task assigned: False
+2026-04-29 02:34:59 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:34:59 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.1117 seconds
+2026-04-29 02:34:59 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0286 seconds
+2026-04-29 02:34:59 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0291 seconds
+2026-04-29 02:34:59 | main.py.process_vision_stream     | [INFO ] | Task assigned: False
+2026-04-29 02:35:00 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:00 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.1000 seconds
+2026-04-29 02:35:00 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0206 seconds
+2026-04-29 02:35:00 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0212 seconds
+2026-04-29 02:35:00 | main.py.process_vision_stream     | [INFO ] | Task assigned: False
+2026-04-29 02:35:00 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:00 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0885 seconds
+2026-04-29 02:35:00 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0223 seconds
+2026-04-29 02:35:00 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0226 seconds
+2026-04-29 02:35:00 | main.py.process_vision_stream     | [INFO ] | Task assigned: False
+2026-04-29 02:35:00 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:00 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0835 seconds
+2026-04-29 02:35:00 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0232 seconds
+2026-04-29 02:35:00 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0236 seconds
+2026-04-29 02:35:00 | main.py.process_vision_stream     | [INFO ] | Task assigned: False
+2026-04-29 02:35:00 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:00 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0864 seconds
+2026-04-29 02:35:00 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0205 seconds
+2026-04-29 02:35:00 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0209 seconds
+2026-04-29 02:35:00 | main.py.process_vision_stream     | [INFO ] | Task assigned: False
+2026-04-29 02:35:00 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:00 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0822 seconds
+2026-04-29 02:35:00 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0253 seconds
+2026-04-29 02:35:00 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0257 seconds
+2026-04-29 02:35:00 | main.py.process_vision_stream     | [INFO ] | Task assigned: False
+2026-04-29 02:35:00 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:00 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0810 seconds
+2026-04-29 02:35:00 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0215 seconds
+2026-04-29 02:35:00 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0218 seconds
+2026-04-29 02:35:00 | main.py.process_vision_stream     | [INFO ] | Task assigned: False
+2026-04-29 02:35:00 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:00 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0888 seconds
+2026-04-29 02:35:00 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0215 seconds
+2026-04-29 02:35:00 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0219 seconds
+2026-04-29 02:35:00 | main.py.process_vision_stream     | [INFO ] | Task assigned: False
+2026-04-29 02:35:00 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:00 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0949 seconds
+2026-04-29 02:35:00 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0207 seconds
+2026-04-29 02:35:00 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0210 seconds
+2026-04-29 02:35:00 | main.py.process_vision_stream     | [INFO ] | Task assigned: False
+2026-04-29 02:35:00 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:00 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0993 seconds
+2026-04-29 02:35:00 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0267 seconds
+2026-04-29 02:35:00 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0271 seconds
+2026-04-29 02:35:00 | main.py.process_vision_stream     | [INFO ] | Task assigned: False
+2026-04-29 02:35:00 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:00 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0913 seconds
+2026-04-29 02:35:00 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0204 seconds
+2026-04-29 02:35:00 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0207 seconds
+2026-04-29 02:35:00 | main.py.process_vision_stream     | [INFO ] | Task assigned: False
+2026-04-29 02:35:00 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:00 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0972 seconds
+2026-04-29 02:35:00 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0212 seconds
+2026-04-29 02:35:00 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0217 seconds
+2026-04-29 02:35:00 | main.py.process_vision_stream     | [INFO ] | Task assigned: False
+2026-04-29 02:35:01 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:01 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0940 seconds
+2026-04-29 02:35:01 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0218 seconds
+2026-04-29 02:35:01 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0222 seconds
+2026-04-29 02:35:01 | main.py.process_vision_stream     | [INFO ] | Task assigned: False
+2026-04-29 02:35:01 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:01 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0919 seconds
+2026-04-29 02:35:01 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0231 seconds
+2026-04-29 02:35:01 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0235 seconds
+2026-04-29 02:35:01 | main.py.process_vision_stream     | [INFO ] | Task assigned: False
+2026-04-29 02:35:01 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:01 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0861 seconds
+2026-04-29 02:35:01 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0208 seconds
+2026-04-29 02:35:01 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0211 seconds
+2026-04-29 02:35:01 | main.py.process_vision_stream     | [INFO ] | Task assigned: False
+2026-04-29 02:35:01 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:01 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0860 seconds
+2026-04-29 02:35:01 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0223 seconds
+2026-04-29 02:35:01 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0229 seconds
+2026-04-29 02:35:01 | main.py.process_vision_stream     | [INFO ] | Task assigned: False
+2026-04-29 02:35:01 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:01 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0863 seconds
+2026-04-29 02:35:01 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0213 seconds
+2026-04-29 02:35:01 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0217 seconds
+2026-04-29 02:35:01 | main.py.process_vision_stream     | [INFO ] | Task assigned: False
+2026-04-29 02:35:01 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:01 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0855 seconds
+2026-04-29 02:35:01 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0182 seconds
+2026-04-29 02:35:01 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0189 seconds
+2026-04-29 02:35:01 | main.py.process_vision_stream     | [INFO ] | Task assigned: False
+2026-04-29 02:35:01 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:01 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0878 seconds
+2026-04-29 02:35:01 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:01 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0867 seconds
+2026-04-29 02:35:01 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0214 seconds
+2026-04-29 02:35:01 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0218 seconds
+2026-04-29 02:35:01 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:01 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:01 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0885 seconds
+2026-04-29 02:35:02 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0238 seconds
+2026-04-29 02:35:02 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0242 seconds
+2026-04-29 02:35:02 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:02 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:02 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0845 seconds
+2026-04-29 02:35:02 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0195 seconds
+2026-04-29 02:35:02 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0198 seconds
+2026-04-29 02:35:02 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:02 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:02 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0845 seconds
+2026-04-29 02:35:02 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0225 seconds
+2026-04-29 02:35:02 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0229 seconds
+2026-04-29 02:35:02 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:02 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:02 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0856 seconds
+2026-04-29 02:35:02 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0196 seconds
+2026-04-29 02:35:02 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0200 seconds
+2026-04-29 02:35:02 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:02 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:02 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0828 seconds
+2026-04-29 02:35:02 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0193 seconds
+2026-04-29 02:35:02 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0197 seconds
+2026-04-29 02:35:02 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:02 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:02 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0867 seconds
+2026-04-29 02:35:02 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0193 seconds
+2026-04-29 02:35:02 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0197 seconds
+2026-04-29 02:35:02 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:03 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:03 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0830 seconds
+2026-04-29 02:35:03 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0200 seconds
+2026-04-29 02:35:03 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0203 seconds
+2026-04-29 02:35:03 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:03 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:03 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0812 seconds
+2026-04-29 02:35:03 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0190 seconds
+2026-04-29 02:35:03 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0194 seconds
+2026-04-29 02:35:03 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:03 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:03 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0810 seconds
+2026-04-29 02:35:03 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0196 seconds
+2026-04-29 02:35:03 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0200 seconds
+2026-04-29 02:35:03 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:03 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:03 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0845 seconds
+2026-04-29 02:35:03 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0199 seconds
+2026-04-29 02:35:03 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0202 seconds
+2026-04-29 02:35:03 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:03 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:03 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0830 seconds
+2026-04-29 02:35:04 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0221 seconds
+2026-04-29 02:35:04 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0224 seconds
+2026-04-29 02:35:04 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:04 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:04 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0852 seconds
+2026-04-29 02:35:04 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0198 seconds
+2026-04-29 02:35:04 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0201 seconds
+2026-04-29 02:35:04 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:04 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:04 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0838 seconds
+2026-04-29 02:35:04 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0207 seconds
+2026-04-29 02:35:04 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0211 seconds
+2026-04-29 02:35:04 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:04 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:04 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0876 seconds
+2026-04-29 02:35:04 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0209 seconds
+2026-04-29 02:35:04 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0214 seconds
+2026-04-29 02:35:04 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:04 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:04 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0835 seconds
+2026-04-29 02:35:04 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0191 seconds
+2026-04-29 02:35:04 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0195 seconds
+2026-04-29 02:35:04 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:04 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:04 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0832 seconds
+2026-04-29 02:35:05 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0478 seconds
+2026-04-29 02:35:05 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0483 seconds
+2026-04-29 02:35:05 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:05 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:05 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0840 seconds
+2026-04-29 02:35:05 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0203 seconds
+2026-04-29 02:35:05 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0207 seconds
+2026-04-29 02:35:05 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:05 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:05 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0851 seconds
+2026-04-29 02:35:05 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0192 seconds
+2026-04-29 02:35:05 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0195 seconds
+2026-04-29 02:35:05 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:05 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:05 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0832 seconds
+2026-04-29 02:35:05 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0200 seconds
+2026-04-29 02:35:05 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0204 seconds
+2026-04-29 02:35:05 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:05 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:05 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0841 seconds
+2026-04-29 02:35:05 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0198 seconds
+2026-04-29 02:35:05 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0201 seconds
+2026-04-29 02:35:05 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:05 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:05 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0855 seconds
+2026-04-29 02:35:05 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0189 seconds
+2026-04-29 02:35:05 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0193 seconds
+2026-04-29 02:35:05 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:06 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:06 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0833 seconds
+2026-04-29 02:35:06 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0186 seconds
+2026-04-29 02:35:06 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0191 seconds
+2026-04-29 02:35:06 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:06 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:06 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0829 seconds
+2026-04-29 02:35:06 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0192 seconds
+2026-04-29 02:35:06 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0195 seconds
+2026-04-29 02:35:06 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:06 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:06 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0846 seconds
+2026-04-29 02:35:06 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0506 seconds
+2026-04-29 02:35:06 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0511 seconds
+2026-04-29 02:35:06 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:06 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:06 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0845 seconds
+2026-04-29 02:35:06 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0199 seconds
+2026-04-29 02:35:06 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0203 seconds
+2026-04-29 02:35:06 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:06 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:06 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0822 seconds
+2026-04-29 02:35:06 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0195 seconds
+2026-04-29 02:35:06 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0199 seconds
+2026-04-29 02:35:06 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:07 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:07 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0850 seconds
+2026-04-29 02:35:07 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0198 seconds
+2026-04-29 02:35:07 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0202 seconds
+2026-04-29 02:35:07 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:07 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:07 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0872 seconds
+2026-04-29 02:35:07 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0210 seconds
+2026-04-29 02:35:07 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0214 seconds
+2026-04-29 02:35:07 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:07 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:07 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0900 seconds
+2026-04-29 02:35:07 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0193 seconds
+2026-04-29 02:35:07 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0196 seconds
+2026-04-29 02:35:07 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:07 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:07 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0865 seconds
+2026-04-29 02:35:07 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0203 seconds
+2026-04-29 02:35:07 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0206 seconds
+2026-04-29 02:35:07 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:07 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:07 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0849 seconds
+2026-04-29 02:35:08 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0208 seconds
+2026-04-29 02:35:08 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0212 seconds
+2026-04-29 02:35:08 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:08 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:08 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0834 seconds
+2026-04-29 02:35:08 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0218 seconds
+2026-04-29 02:35:08 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0223 seconds
+2026-04-29 02:35:08 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:08 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:08 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0866 seconds
+2026-04-29 02:35:08 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0205 seconds
+2026-04-29 02:35:08 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0209 seconds
+2026-04-29 02:35:08 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:08 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:08 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0839 seconds
+2026-04-29 02:35:08 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0191 seconds
+2026-04-29 02:35:08 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0194 seconds
+2026-04-29 02:35:08 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:08 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:08 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0837 seconds
+2026-04-29 02:35:08 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0198 seconds
+2026-04-29 02:35:08 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0202 seconds
+2026-04-29 02:35:08 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:08 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:08 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0828 seconds
+2026-04-29 02:35:09 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0194 seconds
+2026-04-29 02:35:09 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0197 seconds
+2026-04-29 02:35:09 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:09 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:09 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0852 seconds
+2026-04-29 02:35:09 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0200 seconds
+2026-04-29 02:35:09 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0204 seconds
+2026-04-29 02:35:09 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:09 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:09 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0850 seconds
+2026-04-29 02:35:09 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0206 seconds
+2026-04-29 02:35:09 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0211 seconds
+2026-04-29 02:35:09 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:09 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:09 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0854 seconds
+2026-04-29 02:35:09 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0179 seconds
+2026-04-29 02:35:09 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0185 seconds
+2026-04-29 02:35:09 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:09 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:09 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0859 seconds
+2026-04-29 02:35:09 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0229 seconds
+2026-04-29 02:35:09 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0233 seconds
+2026-04-29 02:35:09 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:09 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:09 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0852 seconds
+2026-04-29 02:35:10 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0208 seconds
+2026-04-29 02:35:10 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0212 seconds
+2026-04-29 02:35:10 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:10 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:10 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0848 seconds
+2026-04-29 02:35:10 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0213 seconds
+2026-04-29 02:35:10 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0219 seconds
+2026-04-29 02:35:10 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:10 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:10 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0851 seconds
+2026-04-29 02:35:10 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0219 seconds
+2026-04-29 02:35:10 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0224 seconds
+2026-04-29 02:35:10 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:10 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:10 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0873 seconds
+2026-04-29 02:35:10 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0206 seconds
+2026-04-29 02:35:10 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0210 seconds
+2026-04-29 02:35:10 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:10 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:10 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0858 seconds
+2026-04-29 02:35:10 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0191 seconds
+2026-04-29 02:35:10 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0195 seconds
+2026-04-29 02:35:10 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:10 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:10 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0843 seconds
+2026-04-29 02:35:10 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0198 seconds
+2026-04-29 02:35:10 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0202 seconds
+2026-04-29 02:35:10 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:11 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:11 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0826 seconds
+2026-04-29 02:35:11 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0204 seconds
+2026-04-29 02:35:11 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0209 seconds
+2026-04-29 02:35:11 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:11 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:11 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0843 seconds
+2026-04-29 02:35:11 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0190 seconds
+2026-04-29 02:35:11 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0195 seconds
+2026-04-29 02:35:11 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:11 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:11 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0845 seconds
+2026-04-29 02:35:11 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0201 seconds
+2026-04-29 02:35:11 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0206 seconds
+2026-04-29 02:35:11 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:11 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:11 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0824 seconds
+2026-04-29 02:35:11 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0207 seconds
+2026-04-29 02:35:11 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0212 seconds
+2026-04-29 02:35:11 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:11 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:11 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0837 seconds
+2026-04-29 02:35:12 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0211 seconds
+2026-04-29 02:35:12 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0214 seconds
+2026-04-29 02:35:12 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:12 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:12 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0855 seconds
+2026-04-29 02:35:12 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0203 seconds
+2026-04-29 02:35:12 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0207 seconds
+2026-04-29 02:35:12 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:12 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:12 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0860 seconds
+2026-04-29 02:35:12 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0216 seconds
+2026-04-29 02:35:12 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0221 seconds
+2026-04-29 02:35:12 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:12 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:12 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0872 seconds
+2026-04-29 02:35:12 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0600 seconds
+2026-04-29 02:35:12 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0606 seconds
+2026-04-29 02:35:12 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:12 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:12 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0881 seconds
+2026-04-29 02:35:12 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0203 seconds
+2026-04-29 02:35:12 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0207 seconds
+2026-04-29 02:35:12 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:12 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:12 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0849 seconds
+2026-04-29 02:35:13 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0194 seconds
+2026-04-29 02:35:13 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0197 seconds
+2026-04-29 02:35:13 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:13 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:13 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0861 seconds
+2026-04-29 02:35:13 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0204 seconds
+2026-04-29 02:35:13 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0208 seconds
+2026-04-29 02:35:13 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:13 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:13 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0888 seconds
+2026-04-29 02:35:13 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0201 seconds
+2026-04-29 02:35:13 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0206 seconds
+2026-04-29 02:35:13 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:13 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:13 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0853 seconds
+2026-04-29 02:35:13 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0195 seconds
+2026-04-29 02:35:13 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0200 seconds
+2026-04-29 02:35:13 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:13 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:13 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0847 seconds
+2026-04-29 02:35:13 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0200 seconds
+2026-04-29 02:35:13 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0203 seconds
+2026-04-29 02:35:13 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:13 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:13 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0888 seconds
+2026-04-29 02:35:14 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0506 seconds
+2026-04-29 02:35:14 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0511 seconds
+2026-04-29 02:35:14 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:14 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:14 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0854 seconds
+2026-04-29 02:35:14 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0197 seconds
+2026-04-29 02:35:14 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0202 seconds
+2026-04-29 02:35:14 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:14 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:14 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0832 seconds
+2026-04-29 02:35:14 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0216 seconds
+2026-04-29 02:35:14 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0220 seconds
+2026-04-29 02:35:14 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:14 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:14 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0854 seconds
+2026-04-29 02:35:14 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0216 seconds
+2026-04-29 02:35:14 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0220 seconds
+2026-04-29 02:35:14 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:14 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:14 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0837 seconds
+2026-04-29 02:35:14 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0492 seconds
+2026-04-29 02:35:14 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0496 seconds
+2026-04-29 02:35:14 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:14 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:14 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0844 seconds
+2026-04-29 02:35:15 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0203 seconds
+2026-04-29 02:35:15 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0207 seconds
+2026-04-29 02:35:15 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:15 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:15 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0849 seconds
+2026-04-29 02:35:15 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0208 seconds
+2026-04-29 02:35:15 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0211 seconds
+2026-04-29 02:35:15 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:15 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:15 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0835 seconds
+2026-04-29 02:35:15 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0177 seconds
+2026-04-29 02:35:15 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0180 seconds
+2026-04-29 02:35:15 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:15 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:15 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0867 seconds
+2026-04-29 02:35:15 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0220 seconds
+2026-04-29 02:35:15 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0225 seconds
+2026-04-29 02:35:15 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:15 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:15 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0875 seconds
+2026-04-29 02:35:15 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0215 seconds
+2026-04-29 02:35:15 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0220 seconds
+2026-04-29 02:35:15 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:15 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:15 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0819 seconds
+2026-04-29 02:35:16 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0266 seconds
+2026-04-29 02:35:16 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0270 seconds
+2026-04-29 02:35:16 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:16 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:16 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0857 seconds
+2026-04-29 02:35:16 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0180 seconds
+2026-04-29 02:35:16 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0183 seconds
+2026-04-29 02:35:16 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:16 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:16 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0942 seconds
+2026-04-29 02:35:16 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0194 seconds
+2026-04-29 02:35:16 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0197 seconds
+2026-04-29 02:35:16 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:16 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:16 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0845 seconds
+2026-04-29 02:35:16 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0218 seconds
+2026-04-29 02:35:16 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0221 seconds
+2026-04-29 02:35:16 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:16 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:16 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0847 seconds
+2026-04-29 02:35:16 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0210 seconds
+2026-04-29 02:35:16 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0213 seconds
+2026-04-29 02:35:16 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:16 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:16 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0912 seconds
+2026-04-29 02:35:17 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0213 seconds
+2026-04-29 02:35:17 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0218 seconds
+2026-04-29 02:35:17 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:17 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:17 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0861 seconds
+2026-04-29 02:35:17 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0204 seconds
+2026-04-29 02:35:17 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0207 seconds
+2026-04-29 02:35:17 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:17 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:17 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0864 seconds
+2026-04-29 02:35:17 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0204 seconds
+2026-04-29 02:35:17 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0208 seconds
+2026-04-29 02:35:17 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:17 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:17 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0847 seconds
+2026-04-29 02:35:17 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0198 seconds
+2026-04-29 02:35:17 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0201 seconds
+2026-04-29 02:35:17 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:17 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:17 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0868 seconds
+2026-04-29 02:35:17 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0196 seconds
+2026-04-29 02:35:17 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0199 seconds
+2026-04-29 02:35:17 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:17 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:17 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0832 seconds
+2026-04-29 02:35:18 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0204 seconds
+2026-04-29 02:35:18 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0208 seconds
+2026-04-29 02:35:18 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:18 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:18 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0902 seconds
+2026-04-29 02:35:18 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0174 seconds
+2026-04-29 02:35:18 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0178 seconds
+2026-04-29 02:35:18 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:18 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:18 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0841 seconds
+2026-04-29 02:35:18 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0192 seconds
+2026-04-29 02:35:18 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0196 seconds
+2026-04-29 02:35:18 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:18 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:18 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0919 seconds
+2026-04-29 02:35:18 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0177 seconds
+2026-04-29 02:35:18 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0181 seconds
+2026-04-29 02:35:18 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:18 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:18 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0801 seconds
+2026-04-29 02:35:18 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0211 seconds
+2026-04-29 02:35:18 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0215 seconds
+2026-04-29 02:35:18 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:18 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:18 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0831 seconds
+2026-04-29 02:35:19 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0201 seconds
+2026-04-29 02:35:19 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0204 seconds
+2026-04-29 02:35:19 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:19 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:19 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0801 seconds
+2026-04-29 02:35:19 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0191 seconds
+2026-04-29 02:35:19 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0194 seconds
+2026-04-29 02:35:19 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:19 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:19 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0781 seconds
+2026-04-29 02:35:19 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0211 seconds
+2026-04-29 02:35:19 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0215 seconds
+2026-04-29 02:35:19 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:19 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:19 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0820 seconds
+2026-04-29 02:35:19 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0192 seconds
+2026-04-29 02:35:19 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0194 seconds
+2026-04-29 02:35:19 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:19 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:19 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0812 seconds
+2026-04-29 02:35:19 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0220 seconds
+2026-04-29 02:35:19 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0224 seconds
+2026-04-29 02:35:19 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:19 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:19 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0839 seconds
+2026-04-29 02:35:20 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0208 seconds
+2026-04-29 02:35:20 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0212 seconds
+2026-04-29 02:35:20 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:20 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:20 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0891 seconds
+2026-04-29 02:35:20 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0544 seconds
+2026-04-29 02:35:20 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0548 seconds
+2026-04-29 02:35:20 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:20 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:20 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0841 seconds
+2026-04-29 02:35:20 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0196 seconds
+2026-04-29 02:35:20 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0201 seconds
+2026-04-29 02:35:20 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:20 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:20 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0830 seconds
+2026-04-29 02:35:20 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0204 seconds
+2026-04-29 02:35:20 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0210 seconds
+2026-04-29 02:35:20 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:20 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:20 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0845 seconds
+2026-04-29 02:35:20 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0197 seconds
+2026-04-29 02:35:20 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0201 seconds
+2026-04-29 02:35:20 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:20 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:20 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0802 seconds
+2026-04-29 02:35:21 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0169 seconds
+2026-04-29 02:35:21 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0176 seconds
+2026-04-29 02:35:21 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:21 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:21 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0850 seconds
+2026-04-29 02:35:21 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0198 seconds
+2026-04-29 02:35:21 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0202 seconds
+2026-04-29 02:35:21 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:21 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:21 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0886 seconds
+2026-04-29 02:35:21 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0199 seconds
+2026-04-29 02:35:21 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0202 seconds
+2026-04-29 02:35:21 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:21 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:21 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0843 seconds
+2026-04-29 02:35:21 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0198 seconds
+2026-04-29 02:35:21 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0201 seconds
+2026-04-29 02:35:21 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:21 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:21 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0862 seconds
+2026-04-29 02:35:21 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0196 seconds
+2026-04-29 02:35:21 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0201 seconds
+2026-04-29 02:35:21 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:21 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:21 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0845 seconds
+2026-04-29 02:35:22 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0192 seconds
+2026-04-29 02:35:22 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0197 seconds
+2026-04-29 02:35:22 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:22 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:22 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0828 seconds
+2026-04-29 02:35:22 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0227 seconds
+2026-04-29 02:35:22 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0233 seconds
+2026-04-29 02:35:22 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:22 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:22 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0838 seconds
+2026-04-29 02:35:22 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0202 seconds
+2026-04-29 02:35:22 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0206 seconds
+2026-04-29 02:35:22 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:22 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:22 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0830 seconds
+2026-04-29 02:35:22 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0197 seconds
+2026-04-29 02:35:22 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0200 seconds
+2026-04-29 02:35:22 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:22 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:22 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0798 seconds
+2026-04-29 02:35:22 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0201 seconds
+2026-04-29 02:35:22 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0205 seconds
+2026-04-29 02:35:22 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:22 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:22 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0913 seconds
+2026-04-29 02:35:23 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0197 seconds
+2026-04-29 02:35:23 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0201 seconds
+2026-04-29 02:35:23 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:23 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:23 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.1027 seconds
+2026-04-29 02:35:23 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0195 seconds
+2026-04-29 02:35:23 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0198 seconds
+2026-04-29 02:35:23 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:23 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:23 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0854 seconds
+2026-04-29 02:35:23 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0168 seconds
+2026-04-29 02:35:23 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0171 seconds
+2026-04-29 02:35:23 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:23 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:23 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0886 seconds
+2026-04-29 02:35:23 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0197 seconds
+2026-04-29 02:35:23 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0201 seconds
+2026-04-29 02:35:23 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:23 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:23 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0880 seconds
+2026-04-29 02:35:23 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0193 seconds
+2026-04-29 02:35:23 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0197 seconds
+2026-04-29 02:35:23 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:23 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:23 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0826 seconds
+2026-04-29 02:35:24 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0192 seconds
+2026-04-29 02:35:24 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0195 seconds
+2026-04-29 02:35:24 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:24 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:24 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0807 seconds
+2026-04-29 02:35:24 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0212 seconds
+2026-04-29 02:35:24 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0216 seconds
+2026-04-29 02:35:24 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:24 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:24 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0833 seconds
+2026-04-29 02:35:24 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0205 seconds
+2026-04-29 02:35:24 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0209 seconds
+2026-04-29 02:35:24 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:24 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:24 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0817 seconds
+2026-04-29 02:35:24 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0199 seconds
+2026-04-29 02:35:24 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0202 seconds
+2026-04-29 02:35:24 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:24 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:24 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0841 seconds
+2026-04-29 02:35:24 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0195 seconds
+2026-04-29 02:35:24 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0198 seconds
+2026-04-29 02:35:24 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:24 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:24 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0775 seconds
+2026-04-29 02:35:25 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0192 seconds
+2026-04-29 02:35:25 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0195 seconds
+2026-04-29 02:35:25 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:25 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:25 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0867 seconds
+2026-04-29 02:35:25 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0201 seconds
+2026-04-29 02:35:25 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0204 seconds
+2026-04-29 02:35:25 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:25 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:25 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0851 seconds
+2026-04-29 02:35:25 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0210 seconds
+2026-04-29 02:35:25 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0213 seconds
+2026-04-29 02:35:25 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:25 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:25 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0845 seconds
+2026-04-29 02:35:25 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0199 seconds
+2026-04-29 02:35:25 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0201 seconds
+2026-04-29 02:35:25 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:25 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:25 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0843 seconds
+2026-04-29 02:35:25 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0170 seconds
+2026-04-29 02:35:25 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0173 seconds
+2026-04-29 02:35:25 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:25 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:25 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0858 seconds
+2026-04-29 02:35:26 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0260 seconds
+2026-04-29 02:35:26 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0264 seconds
+2026-04-29 02:35:26 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:26 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:26 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0870 seconds
+2026-04-29 02:35:26 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0211 seconds
+2026-04-29 02:35:26 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0215 seconds
+2026-04-29 02:35:26 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:26 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:26 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0872 seconds
+2026-04-29 02:35:26 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0207 seconds
+2026-04-29 02:35:26 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0210 seconds
+2026-04-29 02:35:26 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:26 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:26 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0848 seconds
+2026-04-29 02:35:26 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0207 seconds
+2026-04-29 02:35:26 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0210 seconds
+2026-04-29 02:35:26 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:26 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:26 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0850 seconds
+2026-04-29 02:35:26 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0204 seconds
+2026-04-29 02:35:26 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0208 seconds
+2026-04-29 02:35:26 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:26 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:26 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0856 seconds
+2026-04-29 02:35:27 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0194 seconds
+2026-04-29 02:35:27 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0198 seconds
+2026-04-29 02:35:27 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:27 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:27 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0767 seconds
+2026-04-29 02:35:27 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0199 seconds
+2026-04-29 02:35:27 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0202 seconds
+2026-04-29 02:35:27 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:27 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:27 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0853 seconds
+2026-04-29 02:35:27 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0198 seconds
+2026-04-29 02:35:27 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0201 seconds
+2026-04-29 02:35:27 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:27 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:27 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0845 seconds
+2026-04-29 02:35:27 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0193 seconds
+2026-04-29 02:35:27 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0196 seconds
+2026-04-29 02:35:27 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:27 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:27 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0877 seconds
+2026-04-29 02:35:27 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0524 seconds
+2026-04-29 02:35:27 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0528 seconds
+2026-04-29 02:35:27 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:27 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:27 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0844 seconds
+2026-04-29 02:35:28 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0198 seconds
+2026-04-29 02:35:28 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0201 seconds
+2026-04-29 02:35:28 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:28 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:28 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0837 seconds
+2026-04-29 02:35:28 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0189 seconds
+2026-04-29 02:35:28 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0191 seconds
+2026-04-29 02:35:28 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:28 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:28 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0851 seconds
+2026-04-29 02:35:28 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0196 seconds
+2026-04-29 02:35:28 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0199 seconds
+2026-04-29 02:35:28 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:28 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:28 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0846 seconds
+2026-04-29 02:35:28 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0196 seconds
+2026-04-29 02:35:28 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0199 seconds
+2026-04-29 02:35:28 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:28 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:28 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0835 seconds
+2026-04-29 02:35:28 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0192 seconds
+2026-04-29 02:35:28 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0195 seconds
+2026-04-29 02:35:28 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:28 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:28 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0843 seconds
+2026-04-29 02:35:29 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0196 seconds
+2026-04-29 02:35:29 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0199 seconds
+2026-04-29 02:35:29 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:29 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:29 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0848 seconds
+2026-04-29 02:35:29 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0177 seconds
+2026-04-29 02:35:29 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0181 seconds
+2026-04-29 02:35:29 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:29 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:29 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0783 seconds
+2026-04-29 02:35:29 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0195 seconds
+2026-04-29 02:35:29 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0197 seconds
+2026-04-29 02:35:29 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:29 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:29 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0831 seconds
+2026-04-29 02:35:29 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0208 seconds
+2026-04-29 02:35:29 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0212 seconds
+2026-04-29 02:35:29 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:29 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:29 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0840 seconds
+2026-04-29 02:35:29 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0192 seconds
+2026-04-29 02:35:29 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0195 seconds
+2026-04-29 02:35:29 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:29 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:29 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0849 seconds
+2026-04-29 02:35:30 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0191 seconds
+2026-04-29 02:35:30 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0194 seconds
+2026-04-29 02:35:30 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:30 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:30 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0835 seconds
+2026-04-29 02:35:30 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0176 seconds
+2026-04-29 02:35:30 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0180 seconds
+2026-04-29 02:35:30 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:30 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:30 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0836 seconds
+2026-04-29 02:35:30 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0222 seconds
+2026-04-29 02:35:30 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0226 seconds
+2026-04-29 02:35:30 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:30 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:30 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0835 seconds
+2026-04-29 02:35:30 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0182 seconds
+2026-04-29 02:35:30 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0186 seconds
+2026-04-29 02:35:30 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:30 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:30 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0833 seconds
+2026-04-29 02:35:30 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0208 seconds
+2026-04-29 02:35:30 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0211 seconds
+2026-04-29 02:35:30 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:30 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:30 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0838 seconds
+2026-04-29 02:35:31 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0206 seconds
+2026-04-29 02:35:31 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0211 seconds
+2026-04-29 02:35:31 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:31 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:31 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0839 seconds
+2026-04-29 02:35:31 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0193 seconds
+2026-04-29 02:35:31 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0197 seconds
+2026-04-29 02:35:31 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:31 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:31 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0809 seconds
+2026-04-29 02:35:31 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0317 seconds
+2026-04-29 02:35:31 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0321 seconds
+2026-04-29 02:35:31 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:31 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:31 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0885 seconds
+2026-04-29 02:35:31 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0195 seconds
+2026-04-29 02:35:31 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0198 seconds
+2026-04-29 02:35:31 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:31 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:31 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0845 seconds
+2026-04-29 02:35:31 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0205 seconds
+2026-04-29 02:35:31 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0209 seconds
+2026-04-29 02:35:31 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:31 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:31 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0853 seconds
+2026-04-29 02:35:32 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0196 seconds
+2026-04-29 02:35:32 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0199 seconds
+2026-04-29 02:35:32 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:32 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:32 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0828 seconds
+2026-04-29 02:35:32 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0199 seconds
+2026-04-29 02:35:32 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0203 seconds
+2026-04-29 02:35:32 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:32 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:32 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0830 seconds
+2026-04-29 02:35:32 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0196 seconds
+2026-04-29 02:35:32 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0200 seconds
+2026-04-29 02:35:32 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:32 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:32 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0834 seconds
+2026-04-29 02:35:32 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0203 seconds
+2026-04-29 02:35:32 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0207 seconds
+2026-04-29 02:35:32 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:32 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:32 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0919 seconds
+2026-04-29 02:35:32 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0261 seconds
+2026-04-29 02:35:32 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0264 seconds
+2026-04-29 02:35:32 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:32 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:32 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0914 seconds
+2026-04-29 02:35:33 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0207 seconds
+2026-04-29 02:35:33 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0211 seconds
+2026-04-29 02:35:33 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:33 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:33 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0835 seconds
+2026-04-29 02:35:33 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0190 seconds
+2026-04-29 02:35:33 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0194 seconds
+2026-04-29 02:35:33 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:33 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:33 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0841 seconds
+2026-04-29 02:35:33 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0194 seconds
+2026-04-29 02:35:33 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0198 seconds
+2026-04-29 02:35:33 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:33 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:33 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0781 seconds
+2026-04-29 02:35:33 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0200 seconds
+2026-04-29 02:35:33 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0204 seconds
+2026-04-29 02:35:33 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:33 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:33 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0824 seconds
+2026-04-29 02:35:33 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0200 seconds
+2026-04-29 02:35:33 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0203 seconds
+2026-04-29 02:35:33 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:33 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:33 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0825 seconds
+2026-04-29 02:35:34 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0205 seconds
+2026-04-29 02:35:34 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0209 seconds
+2026-04-29 02:35:34 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:34 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:34 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0838 seconds
+2026-04-29 02:35:34 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0199 seconds
+2026-04-29 02:35:34 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0202 seconds
+2026-04-29 02:35:34 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:34 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:34 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0822 seconds
+2026-04-29 02:35:34 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0196 seconds
+2026-04-29 02:35:34 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0200 seconds
+2026-04-29 02:35:34 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:34 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:34 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0824 seconds
+2026-04-29 02:35:34 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0197 seconds
+2026-04-29 02:35:34 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0200 seconds
+2026-04-29 02:35:34 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:34 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:34 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0830 seconds
+2026-04-29 02:35:34 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0198 seconds
+2026-04-29 02:35:34 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0202 seconds
+2026-04-29 02:35:34 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:34 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:34 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0883 seconds
+2026-04-29 02:35:35 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0195 seconds
+2026-04-29 02:35:35 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0198 seconds
+2026-04-29 02:35:35 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:35 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:35 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0855 seconds
+2026-04-29 02:35:35 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0196 seconds
+2026-04-29 02:35:35 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0199 seconds
+2026-04-29 02:35:35 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:35 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:35 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0825 seconds
+2026-04-29 02:35:35 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0188 seconds
+2026-04-29 02:35:35 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0191 seconds
+2026-04-29 02:35:35 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:35 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:35 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0849 seconds
+2026-04-29 02:35:35 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0199 seconds
+2026-04-29 02:35:35 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0202 seconds
+2026-04-29 02:35:35 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:35 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:35 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0754 seconds
+2026-04-29 02:35:35 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0200 seconds
+2026-04-29 02:35:35 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0204 seconds
+2026-04-29 02:35:35 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:35 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:35 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0801 seconds
+2026-04-29 02:35:36 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0189 seconds
+2026-04-29 02:35:36 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0192 seconds
+2026-04-29 02:35:36 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:36 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:36 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0840 seconds
+2026-04-29 02:35:36 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0194 seconds
+2026-04-29 02:35:36 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0197 seconds
+2026-04-29 02:35:36 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:36 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:36 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0808 seconds
+2026-04-29 02:35:36 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0233 seconds
+2026-04-29 02:35:36 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0236 seconds
+2026-04-29 02:35:36 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:36 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:36 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0828 seconds
+2026-04-29 02:35:36 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0220 seconds
+2026-04-29 02:35:36 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0224 seconds
+2026-04-29 02:35:36 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:36 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:36 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0815 seconds
+2026-04-29 02:35:36 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0206 seconds
+2026-04-29 02:35:36 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0210 seconds
+2026-04-29 02:35:36 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:36 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:36 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0859 seconds
+2026-04-29 02:35:37 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0214 seconds
+2026-04-29 02:35:37 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0219 seconds
+2026-04-29 02:35:37 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:37 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:37 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0846 seconds
+2026-04-29 02:35:37 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0210 seconds
+2026-04-29 02:35:37 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0213 seconds
+2026-04-29 02:35:37 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:37 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:37 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0839 seconds
+2026-04-29 02:35:37 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0199 seconds
+2026-04-29 02:35:37 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0202 seconds
+2026-04-29 02:35:37 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:37 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:37 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0807 seconds
+2026-04-29 02:35:37 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0184 seconds
+2026-04-29 02:35:37 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0188 seconds
+2026-04-29 02:35:37 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:37 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:37 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0871 seconds
+2026-04-29 02:35:37 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0218 seconds
+2026-04-29 02:35:37 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0222 seconds
+2026-04-29 02:35:37 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:37 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:37 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0778 seconds
+2026-04-29 02:35:38 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0214 seconds
+2026-04-29 02:35:38 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0218 seconds
+2026-04-29 02:35:38 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:38 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:38 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0869 seconds
+2026-04-29 02:35:38 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0212 seconds
+2026-04-29 02:35:38 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0215 seconds
+2026-04-29 02:35:38 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:38 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:38 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0867 seconds
+2026-04-29 02:35:38 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0217 seconds
+2026-04-29 02:35:38 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0222 seconds
+2026-04-29 02:35:38 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:38 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:38 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0866 seconds
+2026-04-29 02:35:38 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0199 seconds
+2026-04-29 02:35:38 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0204 seconds
+2026-04-29 02:35:38 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:38 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:38 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0855 seconds
+2026-04-29 02:35:38 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0198 seconds
+2026-04-29 02:35:38 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0201 seconds
+2026-04-29 02:35:38 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:38 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:38 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0830 seconds
+2026-04-29 02:35:39 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0193 seconds
+2026-04-29 02:35:39 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0196 seconds
+2026-04-29 02:35:39 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:39 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:39 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0831 seconds
+2026-04-29 02:35:39 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0201 seconds
+2026-04-29 02:35:39 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0204 seconds
+2026-04-29 02:35:39 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:39 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:39 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0877 seconds
+2026-04-29 02:35:39 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0601 seconds
+2026-04-29 02:35:39 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0605 seconds
+2026-04-29 02:35:39 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:39 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:39 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.1043 seconds
+2026-04-29 02:35:39 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0192 seconds
+2026-04-29 02:35:39 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0195 seconds
+2026-04-29 02:35:39 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:39 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:39 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0843 seconds
+2026-04-29 02:35:39 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0212 seconds
+2026-04-29 02:35:39 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0216 seconds
+2026-04-29 02:35:39 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:39 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:39 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0878 seconds
+2026-04-29 02:35:40 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0190 seconds
+2026-04-29 02:35:40 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0195 seconds
+2026-04-29 02:35:40 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:40 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:40 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0848 seconds
+2026-04-29 02:35:40 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0190 seconds
+2026-04-29 02:35:40 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0193 seconds
+2026-04-29 02:35:40 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:40 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:40 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0909 seconds
+2026-04-29 02:35:40 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0208 seconds
+2026-04-29 02:35:40 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0213 seconds
+2026-04-29 02:35:40 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:40 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:40 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0851 seconds
+2026-04-29 02:35:40 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0193 seconds
+2026-04-29 02:35:40 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0196 seconds
+2026-04-29 02:35:40 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:40 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:40 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0825 seconds
+2026-04-29 02:35:40 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0208 seconds
+2026-04-29 02:35:40 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0212 seconds
+2026-04-29 02:35:40 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:40 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:40 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0874 seconds
+2026-04-29 02:35:41 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0192 seconds
+2026-04-29 02:35:41 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0196 seconds
+2026-04-29 02:35:41 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:41 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:41 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0865 seconds
+2026-04-29 02:35:41 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0204 seconds
+2026-04-29 02:35:41 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0209 seconds
+2026-04-29 02:35:41 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:41 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:41 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0937 seconds
+2026-04-29 02:35:41 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0204 seconds
+2026-04-29 02:35:41 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0208 seconds
+2026-04-29 02:35:41 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:41 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:41 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0892 seconds
+2026-04-29 02:35:41 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0197 seconds
+2026-04-29 02:35:41 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0200 seconds
+2026-04-29 02:35:41 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:41 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:41 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0963 seconds
+2026-04-29 02:35:41 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0197 seconds
+2026-04-29 02:35:41 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0201 seconds
+2026-04-29 02:35:41 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:41 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:41 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0866 seconds
+2026-04-29 02:35:42 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0210 seconds
+2026-04-29 02:35:42 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0214 seconds
+2026-04-29 02:35:42 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:42 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:42 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0867 seconds
+2026-04-29 02:35:42 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0219 seconds
+2026-04-29 02:35:42 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0223 seconds
+2026-04-29 02:35:42 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:42 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:42 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0858 seconds
+2026-04-29 02:35:42 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0213 seconds
+2026-04-29 02:35:42 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0218 seconds
+2026-04-29 02:35:42 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:42 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:42 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0866 seconds
+2026-04-29 02:35:42 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0184 seconds
+2026-04-29 02:35:42 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0188 seconds
+2026-04-29 02:35:42 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:42 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:42 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0835 seconds
+2026-04-29 02:35:42 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0202 seconds
+2026-04-29 02:35:42 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0205 seconds
+2026-04-29 02:35:42 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:42 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:42 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0840 seconds
+2026-04-29 02:35:43 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0498 seconds
+2026-04-29 02:35:43 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0502 seconds
+2026-04-29 02:35:43 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:43 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:43 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0836 seconds
+2026-04-29 02:35:43 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0197 seconds
+2026-04-29 02:35:43 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0201 seconds
+2026-04-29 02:35:43 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:43 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:43 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0822 seconds
+2026-04-29 02:35:43 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0207 seconds
+2026-04-29 02:35:43 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0210 seconds
+2026-04-29 02:35:43 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:43 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:43 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0836 seconds
+2026-04-29 02:35:43 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0192 seconds
+2026-04-29 02:35:43 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0195 seconds
+2026-04-29 02:35:43 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:43 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:43 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0839 seconds
+2026-04-29 02:35:43 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0198 seconds
+2026-04-29 02:35:43 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0201 seconds
+2026-04-29 02:35:43 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:43 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:43 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0843 seconds
+2026-04-29 02:35:43 | Utilies.py.handle_shutdown_signal    | [INFO ] | Received shutdown signal: 2. Cleaning up...
+2026-04-29 02:35:43 | RabbitmqConsumer.py.start_consumer_process    | [INFO ] | [Consumer Thread] Exiting consumer process for queue_bird_eye_view
+2026-04-29 02:35:44 | Logger.py.wrapper                   | [INFO ] | [parallel_decode_jpegs:-Time Taken to complete parallel decoding of batch's frames] executed in 0.0198 seconds
+2026-04-29 02:35:44 | Logger.py.wrapper                   | [INFO ] | [preprocess_messages:-Time Taken to preprocess one batch of message] executed in 0.0202 seconds
+2026-04-29 02:35:44 | main.py.process_vision_stream     | [INFO ] | Task assigned: True
+2026-04-29 02:35:44 | main.py.process_vision_stream     | [INFO ] | [VISION STREAM] Shutdown signal received. Exiting main loop.
+2026-04-29 02:35:44 | main.py.process_vision_stream     | [INFO ] | [VISION STREAM] Received shutdown signal. Performing final cleanup...
+2026-04-29 02:35:44 | Utilies.py.cleanup_resources         | [INFO ] | [INFO] Shutdown signal set for all components
+2026-04-29 02:35:44 | Utilies.py.shutdown_gpu_workers      | [INFO ] | [INFO] Shutting down GPU/CPU workers...
+2026-04-29 02:35:44 | Utilies.py.shutdown_gpu_workers      | [INFO ] | [INFO] Waiting for GPU/CPU worker 1 to finish...
+2026-04-29 02:35:44 | Logger.py.wrapper                   | [INFO ] | [process_detection_results:-Time taken to preprocess results] executed in 0.0000 seconds
+2026-04-29 02:35:44 | Logger.py.wrapper                   | [INFO ] | [dispatch_vision_task:-Time taken to complete one batch of processing] executed in 0.0859 seconds
+2026-04-29 02:35:44 | GPUdevicemanager.py.run                       | [INFO ] | [INFO] Shutdown signal received. Releasing worker 0_0.
+2026-04-29 02:35:44 | Utilies.py.shutdown_gpu_workers      | [INFO ] | [INFO] GPU/CPU worker 1 shut down successfully
+2026-04-29 02:35:44 | Utilies.py.shutdown_gpu_workers      | [INFO ] | [INFO] All GPU workers shutdown complete
+2026-04-29 02:35:44 | Utilies.py.shutdown_rabbitMQ_consumers | [INFO ] | [INFO] Waiting for RabbitMQ consumer threads to exit...
+2026-04-29 02:35:44 | Utilies.py.handle_shutdown_signal    | [INFO ] | Received shutdown signal: 2. Cleaning up...
+2026-04-29 02:35:44 | RabbitmqConsumer.py.start_consumer_process    | [INFO ] | [Consumer Thread] Exiting consumer process for queue_bird_eye_view
+2026-04-29 02:35:44 | Utilies.py.shutdown_rabbitMQ_consumers | [INFO ] | [INFO] RabbitMQ thread RabbitMQConsumerThreadAI-Bird_Eye_View-0 shut down successfully.
+2026-04-29 02:35:44 | RabbitmqConsumer.py.start_consumer_process    | [INFO ] | [Consumer Thread] Exiting consumer process for queue_bird_eye_view
+2026-04-29 02:35:44 | Utilies.py.shutdown_rabbitMQ_consumers | [INFO ] | [INFO] RabbitMQ thread RabbitMQConsumerThreadAI-Bird_Eye_View-2 shut down successfully.
+2026-04-29 02:35:44 | RabbitmqConsumer.py.start_consumer_process    | [INFO ] | [Consumer Thread] Exiting consumer process for queue_bird_eye_view
+2026-04-29 02:35:44 | Utilies.py.shutdown_rabbitMQ_consumers | [INFO ] | [INFO] RabbitMQ thread RabbitMQConsumerThreadAI-Bird_Eye_View-3 shut down successfully.
+2026-04-29 02:35:46 | Utilies.py.shutdown_rabbitMQ_consumers | [INFO ] | [WARNING] RabbitMQ thread health check thread did not shut down cleanly.
+2026-04-29 02:35:46 | Utilies.py.shutdown_rabbitMQ_consumers | [INFO ] | [INFO] Graceful shutdown sequence completed
+2026-04-29 02:35:46 | Utilies.py.close_rabbitMQ_connection | [INFO ] | [INFO] Closing RabbitMQ connection...
+2026-04-29 02:35:46 | RabbitmqServices.py.close_connection          | [INFO ] | [MainThread] RabbitMQ connection closed.
+2026-04-29 02:35:46 | Utilies.py.close_rabbitMQ_connection | [INFO ] | [INFO] RabbitMQ connection closed successfully
+2026-04-29 02:35:46 | app.py.execute_VisionAiPipeline  | [INFO ] | Vision AI pipeline execution completed successfully.

@@ -7,6 +7,7 @@ from scipy.ndimage import gaussian_filter
 from src.utils.Logger import LoggingConfig
 from src.constant.constants import Constants
 from src.utils.ConfigReader import cfg
+from src.Exception.Exception import PredictionError, FrameProcessingException, CrowdDensityException
 
 logging_config = LoggingConfig()
 
@@ -140,65 +141,79 @@ class CrowdDensity:
         """
         Main detection loop (adapted to original format)
         """
+        try:
+            if self.frame_width is None:
+                self.frame_height, self.frame_width = frame.shape[:2]
 
-        if self.frame_width is None:
-            self.frame_height, self.frame_width = frame.shape[:2]
+            tracks = []
+            alert_event = False
 
-        tracks = []
-        alert_event = False
+            # ---------------- DETECTION ----------------
+            try:
+                results = detector.make_prediction_with_tracking(
+                    frame=frame,
+                    classes_id=[self.person_class_id],
+                    confidence=self.confidence,
+                    tracker=self.tracker_name,
+                    iou=0.35
+                )
+            except Exception as e:
+                self.logger.error(f"Prediction failed in CrowdDensity: {e}")
+                raise PredictionError(f"Prediction failed: {e}")
 
-        # ---------------- DETECTION ----------------
-        results = detector.make_prediction_with_tracking(
-            frame=frame,
-            classes_id=[self.person_class_id],
-            confidence=self.confidence,
-            tracker=self.tracker_name,
-            iou=0.35
-        )
+            try:
+                if results and len(results) > 0 and hasattr(results[0], "boxes"):
 
-        if results and len(results) > 0 and hasattr(results[0], "boxes"):
+                    if results[0].boxes.id is not None:
 
-            if results[0].boxes.id is not None:
+                        boxes = results[0].boxes.xyxy.cpu().numpy()
+                        ids = results[0].boxes.id.cpu().numpy()
 
-                boxes = results[0].boxes.xyxy.cpu().numpy()
-                ids = results[0].boxes.id.cpu().numpy()
+                        for box, tid in zip(boxes, ids):
+                            x1, y1, x2, y2 = map(int, box)
+                            tracks.append((x1, y1, x2, y2, int(tid)))
+            except Exception as e:
+                self.logger.error(f"Error processing detections in CrowdDensity: {e}")
+                raise FrameProcessingException(f"Detection processing failed: {e}")
 
-                for box, tid in zip(boxes, ids):
-                    x1, y1, x2, y2 = map(int, box)
-                    tracks.append((x1, y1, x2, y2, int(tid)))
+            # ---------------- UPDATE ----------------
+            self._update_heatmap(tracks)
 
-        # ---------------- UPDATE ----------------
-        self._update_heatmap(tracks)
+            # ---------------- STATUS LOGIC ----------------
+            if self.current_crowd_count > int(
+                cfg.get_value_config(Constants.CROWD_DENSITY, Constants.CROWD_LIMIT)
+            ):
+                self.status_text = "HIGH CROWD"
+                self.status_color = (0, 0, 255)
+                alert_event = True
+            else:
+                self.status_text = "NORMAL"
+                self.status_color = (0, 255, 0)
 
-        # ---------------- STATUS LOGIC ----------------
-        if self.current_crowd_count > int(
-            cfg.get_value_config(Constants.CROWD_DENSITY, Constants.CROWD_LIMIT)
-        ):
-            self.status_text = "HIGH CROWD"
-            self.status_color = (0, 0, 255)
-            alert_event = True
-        else:
-            self.status_text = "NORMAL"
-            self.status_color = (0, 255, 0)
+            # ---------------- DRAW ----------------
+            display_frame = self._draw_heatmap(frame.copy(), tracks)
 
-        # ---------------- DRAW ----------------
-        display_frame = self._draw_heatmap(frame.copy(), tracks)
+            # Overlay text
+            cv2.putText(display_frame, f"Count: {self.current_crowd_count}", (50, 50),
+                        cv2.FONT_HERSHEY_SIMPLEX, 1, self.status_color, 2)
 
-        # Overlay text
-        cv2.putText(display_frame, f"Count: {self.current_crowd_count}", (50, 50),
-                    cv2.FONT_HERSHEY_SIMPLEX, 1, self.status_color, 2)
+            cv2.putText(display_frame, f"Peak: {self.peak_crowd_count}", (50, 100),
+                        cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2)
 
-        cv2.putText(display_frame, f"Peak: {self.peak_crowd_count}", (50, 100),
-                    cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2)
+            cv2.putText(display_frame, self.status_text, (50, 150),
+                        cv2.FONT_HERSHEY_SIMPLEX, 1.2, self.status_color, 3)
 
-        cv2.putText(display_frame, self.status_text, (50, 150),
-                    cv2.FONT_HERSHEY_SIMPLEX, 1.2, self.status_color, 3)
+            # # cv2.imshow("Crowd Density", display_frame)
+            # # cv2.waitKey(1)
 
-        cv2.imshow("Crowd Density", display_frame)
-        cv2.waitKey(1)
-
-        return display_frame, alert_event, {
-            "current_count": self.current_crowd_count,
-            "peak_count": self.peak_crowd_count,
-            "status": self.status_text
-        }
+            return display_frame, alert_event, {
+                "current_count": self.current_crowd_count,
+                "peak_count": self.peak_crowd_count,
+                "status": self.status_text,
+                "bboxes": tracks
+            }
+        except (PredictionError, FrameProcessingException) as e:
+            raise CrowdDensityException(str(e))
+        except Exception as e:
+            self.logger.error(f"Unexpected error in CrowdDensity: {e}")
+            raise CrowdDensityException(f"CrowdDensity failed: {e}")

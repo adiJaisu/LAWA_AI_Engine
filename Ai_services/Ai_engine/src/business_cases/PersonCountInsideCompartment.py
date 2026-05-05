@@ -9,8 +9,7 @@ from src.utils.ConfigReader import cfg
 logging_config = LoggingConfig()
 
 
-class PersonCountInsideCompartmentException(Exception):
-    pass
+from src.Exception.Exception import PredictionError, FrameProcessingException, PersonCountInsideCompartmentException
 
 
 class PersonCountInsideCompartment:
@@ -72,86 +71,105 @@ class PersonCountInsideCompartment:
         detector: Any
     ) -> Tuple[np.ndarray, bool, Dict]:
 
-        alert_event = False
+        try:
+            alert_event = False
 
-        # ---------------- PREPROCESS ----------------
-        frame = cv2.resize(frame, (self.resize_width, self.resize_height))
+            # ---------------- PREPROCESS ----------------
+            try:
+                frame = cv2.resize(frame, (self.resize_width, self.resize_height))
 
-        h, w, _ = frame.shape
+                h, w, _ = frame.shape
 
-        top_crop = int(h * self.top_crop_ratio)
-        bottom_crop = int(h * self.bottom_crop_ratio)
+                top_crop = int(h * self.top_crop_ratio)
+                bottom_crop = int(h * self.bottom_crop_ratio)
 
-        roi_frame = frame[top_crop:bottom_crop, :]
+                roi_frame = frame[top_crop:bottom_crop, :]
+            except Exception as e:
+                self.logger.error(f"Preprocessing failed in PersonCountInsideCompartment: {e}")
+                raise FrameProcessingException(f"Preprocessing failed: {e}")
 
-        # ---------------- DETECTION ----------------
-        results = detector.make_prediction(
-            roi_frame,
-            classes_id=[self.person_class_id],
-            confidence=self.confidence
-            
-        )
+            # ---------------- DETECTION ----------------
+            try:
+                results = detector.make_prediction(
+                    roi_frame,
+                    classes_id=[self.person_class_id],
+                    confidence=self.confidence
+                    
+                )
+            except Exception as e:
+                self.logger.error(f"Prediction failed in PersonCountInsideCompartment: {e}")
+                raise PredictionError(f"Prediction failed: {e}")
 
-        head_data = []
+            try:
+                head_data = []
 
-        for r in results:
+                for r in results:
 
-            if r.boxes is None:
-                continue
+                    if r.boxes is None:
+                        continue
 
-            for box in r.boxes:
+                    for box in r.boxes:
 
-                x1, y1, x2, y2 = map(int, box.xyxy[0])
+                        x1, y1, x2, y2 = map(int, box.xyxy[0])
 
-                # adjust coordinates
-                y1 += top_crop
-                y2 += top_crop
+                        # adjust coordinates
+                        y1 += top_crop
+                        y2 += top_crop
 
-                box_h = y2 - y1
+                        box_h = y2 - y1
 
-                if box_h < self.min_box_height:
-                    continue
+                        if box_h < self.min_box_height:
+                            continue
 
-                # head estimation
-                head_x = (x1 + x2) // 2
-                head_y = y1 + int(box_h * 0.50)
+                        # head estimation
+                        head_x = (x1 + x2) // 2
+                        head_y = y1 + int(box_h * 0.50)
 
-                # blur head region
-                head_roi = frame[y1:head_y, x1:x2]
+                        # blur head region
+                        head_roi = frame[y1:head_y, x1:x2]
 
-                if head_roi.size > 0:
-                    blurred = cv2.GaussianBlur(head_roi, (151, 151), 50)
-                    frame[y1:head_y, x1:x2] = blurred
+                        if head_roi.size > 0:
+                            blurred = cv2.GaussianBlur(head_roi, (151, 151), 50)
+                            frame[y1:head_y, x1:x2] = blurred
 
-                head_data.append((x1, y1, x2, y2, head_x, head_y))
+                        head_data.append((x1, y1, x2, y2, head_x, head_y))
 
-        # ---------------- FILTER ----------------
-        filtered = self.remove_duplicate_heads(
-            head_data,
-            self.duplicate_head_distance
-        )
+                # ---------------- FILTER ----------------
+                filtered = self.remove_duplicate_heads(
+                    head_data,
+                    self.duplicate_head_distance
+                )
 
-        # ---------------- COUNT ----------------
-        self.current_count = len(filtered)
+                # ---------------- COUNT ----------------
+                self.current_count = len(filtered)
+            except Exception as e:
+                self.logger.error(f"Error processing detections in PersonCountInsideCompartment: {e}")
+                raise FrameProcessingException(f"Detection processing failed: {e}")
 
-        # ---------------- VISUALIZATION ----------------
-        display_frame = frame.copy()
+            # ---------------- VISUALIZATION ----------------
+            display_frame = frame.copy()
 
-        for (x1, y1, x2, y2, hx, hy) in filtered:
-            cv2.rectangle(display_frame, (x1, y1), (x2, y2), (0, 255, 0), 2)
-            cv2.circle(display_frame, (hx, hy), 6, (0, 255, 0), -1)
+            for (x1, y1, x2, y2, hx, hy) in filtered:
+                cv2.rectangle(display_frame, (x1, y1), (x2, y2), (0, 255, 0), 2)
+                cv2.circle(display_frame, (hx, hy), 6, (0, 255, 0), -1)
 
-        cv2.putText(display_frame,
-                    f"People Count: {self.current_count}",
-                    (30, 50),
-                    cv2.FONT_HERSHEY_SIMPLEX,
-                    1,
-                    (0, 0, 255),
-                    2)
+            cv2.putText(display_frame,
+                        f"People Count: {self.current_count}",
+                        (30, 50),
+                        cv2.FONT_HERSHEY_SIMPLEX,
+                        1,
+                        (0, 0, 255),
+                        2)
 
-        cv2.imshow("Person_count", display_frame)
-        cv2.waitKey(1)
+            # cv2.imshow("Person_count", display_frame)
+            # cv2.waitKey(1)
 
-        return display_frame, alert_event, {
-            "current_count": self.current_count
-        }
+            return display_frame, alert_event, {
+                "current_count": self.current_count,
+                "bboxes": [[x1, y1, x2, y2] for (x1, y1, x2, y2, hx, hy) in filtered]
+            }
+        except (PredictionError, FrameProcessingException) as e:
+            raise PersonCountInsideCompartmentException(str(e))
+        except Exception as e:
+            self.logger.error(f"Unexpected error in PersonCountInsideCompartment: {e}")
+            raise PersonCountInsideCompartmentException(f"PersonCountInsideCompartment failed: {e}")

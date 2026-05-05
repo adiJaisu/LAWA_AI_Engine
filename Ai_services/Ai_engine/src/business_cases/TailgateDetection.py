@@ -10,8 +10,7 @@ from src.utils.DatabaseManager import DatabaseManager
 
 logging_config = LoggingConfig()
 
-class TailgateDetectionException(Exception):
-    pass
+from src.Exception.Exception import PredictionError, FrameProcessingException, TailgateDetectionException
 
 class TailgateDetection:
     """
@@ -134,129 +133,149 @@ class TailgateDetection:
         rois[1]: Entry ROI
         rois[2]: Presence/Side ROI (Optional)
         """
-        # 1. Update LED State
-        if len(rois) > 0:
-            self._update_led_state(frame, rois[0])
+        try:
+            # 1. Update LED State
+            try:
+                if len(rois) > 0:
+                    self._update_led_state(frame, rois[0])
+            except Exception as e:
+                self.logger.error(f"LED state update failed in TailgateDetection: {e}")
+                # We might continue if LED update fails, but let's log it
+                pass
 
-        # 2. Tracking Inference
-        results = detector.make_prediction_with_tracking(
-            frame=frame,
-            classes_id=[self.person_class_id],
-            confidence=self.confidence,
-            tracker=self.tracker_name,
-            iou=0.35  # <--- Increased from default 0.5. Higher allowed overlap means two close people won't merge!
-        )
+            # 2. Tracking Inference
+            try:
+                results = detector.make_prediction_with_tracking(
+                    frame=frame,
+                    classes_id=[self.person_class_id],
+                    confidence=self.confidence,
+                    tracker=self.tracker_name,
+                    iou=0.35  # <--- Increased from default 0.5. Higher allowed overlap means two close people won't merge!
+                )
+            except Exception as e:
+                self.logger.error(f"Error during object tracking in TailgateDetection: {e}")
+                raise PredictionError(f"Tracking error: {e}")
 
-        alert_event = False
-        if results and len(results) > 0 and hasattr(results[0], "boxes") and results[0].boxes.id is not None:
-            boxes = results[0].boxes.xyxy.cpu().numpy()
-            ids = results[0].boxes.id.cpu().numpy()
+            alert_event = False
+            try:
+                if results and len(results) > 0 and hasattr(results[0], "boxes") and results[0].boxes.id is not None:
+                    boxes = results[0].boxes.xyxy.cpu().numpy()
+                    ids = results[0].boxes.id.cpu().numpy()
 
-            for box, track_id in zip(boxes, ids):
-                track_id = int(track_id)
-                x1, y1, x2, y2 = box
-                # Feet point logic from prototype
-                foot_point = (int((x1 + x2) / 2), int ((y1+y2) * 0.75))
+                    for box, track_id in zip(boxes, ids):
+                        track_id = int(track_id)
+                        x1, y1, x2, y2 = box
+                        # Feet point logic from prototype
+                        foot_point = (int((x1 + x2) / 2), int ((y1+y2) * 0.75))
 
-                in_roi1 = self._point_inside_polygon(foot_point, rois[1]) if len(rois) > 1 else False
-                in_roi2 = self._point_inside_polygon(foot_point, rois[2]) if len(rois) > 2 else False
+                        in_roi1 = self._point_inside_polygon(foot_point, rois[1]) if len(rois) > 1 else False
+                        in_roi2 = self._point_inside_polygon(foot_point, rois[2]) if len(rois) > 2 else False
 
-                if track_id in self.counted_ids or track_id in self.invalid_ids:
-                    continue
+                        if track_id in self.counted_ids or track_id in self.invalid_ids:
+                            continue
 
-                if in_roi2:
-                    self.roi2_presence.add(track_id)
+                        if in_roi2:
+                            self.roi2_presence.add(track_id)
 
-                if in_roi1:
-                    self.entered_roi1.add(track_id)
-                    self.roi_entry_frames[track_id] = self.roi_entry_frames.get(track_id, 0) + 1
+                        if in_roi1:
+                            self.entered_roi1.add(track_id)
+                            self.roi_entry_frames[track_id] = self.roi_entry_frames.get(track_id, 0) + 1
 
-                    if self.roi_entry_frames[track_id] >= self.roi_min_frames:
-                        self.counted_ids.add(track_id)
-                        self.entry_count += 1
-                        
-                        # Validate Access
-                        is_valid = (
-                            self.allow_count > 0 and 
-                            not self.green_session_consumed and 
-                            self.green_on_frames >= self.green_min_frames
-                        )
+                            if self.roi_entry_frames[track_id] >= self.roi_min_frames:
+                                self.counted_ids.add(track_id)
+                                self.entry_count += 1
+                                
+                                # Validate Access
+                                is_valid = (
+                                    self.allow_count > 0 and 
+                                    not self.green_session_consumed and 
+                                    self.green_on_frames >= self.green_min_frames
+                                )
 
-                        if is_valid:
-                            self.allow_count -= 1
-                            self.green_session_consumed = True
-                            self.tailgate_count_current_session = 0
-                            
-                            
-                            # Database Check
-                            emp = self.db.get_employee_by_count(self.entry_count)
-                            if emp:
-                                emp_odc = str(emp.get("odc_no", "")).strip().upper()
-                                if emp_odc == self.global_odc:
-                                    self.status_text = "ACCESS OK: ODC MATCH"
-                                    self.status_color = (0, 255, 0)
-                                    self.db.log_access(emp, "SUCCESS_MATCH")
+                                if is_valid:
+                                    self.allow_count -= 1
+                                    self.green_session_consumed = True
+                                    self.tailgate_count_current_session = 0
+                                    
+                                    
+                                    # Database Check
+                                    emp = self.db.get_employee_by_count(self.entry_count)
+                                    if emp:
+                                        emp_odc = str(emp.get("odc_no", "")).strip().upper()
+                                        if emp_odc == self.global_odc:
+                                            self.status_text = "ACCESS OK: ODC MATCH"
+                                            self.status_color = (0, 255, 0)
+                                            self.db.log_access(emp, "SUCCESS_MATCH")
+                                        else:
+                                            self.status_text = "ACCESS OK: ODC DIFFERENT"
+                                            self.status_color = (0, 165, 255)
+                                            self.db.log_access(emp, "SUCCESS_ODC_DIFF")
                                 else:
-                                    self.status_text = "ACCESS OK: ODC DIFFERENT"
-                                    self.status_color = (0, 165, 255)
-                                    self.db.log_access(emp, "SUCCESS_ODC_DIFF")
-                        else:
-                            # TAILGATE TRIGGERED
-                            self.status_text = "TAILGATE DETECTED"
-                            self.status_color = (0, 0, 255)
-                            self.tailgate_ids.add(track_id)
-                            alert_event = True
-                            self.tailgate_count_current_session += 1
-                            self.logger.warning(f"TAILGATE ALERT: ID {track_id} entered without valid token.")
+                                    # TAILGATE TRIGGERED
+                                    self.status_text = "TAILGATE DETECTED"
+                                    self.status_color = (0, 0, 255)
+                                    self.tailgate_ids.add(track_id)
+                                    alert_event = True
+                                    self.tailgate_count_current_session += 1
+                                    self.logger.warning(f"TAILGATE ALERT: ID {track_id} entered without valid token.")
 
-                # Side exit/Invalid Entry logic
-                if track_id in self.roi2_presence and not in_roi2:
-                    if track_id not in self.entered_roi1:
-                        self.invalid_ids.add(track_id)
-                        self.status_text = "INVALID ENTRY"
-                        self.status_color = (0, 0, 255)
-                        self.logger.warning(f"INVALID ENTRY: ID {track_id} bypassed threshold.")
-                    self.roi2_presence.discard(track_id)
+                        # Side exit/Invalid Entry logic
+                        if track_id in self.roi2_presence and not in_roi2:
+                            if track_id not in self.entered_roi1:
+                                self.invalid_ids.add(track_id)
+                                self.status_text = "INVALID ENTRY"
+                                self.status_color = (0, 0, 255)
+                                self.logger.warning(f"INVALID ENTRY: ID {track_id} bypassed threshold.")
+                            self.roi2_presence.discard(track_id)
+            except Exception as e:
+                self.logger.error(f"Error processing detections in TailgateDetection: {e}")
+                raise FrameProcessingException(f"Detection processing failed: {e}")
 
-        # 3. Visualization
-        display_frame = frame.copy()
-        
-        # Draw Bounding Boxes for currently tracked people
-        if results and len(results) > 0 and hasattr(results[0], "boxes") and results[0].boxes.id is not None:
-            boxes = results[0].boxes.xyxy.cpu().numpy()
-            ids = results[0].boxes.id.cpu().numpy()
-            for box, track_id in zip(boxes, ids):
-                track_id = int(track_id)
-                x1, y1, x2, y2 = map(int, box)
-                
-                # Use RED for tailgaters, WHITE for others
-                color = (0, 0, 255) if track_id in self.tailgate_ids or track_id in self.invalid_ids else (0, 255, 0)
-                # If they are just "Access OK", maybe use green? 
-                # For now, let's stick to RED for offenders and WHITE for others.
-                
-                cv2.rectangle(display_frame, (x1, y1), (x2, y2), color, 2)
-                cv2.circle(display_frame,(int((x1 + x2) / 2), int ((y1+y2) * 0.75)), 4 , color, -1)  # ID marker
-                cv2.putText(display_frame, f"ID:{track_id}", (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, color, 1)
+            # 3. Visualization
+            display_frame = frame.copy()
+            
+            # Draw Bounding Boxes for currently tracked people
+            bboxes_list = []
+            if results and len(results) > 0 and hasattr(results[0], "boxes") and results[0].boxes.id is not None:
+                boxes = results[0].boxes.xyxy.cpu().numpy()
+                ids = results[0].boxes.id.cpu().numpy()
+                for box, track_id in zip(boxes, ids):
+                    track_id = int(track_id)
+                    x1, y1, x2, y2 = map(int, box)
+                    
+                    # Use RED for tailgaters, WHITE for others
+                    color = (0, 0, 255) if track_id in self.tailgate_ids or track_id in self.invalid_ids else (0, 255, 0)
+                    
+                    cv2.rectangle(display_frame, (x1, y1), (x2, y2), color, 2)
+                    cv2.circle(display_frame,(int((x1 + x2) / 2), int ((y1+y2) * 0.75)), 4 , color, -1)  # ID marker
+                    cv2.putText(display_frame, f"ID:{track_id}", (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, color, 1)
+                    bboxes_list.append([x1, y1, x2, y2, track_id])
 
-        # Draw Zones
-        for i, poly in enumerate(rois):
-            color = (255, 255, 255) if i == 1 else (200, 200, 200)
-            cv2.polylines(display_frame, [np.array(poly, np.int32)], True, color, 2)
+            # Draw Zones
+            for i, poly in enumerate(rois):
+                color = (255, 255, 255) if i == 1 else (200, 200, 200)
+                cv2.polylines(display_frame, [np.array(poly, np.int32)], True, color, 2)
 
-        
-        # Draw status overlays
-        cv2.putText(display_frame, f"LED: {self.current_color}", (50, 40), cv2.FONT_HERSHEY_SIMPLEX, 1, self.status_color, 2)
-        cv2.putText(display_frame, f"Persons Entered: {self.entry_count}", (50, 120), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2)
-        cv2.putText(display_frame, f"Tailgates (Session): {self.tailgate_count_current_session}", (50, 80), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2)
-        cv2.putText(display_frame, self.status_text, (50, 170), cv2.FONT_HERSHEY_SIMPLEX, 1.2, self.status_color, 3)
-        cv2.imshow("Tailgate Detection", display_frame)
-        cv2.waitKey(1)
-        print(f"=================================================================={alert_event}==================================================================")
-        return display_frame, alert_event, {
-            "status": self.status_text,
-            "tokens": self.allow_count,
-            "tailgate_count": self.tailgate_count_current_session,
-            "entry_count": self.entry_count
-        }
+            
+            # Draw status overlays
+            cv2.putText(display_frame, f"LED: {self.current_color}", (50, 40), cv2.FONT_HERSHEY_SIMPLEX, 1, self.status_color, 2)
+            cv2.putText(display_frame, f"Persons Entered: {self.entry_count}", (50, 120), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2)
+            cv2.putText(display_frame, f"Tailgates (Session): {self.tailgate_count_current_session}", (50, 80), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2)
+            cv2.putText(display_frame, self.status_text, (50, 170), cv2.FONT_HERSHEY_SIMPLEX, 1.2, self.status_color, 3)
+            # cv2.imshow("Tailgate Detection", display_frame)
+            # cv2.waitKey(1)
+            
+            return display_frame, alert_event, {
+                "status": self.status_text,
+                "tokens": self.allow_count,
+                "tailgate_count": self.tailgate_count_current_session,
+                "entry_count": self.entry_count,
+                "bboxes": bboxes_list
+            }
+        except (PredictionError, FrameProcessingException) as e:
+            raise TailgateDetectionException(str(e))
+        except Exception as e:
+            self.logger.error(f"Unexpected error in TailgateDetection: {e}")
+            raise TailgateDetectionException(f"TailgateDetection failed: {e}")
 
  

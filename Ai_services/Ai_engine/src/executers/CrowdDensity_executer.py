@@ -6,7 +6,7 @@ from src.utils.Logger import LoggingConfig
 from src.constant.constants import Constants
 from src.constant.global_constant import VisionPipeline
 from src.business_cases.CrowdDensity import CrowdDensity
-from src.Exception.Exception import FrameProcessingException
+from src.Exception.Exception import FrameProcessingException, CrowdDensityException
 
 logging_config = LoggingConfig()
 logger = logging_config.setup_logging()
@@ -45,16 +45,16 @@ def execute_crowd_density(validated_msg_with_frames_and_metadatas: List[Dict], d
                     
                     # Annotate frame before saving
                     # annotated_frame = unannotated_frame.copy()
-                    # for det in tailgate_status.get("detections", []):
+                    # for det in crowd_density_status.get("detections", []):
                     #     x1, y1, x2, y2 = map(int, det["bbox"])
-                    #     color = (0, 0, 255) if det["is_tailgate"] or det["is_invalid"] else (0, 255, 0)
+                    #     color = (0, 0, 255) if det["is_crowd_density"] or det["is_invalid"] else (0, 255, 0)
                     #     cv2.rectangle(annotated_frame, (x1, y1), (x2, y2), color, 2)
                     #     cv2.putText(annotated_frame, f"ID:{det['id']}", (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, color, 1)
                     
-                    # cv2.putText(annotated_frame, tailgate_status.get("status", ""), (50, 170), cv2.FONT_HERSHEY_SIMPLEX, 1.2, (0, 0, 255), 3)
+                    # cv2.putText(annotated_frame, crowd_density_status.get("status", ""), (50, 170), cv2.FONT_HERSHEY_SIMPLEX, 1.2, (0, 0, 255), 3)
 
                     os.makedirs("src/detected_frames", exist_ok=True)
-                    cv2.imwrite(f"src/detected_frames/tailgate_alert_{int(time())}_{idx}.jpg", annotated_frame)
+                    cv2.imwrite(f"src/detected_frames/crowd_density_alert_{int(time())}_{idx}.jpg", annotated_frame)
 
                 msg[Constants.FRAME_METADATA][Constants.RAW_FRAME] = raw_frame
                 msg[Constants.FRAME_METADATA][Constants.FRAME] = annotated_frame
@@ -62,19 +62,19 @@ def execute_crowd_density(validated_msg_with_frames_and_metadatas: List[Dict], d
                 msg[Constants.FRAME_METADATA][Constants.DETECTIONS] = crowd_status
                 processed_frames.append(msg)
 
-            # except crowddensityexcep as e:
-            #     logger.error(f"Frame {idx}: Tailgate detection error: {str(e)}", exc_info=True)
-                # continue
+            except CrowdDensityException as e:
+                logger.error(f"Frame {idx}: Crowd density detection error: {str(e)}")
+                continue
             except Exception as e:
-                logger.error(f"Frame {idx}: Error during tailgate detection: {str(e)}", exc_info=True)
+                logger.error(f"Frame {idx}: Unexpected error during crowd density detection: {str(e)}", exc_info=True)
                 continue
 
         if alert_count > Constants.ZERO:
-            logger.debug(f"Found alert for this batch for tailgate alert count {alert_count}")
+            logger.debug(f"Found alert for this batch for crowd_density alert count {alert_count}")
             return processed_frames
         else:
             return []
 
     except FrameProcessingException as e:
-        logger.critical(f"Critical error in tailgate detection: {str(e)}", exc_info=True)
+        logger.critical(f"Critical error in crowd_density detection: {str(e)}", exc_info=True)
         raise

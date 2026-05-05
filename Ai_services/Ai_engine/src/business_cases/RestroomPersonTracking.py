@@ -9,8 +9,7 @@ from src.constant.constants import Constants
 from src.utils.ConfigReader import cfg
 from src.detectors.custom_tracker import CustomPersonTracker
 
-class RestroomPersonTrackingException(Exception):
-    pass
+from src.Exception.Exception import PredictionError, FrameProcessingException, RestroomPersonTrackingException
 
 class RestroomPersonTracking:
     """
@@ -134,182 +133,195 @@ class RestroomPersonTracking:
         """
         Runs the restroom person tracking logic with enhanced logic and visualization.
         """
-        if not rois or len(rois) < 3:
-            self.logger.warning("RestroomPersonTracking requires at least 3 ROIs: Inside Zone, Zone A, Zone B")
-            return frame, False, {}
-
-        # Assumes rois[0] is detection inside zone, rois[1] is zone A, rois[2] is zone B
-        inside_zone_poly = np.array(rois[0], np.int32)
-        zone_a_poly = np.array(rois[1], np.int32)
-        zone_b_poly = np.array(rois[2], np.int32)
-
-        # Draw zones
-        cv2.polylines(frame, [inside_zone_poly], True, (0, 255, 0), 2)
-        cv2.polylines(frame, [zone_a_poly], True, (255, 0, 0), 2)
-        cv2.polylines(frame, [zone_b_poly], True, (0, 0, 255), 2)
-
-        self.frame_count += 1
-        current_time = self.frame_count / self.fps
-        has_new_alert = False
-
         try:
-            boxes, ids = self.tracker.process_frame(frame, [self.person_class_id], self.confidence, device=detector.device)
-        except Exception as e:
-            self.logger.error(f"Error during custom object tracking: {e}")
-            raise RestroomPersonTrackingException(f"Tracking error: {e}")
+            if not rois or len(rois) < 3:
+                self.logger.warning("RestroomPersonTracking requires at least 3 ROIs: Inside Zone, Zone A, Zone B")
+                return frame, False, {}
 
-        ids_detected = set()
+            # Assumes rois[0] is detection inside zone, rois[1] is zone A, rois[2] is zone B
+            inside_zone_poly = np.array(rois[0], np.int32)
+            zone_a_poly = np.array(rois[1], np.int32)
+            zone_b_poly = np.array(rois[2], np.int32)
 
-        for box, pid in zip(boxes, ids):
-            ids_detected.add(pid)
-            x1, y1, x2, y2 = box
+            # Draw zones
+            cv2.polylines(frame, [inside_zone_poly], True, (0, 255, 0), 2)
+            cv2.polylines(frame, [zone_a_poly], True, (255, 0, 0), 2)
+            cv2.polylines(frame, [zone_b_poly], True, (0, 0, 255), 2)
 
-            # Logic for Entry/Exit detection (Zone A/B)
-            bottom_center_x = (x1 + x2) // 2
-            bottom_center_y = y2
-            pink_dot = (bottom_center_x, bottom_center_y)
+            self.frame_count += 1
+            current_time = self.frame_count / self.fps
+            has_new_alert = False
 
-            in_zone_a = self.point_in_polygon(pink_dot, zone_a_poly)
-            in_zone_b = self.point_in_polygon(pink_dot, zone_b_poly)
+            try:
+                boxes, ids = self.tracker.process_frame(frame, [self.person_class_id], self.confidence, device=detector.device)
+            except Exception as e:
+                self.logger.error(f"Error during custom object tracking in RestroomPersonTracking: {e}")
+                raise PredictionError(f"Tracking error: {e}")
 
-            current_zone = None
-            if in_zone_a:
-                current_zone = "A"
-            elif in_zone_b:
-                current_zone = "B"
+            try:
+                ids_detected = set()
+                bboxes_list = []
 
-            previous_zone = self.id_zone_state.get(pid)
+                for box, pid in zip(boxes, ids):
+                    ids_detected.add(pid)
+                    x1, y1, x2, y2 = box
+                    bboxes_list.append([int(x1), int(y1), int(x2), int(y2), int(pid)])
 
-            if current_zone is not None and current_zone != previous_zone and previous_zone is not None:
-                if previous_zone == "B" and current_zone == "A":
-                    self.entry_count += 1
-                    self.max_entry_count = max(self.max_entry_count, self.entry_count)
-                    self.id_has_entered[pid] = True
-                    self.logger.info(f"ID {pid} entered through Zone B -> A. Current entry count: {self.entry_count}")
-                elif previous_zone == "A" and current_zone == "B":
-                    self.exit_count += 1
-                    self.max_exit_count = max(self.max_exit_count, self.exit_count)
-                    if self.id_has_entered.get(pid, False):
-                        self.entry_count = max(0, self.entry_count - 1)
-                        self.id_has_entered[pid] = False
-                    self.logger.info(f"ID {pid} exited through Zone A -> B. Current entry count: {self.entry_count}")
+                    # Logic for Entry/Exit detection (Zone A/B)
+                    bottom_center_x = (x1 + x2) // 2
+                    bottom_center_y = y2
+                    pink_dot = (bottom_center_x, bottom_center_y)
 
-            if current_zone is not None:
-                self.id_zone_state[pid] = current_zone
+                    in_zone_a = self.point_in_polygon(pink_dot, zone_a_poly)
+                    in_zone_b = self.point_in_polygon(pink_dot, zone_b_poly)
 
-            # Visualization: Bounding Box
-            color = (0, 255, 0)
-            thickness = 2
-            if self.id_alerted.get(pid, False):
-                color = (0, 0, 255) # Red for alert
-                thickness = 4
-                # Padded bbox for extra visibility
-                pad = 10
-                rx1 = max(0, x1 - pad)
-                ry1 = max(0, y1 - pad)
-                rx2 = min(frame.shape[1] - 1, x2 + pad)
-                ry2 = min(frame.shape[0] - 1, y2 + pad)
-                cv2.rectangle(frame, (rx1, ry1), (rx2, ry2), color, 2)
+                    current_zone = None
+                    if in_zone_a:
+                        current_zone = "A"
+                    elif in_zone_b:
+                        current_zone = "B"
 
-            cv2.rectangle(frame, (x1, y1), (x2, y2), color, thickness)
-            cv2.putText(frame, f"ID:{pid}", (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.6, color, 2)
+                    previous_zone = self.id_zone_state.get(pid)
 
-            # Timer logic: check if person is inside detection zone
-            in_inside_zone = self.is_in_zone(box, inside_zone_poly)
-            self.id_last_inside[pid] = in_inside_zone
+                    if current_zone is not None and current_zone != previous_zone and previous_zone is not None:
+                        if previous_zone == "B" and current_zone == "A":
+                            self.entry_count += 1
+                            self.max_entry_count = max(self.max_entry_count, self.entry_count)
+                            self.id_has_entered[pid] = True
+                            self.logger.info(f"ID {pid} entered through Zone B -> A. Current entry count: {self.entry_count}")
+                        elif previous_zone == "A" and current_zone == "B":
+                            self.exit_count += 1
+                            self.max_exit_count = max(self.max_exit_count, self.exit_count)
+                            if self.id_has_entered.get(pid, False):
+                                self.entry_count = max(0, self.entry_count - 1)
+                                self.id_has_entered[pid] = False
+                            self.logger.info(f"ID {pid} exited through Zone A -> B. Current entry count: {self.entry_count}")
 
-            if in_inside_zone:
-                # If they are currently inside, they shouldn't have an active timer
-                if pid in self.id_timers:
-                    self.id_timers.pop(pid)
+                    if current_zone is not None:
+                        self.id_zone_state[pid] = current_zone
 
-        # Start timers for persons who were inside but are no longer detected
-        for pid, was_inside in list(self.id_last_inside.items()):
-            if pid not in ids_detected and was_inside:
-                if pid not in self.id_timers:
-                    self.id_timers[pid] = current_time
-                    self.id_alerted[pid] = False
+                    # Visualization: Bounding Box
+                    color = (0, 255, 0)
+                    thickness = 2
+                    if self.id_alerted.get(pid, False):
+                        color = (0, 0, 255) # Red for alert
+                        thickness = 4
+                        # Padded bbox for extra visibility
+                        pad = 10
+                        rx1 = max(0, x1 - pad)
+                        ry1 = max(0, y1 - pad)
+                        rx2 = min(frame.shape[1] - 1, x2 + pad)
+                        ry2 = min(frame.shape[0] - 1, y2 + pad)
+                        cv2.rectangle(frame, (rx1, ry1), (rx2, ry2), color, 2)
 
-        # Process active timers and trigger alerts
-        active_timers = []
-        for pid, start_time in list(self.id_timers.items()):
-            elapsed = max(0.0, current_time - start_time)
-            active_timers.append((pid, elapsed))
+                    cv2.rectangle(frame, (x1, y1), (x2, y2), color, thickness)
+                    cv2.putText(frame, f"ID:{pid}", (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.6, color, 2)
 
-            if not self.id_alerted.get(pid, False) and elapsed >= self.alert_threshold:
-                self.id_alerted[pid] = True
-                has_new_alert = True
-                self.logger.warning(f"[ALERT] ID {pid} exceeded occupancy threshold of {self.alert_threshold}s")
+                    # Timer logic: check if person is inside detection zone
+                    in_inside_zone = self.is_in_zone(box, inside_zone_poly)
+                    self.id_last_inside[pid] = in_inside_zone
+
+                    if in_inside_zone:
+                        # If they are currently inside, they shouldn't have an active timer
+                        if pid in self.id_timers:
+                            self.id_timers.pop(pid)
+
+                # Start timers for persons who were inside but are no longer detected
+                for pid, was_inside in list(self.id_last_inside.items()):
+                    if pid not in ids_detected and was_inside:
+                        if pid not in self.id_timers:
+                            self.id_timers[pid] = current_time
+                            self.id_alerted[pid] = False
+
+                # Process active timers and trigger alerts
+                active_timers = []
+                for pid, start_time in list(self.id_timers.items()):
+                    elapsed = max(0.0, current_time - start_time)
+                    active_timers.append((pid, elapsed))
+
+                    if not self.id_alerted.get(pid, False) and elapsed >= self.alert_threshold:
+                        self.id_alerted[pid] = True
+                        has_new_alert = True
+                        self.logger.warning(f"[ALERT] ID {pid} exceeded occupancy threshold of {self.alert_threshold}s")
+                        
+                        # Copy identity crop for the alert
+                        saved_crop = self.copy_latest_identity_crop(pid)
+                        if saved_crop:
+                            self.logger.info(f"[ALERT] Saved identity crop for ID {pid} at {saved_crop}")
+
+                # Visualization: Timer Display (Top Right)
+                y_offset = 30
+                for pid, elapsed in active_timers:
+                    minutes = int(elapsed // 60)
+                    seconds = int(elapsed % 60)
+                    timer_text = f"ID {pid}: {minutes:02d}:{seconds:02d}"
+                    
+                    c = (0, 0, 255) if self.id_alerted.get(pid, False) else (255, 255, 0)
+                    text_size, _ = cv2.getTextSize(timer_text, cv2.FONT_HERSHEY_SIMPLEX, 0.8, 2)
+                    cv2.putText(
+                        frame,
+                        timer_text,
+                        (frame.shape[1] - text_size[0] - 20, y_offset),
+                        cv2.FONT_HERSHEY_SIMPLEX,
+                        0.8,
+                        c,
+                        2,
+                    )
+                    y_offset += 35
+
+                # Visualization: Alert Labels (Bottom Left)
+                alert_y_offset = frame.shape[0] - 30
+                for pid, alerted in self.id_alerted.items():
+                    if alerted:
+                        alert_text = f"ALERT - ID {pid}"
+                        cv2.putText(
+                            frame,
+                            alert_text,
+                            (20, alert_y_offset),
+                            cv2.FONT_HERSHEY_SIMPLEX,
+                            0.8,
+                            (0, 0, 255),
+                            2,
+                        )
+                        alert_y_offset -= 30
+
+                # Visualization: Counter Box (Bottom Right)
+                box_width = 220
+                box_height = 80
+                box_margin = 20
+                bx2 = frame.shape[1] - box_margin
+                bx1 = bx2 - box_width
+                by2 = frame.shape[0] - box_margin
+                by1 = by2 - box_height
                 
-                # Copy identity crop for the alert
-                saved_crop = self.copy_latest_identity_crop(pid)
-                if saved_crop:
-                    self.logger.info(f"[ALERT] Saved identity crop for ID {pid} at {saved_crop}")
+                # Draw counter background box
+                overlay = frame.copy()
+                cv2.rectangle(overlay, (bx1, by1), (bx2, by2), (0, 0, 0), -1)
+                cv2.addWeighted(overlay, 0.4, frame, 0.6, 0, frame)
+                cv2.rectangle(frame, (bx1, by1), (bx2, by2), (255, 255, 255), 1)
 
-        # Visualization: Timer Display (Top Right)
-        y_offset = 30
-        for pid, elapsed in active_timers:
-            minutes = int(elapsed // 60)
-            seconds = int(elapsed % 60)
-            timer_text = f"ID {pid}: {minutes:02d}:{seconds:02d}"
-            
-            c = (0, 0, 255) if self.id_alerted.get(pid, False) else (255, 255, 0)
-            text_size, _ = cv2.getTextSize(timer_text, cv2.FONT_HERSHEY_SIMPLEX, 0.8, 2)
-            cv2.putText(
-                frame,
-                timer_text,
-                (frame.shape[1] - text_size[0] - 20, y_offset),
-                cv2.FONT_HERSHEY_SIMPLEX,
-                0.8,
-                c,
-                2,
-            )
-            y_offset += 35
+                cv2.putText(frame, f"Entry : {self.entry_count}", (bx1 + 15, by1 + 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
+                cv2.putText(frame, f"Exit  : {self.exit_count}", (bx1 + 15, by1 + 60), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
 
-        # Visualization: Alert Labels (Bottom Left)
-        alert_y_offset = frame.shape[0] - 30
-        for pid, alerted in self.id_alerted.items():
-            if alerted:
-                alert_text = f"ALERT - ID {pid}"
-                cv2.putText(
-                    frame,
-                    alert_text,
-                    (20, alert_y_offset),
-                    cv2.FONT_HERSHEY_SIMPLEX,
-                    0.8,
-                    (0, 0, 255),
-                    2,
-                )
-                alert_y_offset -= 30
+                still_occupied = self.max_entry_count - self.max_exit_count
 
-        # Visualization: Counter Box (Bottom Right)
-        box_width = 220
-        box_height = 80
-        box_margin = 20
-        bx2 = frame.shape[1] - box_margin
-        bx1 = bx2 - box_width
-        by2 = frame.shape[0] - box_margin
-        by1 = by2 - box_height
-        
-        # Draw counter background box
-        overlay = frame.copy()
-        cv2.rectangle(overlay, (bx1, by1), (bx2, by2), (0, 0, 0), -1)
-        cv2.addWeighted(overlay, 0.4, frame, 0.6, 0, frame)
-        cv2.rectangle(frame, (bx1, by1), (bx2, by2), (255, 255, 255), 1)
+                status_dict = {
+                    "entry_count": self.entry_count,
+                    "exit_count": self.exit_count,
+                    "still_occupied": still_occupied,
+                    "bboxes": bboxes_list
+                }
 
-        cv2.putText(frame, f"Entry : {self.entry_count}", (bx1 + 15, by1 + 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
-        cv2.putText(frame, f"Exit  : {self.exit_count}", (bx1 + 15, by1 + 60), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
-
-        still_occupied = self.max_entry_count - self.max_exit_count
-
-        status_dict = {
-            "entry_count": self.entry_count,
-            "exit_count": self.exit_count,
-            "still_occupied": still_occupied
-        }
-
-        # Optionally show frame (inherited from original code)
-        cv2.imshow("Restroom Person Tracking Detection", frame)
-        cv2.waitKey(1)
-        
-        return frame, has_new_alert, status_dict
+                # Optionally show frame (inherited from original code)
+                # cv2.imshow("Restroom Person Tracking Detection", frame)
+                # cv2.waitKey(1)
+                
+                return frame, has_new_alert, status_dict
+            except Exception as e:
+                self.logger.error(f"Error processing detections in RestroomPersonTracking: {e}")
+                raise FrameProcessingException(f"Detection processing failed: {e}")
+        except (PredictionError, FrameProcessingException) as e:
+            raise RestroomPersonTrackingException(str(e))
+        except Exception as e:
+            self.logger.error(f"Unexpected error in RestroomPersonTracking: {e}")
+            raise RestroomPersonTrackingException(f"RestroomPersonTracking failed: {e}")
