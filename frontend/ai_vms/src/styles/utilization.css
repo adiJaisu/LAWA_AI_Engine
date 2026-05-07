@@ -1,0 +1,337 @@
+
+.page-container .form-wrapper {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.page-container .form-content {
+  flex: 1;
+  overflow: hidden;  
+  min-height: 0;
+}
+
+.page-container .form-content .custom-prime-table,
+.page-container .form-content .custom-prime-table .p-datatable {
+  height: 100%;
+}
+
+.view-toggle-group {
+  display: flex;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  padding: 4px;
+  gap: 4px;
+}
+
+.view-toggle-btn {
+  padding: 8px 24px;
+  border: none;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  min-width: 110px;
+}
+
+.view-toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
+.view-toggle-btn.active {
+  background: #ffffff;
+  color: #1e3a5f;
+  font-weight: 700;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .action-buttons {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .view-toggle-group {
+    width: 100%;
+  }
+
+  .view-toggle-btn {
+    flex: 1;
+    min-width: 100px;
+  }
+}
+
+/*workstation*/
+
+.workstation-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.workstation-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 0;
+  table-layout: fixed;
+}
+
+.workstation-table th,
+.workstation-table td {
+  width: 16.66%;
+  padding: 16px 15px;
+  border-bottom: 1px solid #dee2e6;
+  font-size: 0.875rem;
+  color: #2c3e50;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.workstation-table th {
+  background-color: #f8f9fa;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.workstation-table tbody tr {
+  transition: background-color 0.2s;
+}
+
+.workstation-table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .workstation-table-wrapper {
+    display: block;
+    overflow-x: auto;
+  }
+
+  .workstation-table {
+    min-width: 800px;
+  }
+}
+
+/*tellerstation*/
+
+.parent-child-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.parent-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 0;
+  table-layout: fixed;
+}
+
+.parent-table th,
+.parent-table td {
+  width: 12.5%;
+  padding: 16px 15px;
+  border-bottom: 1px solid #dee2e6;
+  font-size: 0.875rem;
+  color: #2c3e50;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.parent-table th {
+  background-color: #f8f9fa;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.parent-row {
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.parent-row:hover {
+  background-color: #f8f9fa;
+}
+
+.expand-icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  line-height: 20px;
+  margin-right: 8px;
+  background-color: #e9ecef;
+  border-radius: 4px;
+  transition: transform 0.3s;
+}
+
+.expanded .expand-icon {
+  transform: rotate(90deg);
+}
+
+.child-table-container {
+  background-color: #ffffff;
+  padding: 0;
+  margin: 0;
+  border-left: 4px solid #3b82f6;
+}
+
+
+/* Action button in child table */
+.child-table-container .action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: none;
+  background-color: #eff6ff;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.child-table-container .action-btn:hover {
+  background-color: #dbeafe;
+  transform: scale(1.05);
+}
+
+.child-table-container .action-btn.view {
+  color: #3b82f6;
+}
+
+.child-table-container .action-btn .material-icons {
+  font-size: 18px;
+}
+
+.child-table-container .action-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  pointer-events: none;
+  background-color: #d6d9db;
+}
+
+/* Override PrimeReact expander column */
+.custom-prime-table .p-datatable .p-datatable-tbody > tr > td.p-row-toggler-cell {
+  text-align: center;
+  padding: 12px;
+}
+
+.custom-prime-table .p-datatable .p-row-toggler {
+  color: #64748b;
+  transition: all 0.2s;
+  border-radius: 4px;
+  width: 28px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-prime-table .p-datatable .p-row-toggler:hover {
+  background-color: #f1f5f9;
+  color: #3b82f6;
+}
+
+.custom-prime-table .p-datatable .p-datatable-tbody > tr.p-highlight {
+  background-color: #f8fafc;
+}
+
+/* Improve parent table headers */
+.custom-prime-table .p-datatable .p-datatable-thead > tr > th {
+  background-color: #f8fafc;
+  color: #475569;
+  font-weight: 600;
+  font-size: 0.8rem;
+  padding: 14px 15px;
+  border-bottom: 2px solid #e2e8f0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.custom-prime-table .p-datatable .p-datatable-tbody > tr > td {
+  padding: 14px 15px;
+  color: #334155;
+  font-size: 0.875rem;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.custom-prime-table .p-datatable .p-datatable-tbody > tr:hover {
+  background-color: #f8fafc;
+}
+
+/* Sortable columns */
+.custom-prime-table .p-datatable .p-sortable-column:hover {
+  background-color: #f1f5f9;
+}
+
+.custom-prime-table .p-datatable .p-sortable-column.p-highlight {
+  background-color: #eff6ff;
+  color: #3b82f6;
+}
+
+.custom-prime-table .p-datatable .p-sortable-column .p-sortable-column-icon {
+  color: #94a3b8;
+  margin-left: 0.5rem;
+}
+
+.custom-prime-table .p-datatable .p-sortable-column.p-highlight .p-sortable-column-icon {
+  color: #3b82f6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .parent-table {
+    display: block;
+    overflow-x: auto;
+  }
+}
+
+/* Sorting */
+.util-sortable {
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.2s;
+}
+
+.util-sortable:hover {
+  background-color: #e9ecef !important;
+}
+
+.util-th-content {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.util-sort-icon {
+  font-size: 22px;
+  color: #232324;
+  vertical-align: middle;
+  transition: color 0.2s;
+}
+
+.util-sort-icon.active {
+  color: #4299e1;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  background-color: #dbeafe;
+  color: #1e40af;
+}

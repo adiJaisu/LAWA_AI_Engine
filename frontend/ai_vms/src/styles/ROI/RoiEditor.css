@@ -1,0 +1,25 @@
+.roiWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.buttonText {
+  font-size: 14px;
+}
+
+.roiContainer {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  background: #1a1a1a;
+}
+
+@media (max-width: 768px) {
+  .buttonText {
+    display: none;
+  }
+}

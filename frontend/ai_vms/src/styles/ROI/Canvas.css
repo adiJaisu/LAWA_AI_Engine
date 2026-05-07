@@ -1,0 +1,320 @@
+.roiImageArea {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  background: #1a1a1a;
+}
+
+.loadingOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  z-index: 1000;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin-bottom: 10px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.errorMessage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(231, 76, 60, 0.9);
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  z-index: 1000;
+}
+
+.errorMessage .material-icons {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.retryBtn {
+  margin-top: 10px;
+  padding: 8px 16px;
+  background: white;
+  color: #e74c3c;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.zoomControls {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 10px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 100;
+}
+
+.zoomBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+  text-decoration: none;
+}
+
+.zoomBtn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.zoomBtn .material-icons {
+  color: white;
+  font-size: 20px;
+}
+
+.zoomLevelTxt {
+  color: white;
+  font-size: 14px;
+  min-width: 50px;
+  text-align: center;
+}
+
+.zoomReset {
+  margin-left: 5px;
+}
+
+.transformWrapper {
+  position: absolute;
+}
+
+.roiImage {
+  display: block;
+  user-select: none;
+  pointer-events: none;
+}
+
+.annotationRect {
+  position: absolute;
+  border: 4px solid #3498db;
+  background: rgba(52, 152, 219, 0.1);
+  cursor: pointer;
+  transition: all 0.2s;
+  z-index: 20;
+}
+
+.annotationRect.selected {
+  border-color: #e74c3c;
+  background: rgba(231, 76, 60, 0.15);
+  box-shadow: 0 0 10px rgba(231, 76, 60, 0.5);
+}
+
+.annotationRect.locked {
+  border-color: #95a5a6;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.annotationLabel {
+  position: absolute;
+  top: -25px;
+  left: 0;
+  background: rgba(52, 152, 219, 0.9);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+  z-index: 21;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.annotationLabel .material-icons {
+  font-size: 14px;
+}
+
+.annotationRect.selected .annotationLabel {
+  background: rgba(231, 76, 60, 0.9);
+}
+
+.polygonLabel {
+  position: absolute;
+  pointer-events: none;
+}
+
+.annotationsSvgLayer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.annotationsSvgLayer > g {
+  pointer-events: auto;
+}
+
+.annotationPolygon {
+  fill: rgba(52, 152, 219, 0.1);
+  stroke: #3498db;
+  stroke-width: 4;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.annotationPolygon.selected {
+  fill: rgba(231, 76, 60, 0.15);
+  stroke: #e74c3c;
+  filter: drop-shadow(0 0 10px rgba(231, 76, 60, 0.5));
+}
+
+.annotationPolygon.locked {
+  stroke: #95a5a6;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.speedingLine {
+  pointer-events: none;
+}
+
+.currentLine {
+  pointer-events: none;
+}
+
+.currentPolygonOutline,
+.currentPolygonRubberband {
+  pointer-events: none;
+}
+
+.polygonPoint {
+  pointer-events: none;
+}
+
+.drawingRect {
+  position: absolute;
+  border: 4px dashed #3498db;
+  background: rgba(52, 152, 219, 0.1);
+  pointer-events: none;
+}
+
+.editHandle {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: #3498db;
+  border: 2px solid white;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 30;
+  transform: translate(-50%, -50%);
+}
+
+.editHandle:hover {
+  background: #e74c3c;
+  width: 14px;
+  height: 14px;
+}
+
+.editHandle.topLeft {
+  cursor: nwse-resize;
+}
+
+.editHandle.top {
+  cursor: ns-resize;
+}
+
+.editHandle.topRight {
+  cursor: nesw-resize;
+}
+
+.editHandle.left {
+  cursor: ew-resize;
+}
+
+.editHandle.all {
+  cursor: move;
+  width: 16px;
+  height: 16px;
+}
+
+.editHandle.right {
+  cursor: ew-resize;
+}
+
+.editHandle.bottomLeft {
+  cursor: nesw-resize;
+}
+
+.editHandle.bottom {
+  cursor: ns-resize;
+}
+
+.editHandle.bottomRight {
+  cursor: nwse-resize;
+}
+
+.editSvgLayer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.editSvgLayer > * {
+  pointer-events: auto;
+}
+
+.polygonMoveHandle {
+  fill: #3498db;
+  stroke: white;
+  stroke-width: 2;
+  cursor: move;
+}
+
+.polygonMoveHandle:hover {
+  fill: #e74c3c;
+}
+
+.editVertex {
+  fill: #3498db;
+  stroke: white;
+  stroke-width: 2;
+  cursor: pointer;
+}
+
+.editVertex:hover {
+  fill: #e74c3c;
+  r: 8;
+}

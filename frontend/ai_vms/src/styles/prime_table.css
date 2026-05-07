@@ -1,0 +1,138 @@
+.custom-prime-table {
+  height: calc(100vh - 320px);
+  overflow: hidden;
+}
+
+.custom-prime-table .p-datatable {
+  border: 2px solid #e2e8f0;
+  border-radius: 0px;
+  font-size: 13px;
+  height: 100%;
+}
+
+.custom-prime-table .p-datatable-thead>tr>th {
+  background: #f8fafc;
+  color: #6b7280;
+  font-weight: 600;
+  padding: 16px 12px;
+  border-right: 1px solid rgb(223 227 231);
+  text-align: center;
+  white-space: nowrap;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+/* Body cells */
+.custom-prime-table .p-datatable-tbody>tr>td {
+  padding: 12px;
+  border-bottom: 1px solid rgb(223 227 231);
+  border-right: 1px solid rgb(223 227 231);
+  text-align: left;
+  transition: background 0.2s ease;
+}
+
+/* Row hover */
+.custom-prime-table .p-datatable-tbody>tr:hover {
+  background: #f1f5f9;
+}
+
+/* Zebra / gradient row like your row-1 */
+.custom-prime-table .p-datatable-tbody>tr:nth-child(odd) {
+  background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+}
+
+/* Remove last border */
+.custom-prime-table .p-datatable-thead>tr>th:last-child,
+.custom-prime-table .p-datatable-tbody>tr>td:last-child {
+  border-right: none;
+}
+
+/* ============================================
+   Pagination — mirrors original grid-pagination
+   ============================================ */
+
+/* Outer wrapper: column layout like .pagination-container */
+.custom-prime-table .p-paginator {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  background: white;
+  border-top: 1px solid #e2e8f0;
+  padding: 15px 0;
+}
+
+/* Page-links row — mirrors .grid-pagination */
+.custom-prime-table .p-paginator-pages {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Every clickable element — mirrors .page-link */
+.custom-prime-table .p-paginator .p-paginator-page,
+.custom-prime-table .p-paginator .p-paginator-next,
+.custom-prime-table .p-paginator .p-paginator-last,
+.custom-prime-table .p-paginator .p-paginator-first,
+.custom-prime-table .p-paginator .p-paginator-prev {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: 40px !important;
+  height: 40px !important;
+  padding: 0 8px !important;
+  border-radius: 4px !important;
+  border: 1px solid #ddd !important;
+  background-color: #fff !important;
+  color: var(--primary) !important;
+  font-weight: 500 !important;
+  text-decoration: none !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  user-select: none !important;
+  overflow: hidden !important;
+  position: relative !important;
+  margin: 2px !important;
+}
+
+/* Hover — mirrors .page-link:hover */
+.custom-prime-table .p-paginator .p-paginator-page:hover:not(.p-disabled),
+.custom-prime-table .p-paginator .p-link:hover:not(.p-disabled) {
+  background-color: #f0f0f0 !important;
+  border-color: #ccc !important;
+}
+
+/* Active — mirrors .page-link.active */
+.custom-prime-table .p-paginator .p-paginator-page.p-highlight {
+  background-color: var(--primary) !important;
+  color: white !important;
+  border-color: var(--primary) !important;
+  box-shadow: 0 2px 4px rgba(10, 73, 142, 0.3) !important;
+}
+
+/* Disabled — mirrors .page-link:disabled and .page-link.disabled */
+.custom-prime-table .p-paginator .p-disabled,
+.custom-prime-table .p-paginator .p-link.p-disabled {
+  opacity: 0.4 !important;
+  cursor: not-allowed !important;
+  background-color: #f9f9f9 !important;
+  border-color: #ddd !important;
+}
+
+/* rows-per-page dropdown */
+.custom-prime-table .p-paginator .p-dropdown {
+  height: 40px !important;
+  border-radius: 4px !important;
+  border: 1px solid #ddd !important;
+  display: flex;
+  align-items: center;
+}
+
+/* "Showing X of Y" info text — mirrors .pagination-info */
+.custom-prime-table .p-paginator .p-paginator-current {
+  color: #666 !important;
+  font-size: 14px !important;
+  text-align: center !important;
+}

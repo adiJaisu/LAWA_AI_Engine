@@ -19,23 +19,102 @@ services:
       - lawa_network
 
   postgres:
-    image: postgres:15-alpine
-    container_name: lawa_postgres
+    image: postgres:${PG_IMAGE_VERSION}
+    container_name: postgres_ai_vms
+    restart: always
+    env_file:
+      - ./.env
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: 12345
-      POSTGRES_DB: ai_vms
+      POSTGRES_ROOT_PASSWORD: ${PG_ROOT_PASSWORD}
+      POSTGRES_USER: ${PG_USER}
+      POSTGRES_PASSWORD: ${PG_PASSWORD}
+      POSTGRES_DB: ${PG_DATABASE}
     ports:
       - "5432:5432"
     volumes:
-      - pgdata:/var/lib/postgresql/data
-      # Automatically initialize database schema if it's the first run
-      - ./Database/schema.sql:/docker-entrypoint-initdb.d/schema.sql
+      - postgres_data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U postgres -d ai_vms"]
-      interval: 5s
+      test: ["CMD-SHELL", "pg_isready -U ${PG_USER} -d ${PG_DATABASE}"]
+      interval: 10s
       timeout: 5s
       retries: 5
+      start_period: 10s
+    networks:
+      - lawa_network
+
+  db-init:
+    image: postgres:${PG_IMAGE_VERSION}
+    container_name: ai_vms_db_init
+    depends_on:
+      postgres:
+        condition: service_healthy
+    env_file:
+      - ./.env
+    environment:
+      PGPASSWORD: ${PG_PASSWORD}
+    volumes:
+      - ./postgres-init/create_db_tables.sql:/create_db_tables.sql:ro
+      - ./postgres-init/insert_default_data.sql:/insert_default_data.sql:ro
+    command: >
+      sh -c "
+      psql -h postgres -U ${PG_USER} -d ${PG_DATABASE} -f /create_db_tables.sql &&
+      psql -h postgres -U ${PG_USER} -d ${PG_DATABASE} -f /insert_default_data.sql
+      "
+    networks:
+      - lawa_network
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    env_file:
+      - ./.env
+    container_name: ai_vms_api
+    working_dir: /app
+    volumes:
+      - ./backend/ai_vms:/app/ai_vms
+    ports:
+      - "${BACKEND_PORT}:8010"
+    depends_on:
+      db-init:
+        condition: service_completed_successfully
+    environment:
+      # --- Postgres SQLAlchemy URLs ---
+      DB_URL_SYNC: postgresql+psycopg2://${PG_USER}:${PG_PASSWORD}@postgres:5432/${PG_DATABASE}
+      DB_URL_ASYNC: postgresql+asyncpg://${PG_USER}:${PG_PASSWORD}@postgres:5432/${PG_DATABASE}
+      TEST_DB_URL_ASYNC: postgresql+asyncpg://${PG_USER}:${PG_PASSWORD}@postgres:5432/${PG_DATABASE}_test
+    networks:
+      - lawa_network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    env_file:
+      - ./.env
+    container_name: ai_vms_frontend
+    working_dir: /frontend/ai_vms
+    volumes:
+      - ./frontend/ai_vms:/frontend/ai_vms
+      - /frontend/ai_vms/node_modules
+    ports:
+      - "${FRONTEND_PORT}:5173"
+    command: sh -c "npm install && npm run dev"
+    depends_on:
+      - backend
+    networks:
+      - lawa_network
+
+  websocket-hub:
+    build:
+      context: ./WebSocketService
+      dockerfile: Dockerfile
+    container_name: lawa_websocket_hub
+    environment:
+      - WEBSOCKET_PORT=9004
+      - WEBSOCKET_HOST=0.0.0.0
+    ports:
+      - "9004:9004"
     networks:
       - lawa_network
 
@@ -49,6 +128,12 @@ services:
         condition: service_healthy
       postgres:
         condition: service_healthy
+      db-init:
+        condition: service_completed_successfully
+      websocket-hub:
+        condition: service_started
+    env_file:
+      - ./.env
     environment:
       - RABBITMQ_HOST=rabbitmq
       - RABBITMQ_PORT=5672
@@ -58,16 +143,13 @@ services:
       - EXCHANGE_TYPE=direct
       - DB_HOST=postgres
       - DB_PORT=5432
-      - DB_NAME=ai_vms
-      - DB_USER=postgres
-      - DB_PASSWORD=12345
-      - WEBSOCKET_HOST=0.0.0.0
+      - DB_NAME=${PG_DATABASE}
+      - DB_USER=${PG_USER}
+      - DB_PASSWORD=${PG_PASSWORD}
+      - WEBSOCKET_HOST=websocket-hub
       - WEBSOCKET_PORT=9004
       - EVIDENCE_VIDEO_FPS=1
-    ports:
-      - "9004:9004" # WebSocket Port
     volumes:
-      # - event_evidence:/app/evidence_storage
       - ./EventManager/evidence_storage:/app/evidence_storage
       - ./logs/event-manager:/app/logs
       - ./EventManager/src:/app/src
@@ -416,7 +498,7 @@ services:
 
 
 volumes:
-  pgdata:
+  postgres_data:
   event_evidence:
 
 networks:

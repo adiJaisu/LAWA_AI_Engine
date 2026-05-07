@@ -46,8 +46,8 @@ class EventManagerNode:
                 Constants.BIRD_EYE_VIEW_EVENT_QUEUE
             ]
             
-            # Start WebSocket Server in the background
-            WebSocketEventNotifier.start_websocket_server()
+            # Initialize WebSocket Client in the background
+            WebSocketEventNotifier.initialize_websocket_client()
             logger.info("EventManagerNode initialized successfully.")
         except Exception as e:
             logger.critical(f"Failed to initialize EventManagerNode: {e}", exc_info=True)

@@ -1,0 +1,14 @@
+SQLAlchemy
+pytest
+uvicorn
+python-dotenv
+fastapi
+pydantic-settings
+email-validator
+passlib
+mysql-connector-python
+PyJWT
+opencv-python
+aiohttp
+httpx
+psycopg2-binary

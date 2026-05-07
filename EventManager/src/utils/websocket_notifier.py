@@ -1,6 +1,7 @@
 import json
 import threading
-from websocket_server import WebsocketServer
+import time
+import websocket
 from src.utils.logger import LoggingConfig
 from src.utils.ConfigReader import cfg
 from src.constant.constants import Constants
@@ -10,66 +11,63 @@ logger = LoggingConfig.setup_logging()
 
 class WebSocketEventNotifier:
     """
-    Class to handle real-time event notifications via WebSockets.
+    Class to handle real-time event notifications via WebSockets as a client.
+    Connects to a centralized WebSocket hub for broadcasting.
     """
-    server = None
-    clients = []
+    ws = None
+    hub_url = None
 
     @staticmethod
     def broadcast_event(payload):
         """
-        Sends structured event data to all connected WebSocket clients.
+        Sends structured event data to the centralized WebSocket hub.
         """
-        if not WebSocketEventNotifier.server:
-            logger.debug("[WebSocket] Server not initialized. Cannot broadcast.")
-            raise WebSocketError("WebSocket Server not initialized. Cannot broadcast.")
+        if not WebSocketEventNotifier.ws or not WebSocketEventNotifier.ws.sock or not WebSocketEventNotifier.ws.sock.connected:
+            logger.warning("[WebSocket] Hub not connected. Broadcasting skipped.")
+            return False
 
-        message = json.dumps(payload)
-        logger.info(f"[WebSocket] Broadcasting event to {len(WebSocketEventNotifier.clients)} clients: {message[:100]}...")
-
-        for client in WebSocketEventNotifier.clients:
-            try:
-                WebSocketEventNotifier.server.send_message(client, message)
-            except Exception as e:
-                logger.error(f"[WebSocket] Error sending message to client {client['id']}: {e}", exc_info=True)
-                # Intentionally not raising here to allow broadcasting to remaining clients
-
-        return True
+        try:
+            message = json.dumps(payload)
+            logger.info(f"[WebSocket] Sending event to Hub: {message[:200]}...")
+            WebSocketEventNotifier.ws.send(message)
+            logger.info("[WebSocket] Message successfully delivered to Hub.")
+            return True
+        except Exception as e:
+            logger.error(f"[WebSocket] Failed to send message to Hub: {e}", exc_info=True)
+            return False
 
     @staticmethod
-    def start_websocket_server():
+    def initialize_websocket_client():
         """
-        Starts the WebSocket server in a background thread.
+        Starts the WebSocket client in a background thread with auto-reconnection.
         """
-        def run_server():
-            def new_client(client, server):
-                logger.info(f"[WebSocket] New client connected: {client['id']}")
-                WebSocketEventNotifier.clients.append(client)
-
-            def client_left(client, server):
-                logger.info(f"[WebSocket] Client disconnected: {client['id']}")
-                if client in WebSocketEventNotifier.clients:
-                    WebSocketEventNotifier.clients.remove(client)
-
-            def message_received(client, server, message):
-                logger.info(f"[WebSocket] Received message from client {client['id']}: {message}")
-
-            try:
-                host = cfg.get_env_config(Constants.WEBSOCKET_HOST)
-                port = int(cfg.get_env_config(Constants.WEBSOCKET_PORT))
+        def run_client():
+            while True:
+                try:
+                    host = cfg.get_env_config(Constants.WEBSOCKET_HOST)
+                    port = cfg.get_env_config(Constants.WEBSOCKET_PORT)
+                    
+                    WebSocketEventNotifier.hub_url = f"ws://{host}:{port}"
+                    logger.info(f"[WebSocket] Attempting to connect to Hub at {WebSocketEventNotifier.hub_url}...")
+                    
+                    ws = websocket.WebSocketApp(
+                        WebSocketEventNotifier.hub_url,
+                        on_open=lambda ws: logger.info("[WebSocket] Successfully connected to Hub."),
+                        on_message=lambda ws, msg: logger.debug(f"[WebSocket] Message received from Hub: {msg}"),
+                        on_error=lambda ws, err: logger.error(f"[WebSocket] Hub Connection Error: {err}"),
+                        on_close=lambda ws, status, msg: logger.info(f"[WebSocket] Hub Connection Closed: {status} - {msg}")
+                    )
+                    
+                    WebSocketEventNotifier.ws = ws
+                    ws.run_forever(ping_interval=30, ping_timeout=10)
+                    
+                except Exception as e:
+                    logger.error(f"[WebSocket] Client execution failure: {e}", exc_info=True)
                 
-                server = WebsocketServer(port=port, host=host)
-                server.set_fn_new_client(new_client)
-                server.set_fn_client_left(client_left)
-                server.set_fn_message_received(message_received)
+                # Wait before attempting to reconnect
+                logger.info("[WebSocket] Retrying connection in 5 seconds...")
+                time.sleep(5)
 
-                WebSocketEventNotifier.server = server
-                logger.info(f"[WebSocket] Server successfully started on ws://{host}:{port}")
-                server.run_forever()
-            except Exception as e:
-                logger.critical(f"[WebSocket] Failed to start WebSocket server: {e}", exc_info=True)
-                raise WebSocketError(f"Failed to start WebSocket server: {e}")
-
-        server_thread = threading.Thread(target=run_server, daemon=True)
-        server_thread.start()
-        return server_thread
+        client_thread = threading.Thread(target=run_client, daemon=True)
+        client_thread.start()
+        return client_thread
