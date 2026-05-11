@@ -13,6 +13,9 @@ from src.utils.Streamhandler_validation.Streamhandler_validation import Validato
 from src.utils.Logger import LoggingConfig, log_time
 from src.utils.ResultProcessing import process_detection_results
 from src.utils.ResultProcessing import send_msg_to_event_manager
+from src.detectors.AiInferenceClient import AiInferenceClient
+
+ai_client = AiInferenceClient()
 
 threading_pool_executer = ThreadPoolExecutor(Constants.TEN)
 VisionPipeline.queue_name = os.environ.get(Constants.QUEUE_NAME)
@@ -28,9 +31,10 @@ cleaner = ResourcesCleaner()
 def dispatch_vision_task(detector: Any, secondary_model: Any, validated_msg_with_frames_and_metadatas: List[Dict]) -> None:
     """Dispatches and executes the appropriate vision detection task for a given use case."""
     
-    usecase_name = validated_msg_with_frames_and_metadatas[Constants.ZERO][Constants.FRAME_METADATA][Constants.USECASE_NAME]
-    logger.info(f"[TASK] Starting vision task for usecase: {usecase_name}")
     try:
+        usecase_name = validated_msg_with_frames_and_metadatas[Constants.ZERO][Constants.FRAME_METADATA][Constants.USECASE_NAME]
+        logger.info(f"[TASK] Starting vision task for usecase: {usecase_name}")
+        
         if usecase_name == Constants.LOITERING_DETECTION_USECASE:
             from src.executers.LoiteringDetector_executer import execute_loitering_detection
             # In loitering detection we just use the primary detector for tracking
@@ -97,18 +101,21 @@ async def process_vision_stream() -> None:
 
             validated_msg_with_frames_and_metadatas = Utility.preprocess_messages(messages=messages, validator=validator)
 
-            if validated_msg_with_frames_and_metadatas is not None:
-                # Assign task to the GPU manager
-                task_assigned = VisionPipeline.gpu_manager.assign_task(dispatch_vision_task, validated_msg_with_frames_and_metadatas)
-                logger.info(f"Task assigned: {task_assigned}")
-                
-                if not task_assigned and not VisionPipeline.shutdown_event.is_set():
-                    logger.debug(f"[VISION STREAM] Failed to assign task. Retrying...")
-                    VisionPipeline.gpu_manager.retry_assign_task(dispatch_vision_task, validated_msg_with_frames_and_metadatas)
+            # Filter out None values that might have resulted from decoding failures
+            if validated_msg_with_frames_and_metadatas:
+                validated_msg_with_frames_and_metadatas = [msg for msg in validated_msg_with_frames_and_metadatas if msg is not None]
+
+            if validated_msg_with_frames_and_metadatas:
+                # Dispatch the task immediately using the standard thread pool
+                future = threading_pool_executer.submit(dispatch_vision_task, ai_client, None, validated_msg_with_frames_and_metadatas)
+                def handle_exception(f):
+                    try:
+                        f.result()
+                    except Exception as e:
+                        logger.error(f"[THREAD ERROR] Vision task crashed: {e}", exc_info=True)
+                future.add_done_callback(handle_exception)
             else:
                 logger.debug(f"No valid Message found in this batch")
-            
-            VisionPipeline.gpu_manager.log_worker_status()
             if VisionPipeline.shutdown_event.is_set():
                 logger.info("[VISION STREAM] Shutdown signal received. Exiting main loop.")
                 break   

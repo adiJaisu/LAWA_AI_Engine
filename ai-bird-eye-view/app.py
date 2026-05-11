@@ -55,7 +55,7 @@ async def execute_VisionAiPipeline() -> None:
     """
     try:
         logger.info("Launching Vision AI Bird Eye View detection pipeline...")
-        initialize_detectors()
+        # initialize_detectors() # Moved to ai-inference-service
         VisionPipeline.rabbitmq_service = initialize_rabbitmq_connection()
         await process_vision_stream()
         logger.info("Vision AI pipeline execution completed successfully.")
