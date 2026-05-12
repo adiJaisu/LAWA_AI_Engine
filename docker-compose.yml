@@ -189,6 +189,40 @@ services:
     networks:
       - lawa_network
 
+  ai-inference-classification:
+      build:
+        context: ./ai-inference-classification
+        dockerfile: Dockerfile
+      container_name: lawa_ai_inference_classification
+      ipc: shareable
+      depends_on:
+        rabbitmq:
+          condition: service_healthy
+      deploy:
+        resources:
+          reservations:
+            devices:
+              - driver: nvidia
+                count: 1
+                capabilities: [gpu]
+      environment:
+        - RABBITMQ_HOST=rabbitmq
+        - RABBITMQ_PORT=5672
+        - RABBITMQ_USERNAME=guest
+        - RABBITMQ_PASSWORD=guest
+        - EXCHANGE_NAME=LAWA_exchange
+        - EXCHANGE_TYPE=direct
+        - NUMBERS_OF_WORKER=2
+        - DEVICE=cuda
+        - NVIDIA_VISIBLE_DEVICES=all
+        - NVIDIA_DRIVER_CAPABILITIES=compute,utility
+      volumes:
+        - ./logs/ai-inference-classification:/app/logs
+        - ./Ai_services/Ai_engine/src:/app/src
+      networks:
+        - lawa_network
+
+
   ai-crowd-density:
     build:
       context: ./ai-crowd-density
