@@ -21,6 +21,7 @@ VisionPipeline.queue_name = os.environ.get(Constants.QUEUE_NAME, Constants.IN_OU
 num_consumer = int(os.environ.get(Constants.NUM_CONSUMER_THREADS, "4"))
 rabbitmq_consumer = RabbitMQConsumerManager(VisionPipeline.queue_name, num_consumer)
 
+# extra 
 def initialize_detectors() -> None:
     """
     Initializes the tailgate detection model and GPU manager.
