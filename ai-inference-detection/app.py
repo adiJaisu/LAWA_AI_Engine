@@ -18,15 +18,15 @@ logger = logging_config.setup_logging()
 VisionPipeline.shutdown_event = threading.Event()
 VisionPipeline.shutdown_lock = threading.Lock()
 
-def initialize_detectors() -> None:
+def initialize_detection_models() -> None:
     """
     Initializes the centralized AI inference models and GPU manager.
     """
     try:
         logger.info("Initializing centralized model server and GPU manager...")
         model_path: str = os.environ.get(
-            Constants.AI_INFERENCE_MODEL_PATH,
-            cfg.get_value_config(Constants.DEFAULT_ENVIRONMENT, Constants.AI_INFERENCE_MODEL_PATH)
+            Constants.AI_INFERENCE_DETECTION_MODEL_PATH,
+            cfg.get_value_config(Constants.DEFAULT_ENVIRONMENT, Constants.AI_INFERENCE_DETECTION_MODEL_PATH)
         )
         number_of_worker: int = int(os.environ.get(
             Constants.NUMBERS_OF_WORKER,
@@ -149,27 +149,27 @@ def execute_AiInferenceService() -> None:
     """
     try:
         logger.info("Launching AI Inference Service...")
-        initialize_detectors()
+        initialize_detection_models()
         
         host = os.environ.get(Constants.RABBITMQ_HOST, cfg.get_value_config(Constants.DEFAULT_ENVIRONMENT, Constants.RABBITMQ_HOST))
         port = int(os.environ.get(Constants.RABBITMQ_PORT, cfg.get_value_config(Constants.DEFAULT_ENVIRONMENT, Constants.RABBITMQ_PORT)))
         username = os.environ.get(Constants.RABBITMQ_USERNAME, cfg.get_value_config(Constants.DEFAULT_ENVIRONMENT, Constants.RABBITMQ_USERNAME))
         password = os.environ.get(Constants.RABBITMQ_PASSWORD, cfg.get_value_config(Constants.DEFAULT_ENVIRONMENT, Constants.RABBITMQ_PASSWORD))
-        ai_inference_queue = str(os.environ.get(
-            Constants.AI_INFERENCE_QUEUE,
-            cfg.get_value_config(Constants.DEFAULT_ENVIRONMENT, Constants.AI_INFERENCE_QUEUE)))
+        ai_inference_detection_queue = str(os.environ.get(
+            Constants.AI_INFERENCE_DETECTION_QUEUE,
+            cfg.get_value_config(Constants.DEFAULT_ENVIRONMENT, Constants.AI_INFERENCE_DETECTION_QUEUE)))
         credentials = pika.PlainCredentials(username, password)
         parameters = pika.ConnectionParameters(host=host, port=port, credentials=credentials, heartbeat=600)
         
         connection = pika.BlockingConnection(parameters)
         channel = connection.channel()
         
-        channel.queue_declare(queue=ai_inference_queue)
+        channel.queue_declare(queue=ai_inference_detection_queue)
         # Fair dispatch: give one message to a worker at a time
         channel.basic_qos(prefetch_count=1)
         
         # Note: auto_ack is False because we ack AFTER the GPU finishes
-        channel.basic_consume(queue=ai_inference_queue, on_message_callback=on_request)
+        channel.basic_consume(queue=ai_inference_detection_queue, on_message_callback=on_request)
         
         logger.info("Awaiting RPC requests...")
         channel.start_consuming()

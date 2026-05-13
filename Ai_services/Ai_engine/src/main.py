@@ -13,11 +13,12 @@ from src.utils.Streamhandler_validation.Streamhandler_validation import Validato
 from src.utils.Logger import LoggingConfig, log_time
 from src.utils.ResultProcessing import process_detection_results
 from src.utils.ResultProcessing import send_msg_to_event_manager
-from src.detectors.AiInferenceClient import AiInferenceClient
+from src.detectors.AiInferenceClient import AiInferenceDetectionClient, AiInferenceClassificationClient
 
-ai_client = AiInferenceClient()
+ai_detection_client = AiInferenceDetectionClient()
+ai_classification_client = AiInferenceClassificationClient()
 
-threading_pool_executer = ThreadPoolExecutor(Constants.TEN)
+threading_pool_executer = ThreadPoolExecutor(Constants.TWENTY)
 VisionPipeline.queue_name = os.environ.get(Constants.QUEUE_NAME)
 VisionPipeline.shutdown_event = threading.Event()
 VisionPipeline.shutdown_lock = threading.Lock()
@@ -51,6 +52,7 @@ def dispatch_vision_task(detector: Any, secondary_model: Any, validated_msg_with
         elif usecase_name == Constants.CROWD_DENSITY_USECASE:
             from src.executers.CrowdDensity_executer import execute_crowd_density
             results = execute_crowd_density(validated_msg_with_frames_and_metadatas, detector=detector)
+            # results = execute_crowd_density(validated_msg_with_frames_and_metadatas, detector=secondary_model)
         elif usecase_name == Constants.PERSON_ENTERED_INSIDE_TRAIN_USECASE:
             from src.executers.PersonEnteredInsideTrain_executer import execute_person_entered_inside_train
             results = execute_person_entered_inside_train(validated_msg_with_frames_and_metadatas, detector=detector)
@@ -107,7 +109,7 @@ async def process_vision_stream() -> None:
 
             if validated_msg_with_frames_and_metadatas:
                 # Dispatch the task immediately using the standard thread pool
-                future = threading_pool_executer.submit(dispatch_vision_task, ai_client, None, validated_msg_with_frames_and_metadatas)
+                future = threading_pool_executer.submit(dispatch_vision_task, ai_detection_client, ai_classification_client, validated_msg_with_frames_and_metadatas)
                 def handle_exception(f):
                     try:
                         f.result()

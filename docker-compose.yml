@@ -156,11 +156,11 @@ services:
     networks:
       - lawa_network
 
-  ai-inference-service:
+  ai-inference-detection:
     build:
-      context: ./ai-inference-service
+      context: ./ai-inference-detection
       dockerfile: Dockerfile
-    container_name: lawa_ai_inference_service
+    container_name: lawa_ai_inference_detection
     ipc: shareable
     depends_on:
       rabbitmq:
@@ -184,7 +184,7 @@ services:
       - NVIDIA_VISIBLE_DEVICES=all
       - NVIDIA_DRIVER_CAPABILITIES=compute,utility
     volumes:
-      - ./logs/ai-inference-service:/app/logs
+      - ./logs/ai-inference-detection:/app/logs
       - ./Ai_services/Ai_engine/src:/app/src
     networks:
       - lawa_network
@@ -228,7 +228,8 @@ services:
       context: ./ai-crowd-density
       dockerfile: Dockerfile
     container_name: lawa_ai_crowd_density
-    ipc: service:ai-inference-service
+    # ipc: service:ai-inference-classification
+    ipc: service:ai-inference-detection
     depends_on:
       rabbitmq:
         condition: service_healthy
@@ -253,7 +254,7 @@ services:
   #     context: ./ai-bird-eye-view
   #     dockerfile: Dockerfile
   #   container_name: lawa_ai_bird_eye_view
-  #   ipc: service:ai-inference-service
+  #   ipc: service:ai-inference-detection
   #   depends_on:
   #     rabbitmq:
   #       condition: service_healthy
@@ -277,7 +278,7 @@ services:
   #     context: ./ai-in-out-person-count
   #     dockerfile: Dockerfile
   #   container_name: lawa_ai_in_out_person_count
-  #   ipc: service:ai-inference-service
+  #   ipc: service:ai-inference-detection
   #   depends_on:
   #     rabbitmq:
   #       condition: service_healthy
@@ -301,7 +302,7 @@ services:
   #     context: ./ai-loitering-detection
   #     dockerfile: Dockerfile
   #   container_name: lawa_ai_loitering_detection
-  #   ipc: service:ai-inference-service
+  #   ipc: service:ai-inference-detection
   #   depends_on:
   #     rabbitmq:
   #       condition: service_healthy
@@ -325,7 +326,7 @@ services:
   #     context: ./ai-person-count-inside-compartment
   #     dockerfile: Dockerfile
   #   container_name: lawa_ai_person_count_inside_compartment
-  #   ipc: service:ai-inference-service
+  #   ipc: service:ai-inference-detection
   #   depends_on:
   #     rabbitmq:
   #       condition: service_healthy
@@ -349,7 +350,7 @@ services:
   #     context: ./ai-person-entered-inside-train
   #     dockerfile: Dockerfile
   #   container_name: lawa_ai_person_entered_inside_train
-  #   ipc: service:ai-inference-service
+  #   ipc: service:ai-inference-detection
   #   depends_on:
   #     rabbitmq:
   #       condition: service_healthy
@@ -373,7 +374,7 @@ services:
   #     context: ./ai-queue-management
   #     dockerfile: Dockerfile
   #   container_name: lawa_ai_queue_management
-  #   ipc: service:ai-inference-service
+  #   ipc: service:ai-inference-detection
   #   depends_on:
   #     rabbitmq:
   #       condition: service_healthy
@@ -397,7 +398,7 @@ services:
   #     context: ./ai-restroom-person-tracking
   #     dockerfile: Dockerfile
   #   container_name: lawa_ai_restroom_person_tracking
-  #   ipc: service:ai-inference-service
+  #   ipc: service:ai-inference-detection
   #   depends_on:
   #     rabbitmq:
   #       condition: service_healthy
@@ -421,7 +422,7 @@ services:
   #     context: ./ai-tailgate-detection
   #     dockerfile: Dockerfile
   #   container_name: lawa_ai_tailgate_detection
-  #   ipc: service:ai-inference-service
+  #   ipc: service:ai-inference-detection
   #   depends_on:
   #     rabbitmq:
   #       condition: service_healthy
@@ -445,7 +446,7 @@ services:
   #     context: ./ai-train-arrival-depart-monitor
   #     dockerfile: Dockerfile
   #   container_name: lawa_ai_train_arrival_depart_monitor
-  #   ipc: service:ai-inference-service
+  #   ipc: service:ai-inference-detection
   #   depends_on:
   #     rabbitmq:
   #       condition: service_healthy

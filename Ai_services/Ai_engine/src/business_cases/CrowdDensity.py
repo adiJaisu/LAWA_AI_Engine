@@ -157,6 +157,11 @@ class CrowdDensity:
                     tracker=self.tracker_name,
                     iou=0.35
                 )
+                # results = detector.make_prediction_with_classification(
+                #     frame=frame,
+                #     confidence=self.confidence
+                # )
+                
             except Exception as e:
                 self.logger.error(f"Prediction failed in CrowdDensity: {e}")
                 raise PredictionError(f"Prediction failed: {e}")

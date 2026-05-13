@@ -29,9 +29,9 @@ class RemoteYoloResult:
         self.boxes = RemoteBoxes(xyxy, ids)
 
 
-class AiInferenceClient:
+class AiInferenceDetectionClient:
     """
-    Client to send frames to the centralized AI Inference Service via RabbitMQ RPC and Shared Memory.
+    Client to send frames to the centralized AI Inference Detection Service via RabbitMQ RPC and Shared Memory.
     Designed to mimic the ObjectDetector interface so business logic remains unchanged.
     Uses thread-local connections to safely support ThreadPoolExecutor.
     """
@@ -42,7 +42,7 @@ class AiInferenceClient:
         self.port = int(os.environ.get(Constants.RABBITMQ_PORT, cfg.get_value_config(Constants.DEFAULT_ENVIRONMENT, Constants.RABBITMQ_PORT)))
         self.username = os.environ.get(Constants.RABBITMQ_USERNAME, cfg.get_value_config(Constants.DEFAULT_ENVIRONMENT, Constants.RABBITMQ_USERNAME))
         self.password = os.environ.get(Constants.RABBITMQ_PASSWORD, cfg.get_value_config(Constants.DEFAULT_ENVIRONMENT, Constants.RABBITMQ_PASSWORD))
-        self.ai_inference_queue = str(os.environ.get(Constants.AI_INFERENCE_QUEUE, cfg.get_value_config(Constants.DEFAULT_ENVIRONMENT, Constants.AI_INFERENCE_QUEUE)))
+        self.ai_inference_detection_queue = str(os.environ.get(Constants.AI_INFERENCE_DETECTION_QUEUE, cfg.get_value_config(Constants.DEFAULT_ENVIRONMENT, Constants.AI_INFERENCE_DETECTION_QUEUE)))
         self.shm_dir = "/dev/shm"
 
     def _get_connection(self):
@@ -79,7 +79,7 @@ class AiInferenceClient:
         
         channel.basic_publish(
             exchange='',
-            routing_key=self.ai_inference_queue,
+            routing_key=self.ai_inference_detection_queue,
             properties=pika.BasicProperties(
                 reply_to=self.local.callback_queue,
                 correlation_id=self.local.corr_id,
@@ -94,7 +94,7 @@ class AiInferenceClient:
             # Add a small sleep to prevent 100% CPU usage while waiting
             time.sleep(0.001)
             if time.time() - start_time > timeout:
-                logger.error(f"RPC call timed out after {timeout} seconds for queue {self.ai_inference_queue}")
+                logger.error(f"RPC call timed out after {timeout} seconds for queue {self.ai_inference_detection_queue}")
                 return {"error": "Timeout", "xyxy": [], "ids": None}
             
         response_data = json.loads(self.local.response)
@@ -281,13 +281,14 @@ class AiInferenceClassificationClient:
                 logger.error(f"Inference Server Error: {response['error']}")
                 return []
                 
-            predictions = response.get("predictions", [])
+            top1_idx = response.get("top1_idx")
+            top1_conf = response.get("top1_conf", 0.0)
             
-            if not predictions:
+            if top1_idx is None:
                 return []
             
-            self.logger.info(f"Received classification predictions: {predictions}")    
-            return [{"predictions": predictions}]
+            logger.info(f"Received classification: Class {top1_idx} with confidence {top1_conf}")    
+            return [{"top1_idx": top1_idx, "top1_conf": top1_conf}]
         
             
         except Exception as e:

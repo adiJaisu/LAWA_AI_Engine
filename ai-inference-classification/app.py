@@ -63,10 +63,14 @@ def run_inference_task(model, secondary_model, task_data):
         else:
             raise ValueError(f"Unknown method {method_name}")
 
-        if results is None:
-            raise ValueError("Classification model returned no results")
-
-        response = {"predictions": results}
+        if results and hasattr(results[0], "probs"):
+            # Extract classification probabilities
+            top1_idx = int(results[0].probs.top1)
+            top1_conf = float(results[0].probs.top1conf)
+            # You can also get names mapping if needed, but for now top class is enough
+            response = {"top1_idx": top1_idx, "top1_conf": top1_conf}
+        else:
+            response = {"top1_idx": None, "top1_conf": 0.0}
     except Exception as e:
         logger.error(f"Inference error: {e}")
         response = {"error": str(e)}
