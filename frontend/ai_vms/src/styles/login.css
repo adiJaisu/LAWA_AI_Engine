@@ -1,0 +1,353 @@
+.login-container {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #ffffff;
+    color: #333;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.hero-section {
+    flex: 7;
+    background: linear-gradient(135deg, rgba(10, 73, 142, 0.4) 0%, rgba(10, 73, 142, 0.4) 100%),
+        url('../../src//assets//images//port.jpg');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+.auth-section {
+    flex: 3;
+    background-color: white;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: -5px 0 25px rgba(0, 0, 0, 0.05);
+    position: relative;
+}
+
+.logo {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: auto;
+    z-index: 10;
+}
+
+.logo img {
+    max-width: 350px;
+    height: auto;
+}
+
+.hero-content h1 {
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    line-height: 1.2;
+}
+
+.hero-content p {
+    font-size: 18px;
+    margin-bottom: 40px;
+    max-width: 500px;
+    opacity: 0.9;
+}
+
+.auth-form {
+    width: 100%;
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-form-header {
+    margin-bottom: 25px;
+    text-align: left;
+    width: 100%;
+}
+
+.login-form-header h2 {
+    font-size: 38px;
+    font-weight: 600;
+    margin: 5px 0 5px 0;
+    color: #0A498E;
+    letter-spacing: -1.5px;
+    line-height: 1.1;
+}
+
+.login-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #444;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid #E2E8F0;
+    border-radius: 10px;
+    font-size: 15px;
+    background-color: #F8FAFC;
+    transition: all 0.2s ease;
+    color: #2D3748;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #0A498E;
+    background-color: #FFFFFF;
+    box-shadow: 0 0 0 4px rgba(10, 73, 142, 0.1);
+}
+
+.btn-login {
+    width: 100%;
+    padding: 14px;
+    background-color: #FCCB00;
+    color: #0A498E;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-top: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-login:hover {
+    background-color: #e6b800;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn-login:active {
+    transform: translateY(0);
+}
+
+.btn-login:disabled {
+    background-color: #cbd5e0;
+    color: #718096;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+.error-message {
+    width: 100%;
+    padding: 12px;
+    background-color: #fff5f5;
+    color: #e53e3e;
+    border: 1px solid #feb2b2;
+    border-radius: 8px;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.loading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    color: #666;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #0A498E;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 15px;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.login-form-header p {
+    color: #718096;
+    font-size: 16px;
+    margin-top: 8px;
+    font-weight: 400;
+}
+
+.welcome-text {
+    margin: 0;
+    color: #A0AEC0;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+.btn-microsoft {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 15px;
+    background-color: #0A498E;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+    font-family: inherit;
+    gap: 10px;
+}
+
+.btn-microsoft:hover {
+    background-color: #9CB5D1;
+    color: #0A498E;
+}
+
+
+.btn-microsoft a {
+    text-decoration: none;
+    color: white;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+
+.divider {
+    text-align: center;
+    margin: 25px 0;
+    position: relative;
+    color: #999;
+    font-size: 14px;
+    width: 100%;
+}
+
+.divider::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: #eee;
+    z-index: 1;
+}
+
+.divider span {
+    background-color: white;
+    padding: 0 15px;
+    position: relative;
+    z-index: 2;
+}
+
+.login-form-footer {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+    width: 100%;
+}
+
+.copyright {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+    margin-top: 40px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 1024px) {
+    .login-container {
+        flex-direction: column;
+    }
+
+    .hero-section {
+        flex: none;
+        padding: 40px 30px;
+        min-height: 40vh;
+    }
+
+    .auth-section {
+        flex: none;
+        padding: 40px 30px;
+        min-height: 60vh;
+    }
+
+    .auth-form {
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 32px;
+    }
+
+    .hero-content p {
+        font-size: 16px;
+    }
+
+    .logo img {
+        max-width: 150px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .hero-section,
+    .auth-section {
+        padding: 30px 20px;
+    }
+
+
+    .hero-content h1 {
+        font-size: 28px;
+    }
+
+    .form-header h2 {
+        font-size: 24px;
+    }
+}

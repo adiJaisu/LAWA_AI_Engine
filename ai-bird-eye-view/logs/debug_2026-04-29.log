@@ -1,0 +1,1257 @@
+2026-04-29 02:34:51 | RabbitmqConsumer.py.check_and_restart_threads <-> [DEBUG] Checking consumer threads health...
+2026-04-29 02:34:51 | RabbitmqConsumer.py.check_and_restart_threads <-> [DEBUG] Thread RabbitMQConsumerThreadAI-Bird_Eye_View-0 is alive
+2026-04-29 02:34:51 | RabbitmqConsumer.py.check_and_restart_threads <-> [DEBUG] Thread RabbitMQConsumerThreadAI-Bird_Eye_View-1 is alive
+2026-04-29 02:34:51 | RabbitmqConsumer.py.check_and_restart_threads <-> [DEBUG] Thread RabbitMQConsumerThreadAI-Bird_Eye_View-2 is alive
+2026-04-29 02:34:51 | RabbitmqConsumer.py.check_and_restart_threads <-> [DEBUG] Thread RabbitMQConsumerThreadAI-Bird_Eye_View-3 is alive
+2026-04-29 02:34:53 | GPUdevicemanager.py.__init__                  <-> [DEBUG] Starting GPUWorker 0_0 on GPU/CPU 0
+2026-04-29 02:34:53 | GPUdevicemanager.py.__init__                  <-> [DEBUG] Initialized worker 0 on CPU 0
+2026-04-29 02:34:58 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 2
+2026-04-29 02:34:58 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:34:58 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:34:58 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:34:58 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:34:58 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 1
+2026-04-29 02:34:58 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] Failed to assign task. Retrying...
+2026-04-29 02:34:58 | GPUdevicemanager.py.retry_assign_task         <-> [DEBUG] Retrying task assignment until a worker is available.
+2026-04-29 02:34:59 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:34:59 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:34:59 | GPUdevicemanager.py.retry_assign_task         <-> [DEBUG] Task assigned after 156 attempts.
+2026-04-29 02:34:59 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:34:59 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:34:59 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 9
+2026-04-29 02:34:59 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] Failed to assign task. Retrying...
+2026-04-29 02:34:59 | GPUdevicemanager.py.retry_assign_task         <-> [DEBUG] Retrying task assignment until a worker is available.
+2026-04-29 02:34:59 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:34:59 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:34:59 | GPUdevicemanager.py.retry_assign_task         <-> [DEBUG] Task assigned after 8 attempts.
+2026-04-29 02:34:59 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:34:59 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:34:59 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 8
+2026-04-29 02:34:59 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] Failed to assign task. Retrying...
+2026-04-29 02:34:59 | GPUdevicemanager.py.retry_assign_task         <-> [DEBUG] Retrying task assignment until a worker is available.
+2026-04-29 02:35:00 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:00 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:00 | GPUdevicemanager.py.retry_assign_task         <-> [DEBUG] Task assigned after 7 attempts.
+2026-04-29 02:35:00 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:00 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:00 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 8
+2026-04-29 02:35:00 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] Failed to assign task. Retrying...
+2026-04-29 02:35:00 | GPUdevicemanager.py.retry_assign_task         <-> [DEBUG] Retrying task assignment until a worker is available.
+2026-04-29 02:35:00 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:00 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:00 | GPUdevicemanager.py.retry_assign_task         <-> [DEBUG] Task assigned after 7 attempts.
+2026-04-29 02:35:00 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:00 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:00 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 7
+2026-04-29 02:35:00 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] Failed to assign task. Retrying...
+2026-04-29 02:35:00 | GPUdevicemanager.py.retry_assign_task         <-> [DEBUG] Retrying task assignment until a worker is available.
+2026-04-29 02:35:00 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:00 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:00 | GPUdevicemanager.py.retry_assign_task         <-> [DEBUG] Task assigned after 6 attempts.
+2026-04-29 02:35:00 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:00 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:00 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 7
+2026-04-29 02:35:00 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] Failed to assign task. Retrying...
+2026-04-29 02:35:00 | GPUdevicemanager.py.retry_assign_task         <-> [DEBUG] Retrying task assignment until a worker is available.
+2026-04-29 02:35:00 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:00 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:00 | GPUdevicemanager.py.retry_assign_task         <-> [DEBUG] Task assigned after 7 attempts.
+2026-04-29 02:35:00 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:00 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:00 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 6
+2026-04-29 02:35:00 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] Failed to assign task. Retrying...
+2026-04-29 02:35:00 | GPUdevicemanager.py.retry_assign_task         <-> [DEBUG] Retrying task assignment until a worker is available.
+2026-04-29 02:35:00 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:00 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:00 | GPUdevicemanager.py.retry_assign_task         <-> [DEBUG] Task assigned after 6 attempts.
+2026-04-29 02:35:00 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:00 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:00 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 5
+2026-04-29 02:35:00 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] Failed to assign task. Retrying...
+2026-04-29 02:35:00 | GPUdevicemanager.py.retry_assign_task         <-> [DEBUG] Retrying task assignment until a worker is available.
+2026-04-29 02:35:00 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:00 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:00 | GPUdevicemanager.py.retry_assign_task         <-> [DEBUG] Task assigned after 6 attempts.
+2026-04-29 02:35:00 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:00 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:00 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 5
+2026-04-29 02:35:00 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] Failed to assign task. Retrying...
+2026-04-29 02:35:00 | GPUdevicemanager.py.retry_assign_task         <-> [DEBUG] Retrying task assignment until a worker is available.
+2026-04-29 02:35:00 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:00 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:00 | GPUdevicemanager.py.retry_assign_task         <-> [DEBUG] Task assigned after 7 attempts.
+2026-04-29 02:35:00 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:00 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:00 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 4
+2026-04-29 02:35:00 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] Failed to assign task. Retrying...
+2026-04-29 02:35:00 | GPUdevicemanager.py.retry_assign_task         <-> [DEBUG] Retrying task assignment until a worker is available.
+2026-04-29 02:35:00 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:00 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:00 | GPUdevicemanager.py.retry_assign_task         <-> [DEBUG] Task assigned after 8 attempts.
+2026-04-29 02:35:00 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:00 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:00 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 4
+2026-04-29 02:35:00 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] Failed to assign task. Retrying...
+2026-04-29 02:35:00 | GPUdevicemanager.py.retry_assign_task         <-> [DEBUG] Retrying task assignment until a worker is available.
+2026-04-29 02:35:00 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:00 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:00 | GPUdevicemanager.py.retry_assign_task         <-> [DEBUG] Task assigned after 8 attempts.
+2026-04-29 02:35:00 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:00 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:00 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 3
+2026-04-29 02:35:00 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] Failed to assign task. Retrying...
+2026-04-29 02:35:00 | GPUdevicemanager.py.retry_assign_task         <-> [DEBUG] Retrying task assignment until a worker is available.
+2026-04-29 02:35:00 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:00 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:00 | GPUdevicemanager.py.retry_assign_task         <-> [DEBUG] Task assigned after 7 attempts.
+2026-04-29 02:35:00 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:00 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:00 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 3
+2026-04-29 02:35:00 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] Failed to assign task. Retrying...
+2026-04-29 02:35:00 | GPUdevicemanager.py.retry_assign_task         <-> [DEBUG] Retrying task assignment until a worker is available.
+2026-04-29 02:35:00 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:00 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:00 | GPUdevicemanager.py.retry_assign_task         <-> [DEBUG] Task assigned after 8 attempts.
+2026-04-29 02:35:00 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:00 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:00 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 2
+2026-04-29 02:35:00 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] Failed to assign task. Retrying...
+2026-04-29 02:35:00 | GPUdevicemanager.py.retry_assign_task         <-> [DEBUG] Retrying task assignment until a worker is available.
+2026-04-29 02:35:01 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:01 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:01 | GPUdevicemanager.py.retry_assign_task         <-> [DEBUG] Task assigned after 8 attempts.
+2026-04-29 02:35:01 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:01 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:01 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 2
+2026-04-29 02:35:01 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] Failed to assign task. Retrying...
+2026-04-29 02:35:01 | GPUdevicemanager.py.retry_assign_task         <-> [DEBUG] Retrying task assignment until a worker is available.
+2026-04-29 02:35:01 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:01 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:01 | GPUdevicemanager.py.retry_assign_task         <-> [DEBUG] Task assigned after 7 attempts.
+2026-04-29 02:35:01 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:01 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:01 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 1
+2026-04-29 02:35:01 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] Failed to assign task. Retrying...
+2026-04-29 02:35:01 | GPUdevicemanager.py.retry_assign_task         <-> [DEBUG] Retrying task assignment until a worker is available.
+2026-04-29 02:35:01 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:01 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:01 | GPUdevicemanager.py.retry_assign_task         <-> [DEBUG] Task assigned after 7 attempts.
+2026-04-29 02:35:01 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:01 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:01 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 1
+2026-04-29 02:35:01 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] Failed to assign task. Retrying...
+2026-04-29 02:35:01 | GPUdevicemanager.py.retry_assign_task         <-> [DEBUG] Retrying task assignment until a worker is available.
+2026-04-29 02:35:01 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:01 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:01 | GPUdevicemanager.py.retry_assign_task         <-> [DEBUG] Task assigned after 7 attempts.
+2026-04-29 02:35:01 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:01 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:01 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:01 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] Failed to assign task. Retrying...
+2026-04-29 02:35:01 | GPUdevicemanager.py.retry_assign_task         <-> [DEBUG] Retrying task assignment until a worker is available.
+2026-04-29 02:35:01 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:01 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:01 | GPUdevicemanager.py.retry_assign_task         <-> [DEBUG] Task assigned after 7 attempts.
+2026-04-29 02:35:01 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:01 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:01 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:01 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] Failed to assign task. Retrying...
+2026-04-29 02:35:01 | GPUdevicemanager.py.retry_assign_task         <-> [DEBUG] Retrying task assignment until a worker is available.
+2026-04-29 02:35:01 | RabbitmqConsumer.py.check_and_restart_threads <-> [DEBUG] Checking consumer threads health...
+2026-04-29 02:35:01 | RabbitmqConsumer.py.check_and_restart_threads <-> [DEBUG] Thread RabbitMQConsumerThreadAI-Bird_Eye_View-0 is alive
+2026-04-29 02:35:01 | RabbitmqConsumer.py.check_and_restart_threads <-> [DEBUG] Thread RabbitMQConsumerThreadAI-Bird_Eye_View-1 is alive
+2026-04-29 02:35:01 | RabbitmqConsumer.py.check_and_restart_threads <-> [DEBUG] Thread RabbitMQConsumerThreadAI-Bird_Eye_View-2 is alive
+2026-04-29 02:35:01 | RabbitmqConsumer.py.check_and_restart_threads <-> [DEBUG] Thread RabbitMQConsumerThreadAI-Bird_Eye_View-3 is alive
+2026-04-29 02:35:01 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:01 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:01 | GPUdevicemanager.py.retry_assign_task         <-> [DEBUG] Task assigned after 7 attempts.
+2026-04-29 02:35:01 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:01 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:01 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:01 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] Failed to assign task. Retrying...
+2026-04-29 02:35:01 | GPUdevicemanager.py.retry_assign_task         <-> [DEBUG] Retrying task assignment until a worker is available.
+2026-04-29 02:35:01 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:01 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:01 | GPUdevicemanager.py.retry_assign_task         <-> [DEBUG] Task assigned after 3 attempts.
+2026-04-29 02:35:01 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:01 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:01 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:01 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:01 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:01 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:01 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:01 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:02 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:02 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:02 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:02 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:02 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:02 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:02 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:02 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:02 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:02 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:02 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:02 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:02 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:02 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:02 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:02 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:02 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:02 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:02 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:02 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:02 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:02 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:02 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:02 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:02 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:02 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:02 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:02 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:02 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:03 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:03 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:03 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:03 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:03 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:03 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:03 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:03 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:03 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:03 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:03 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:03 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:03 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:03 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:03 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:03 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:03 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:03 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:03 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:03 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:04 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:04 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:04 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:04 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:04 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:04 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:04 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:04 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:04 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:04 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:04 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:04 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:04 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:04 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:04 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:04 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:04 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:04 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:04 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:04 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:04 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:04 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:04 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:04 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:04 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:04 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:05 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:05 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:05 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:05 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:05 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:05 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:05 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:05 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:05 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:05 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:05 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:05 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:05 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:05 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:05 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:05 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:05 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:05 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:05 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:05 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:05 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:05 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:05 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:05 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:05 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:05 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:05 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:05 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:05 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:06 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:06 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:06 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:06 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:06 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:06 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:06 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:06 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:06 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:06 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:06 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:06 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:06 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:06 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:06 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:06 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:06 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:06 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:06 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:06 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:06 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:06 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:06 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:07 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:07 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:07 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:07 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:07 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:07 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:07 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:07 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:07 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:07 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:07 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:07 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:07 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:07 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:07 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:07 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:07 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:07 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:07 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:07 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:07 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:07 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:07 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:08 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:08 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:08 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:08 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:08 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:08 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:08 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:08 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:08 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:08 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:08 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:08 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:08 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:08 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:08 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:08 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:08 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:08 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:08 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:08 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:08 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:08 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:08 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:08 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:09 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:09 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:09 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:09 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:09 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:09 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:09 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:09 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:09 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:09 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:09 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:09 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:09 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:09 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:09 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:09 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:09 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:09 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:09 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:09 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:09 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:09 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:09 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:09 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:09 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:09 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:10 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:10 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:10 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:10 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:10 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:10 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:10 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:10 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:10 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:10 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:10 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:10 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:10 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:10 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:10 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:10 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:10 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:10 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:10 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:10 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:10 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:10 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:10 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:10 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:10 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:10 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:10 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:10 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:10 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:11 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:11 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:11 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:11 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:11 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:11 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:11 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:11 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:11 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:11 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:11 | RabbitmqConsumer.py.check_and_restart_threads <-> [DEBUG] Checking consumer threads health...
+2026-04-29 02:35:11 | RabbitmqConsumer.py.check_and_restart_threads <-> [DEBUG] Thread RabbitMQConsumerThreadAI-Bird_Eye_View-0 is alive
+2026-04-29 02:35:11 | RabbitmqConsumer.py.check_and_restart_threads <-> [DEBUG] Thread RabbitMQConsumerThreadAI-Bird_Eye_View-1 is alive
+2026-04-29 02:35:11 | RabbitmqConsumer.py.check_and_restart_threads <-> [DEBUG] Thread RabbitMQConsumerThreadAI-Bird_Eye_View-2 is alive
+2026-04-29 02:35:11 | RabbitmqConsumer.py.check_and_restart_threads <-> [DEBUG] Thread RabbitMQConsumerThreadAI-Bird_Eye_View-3 is alive
+2026-04-29 02:35:11 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:11 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:11 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:11 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:11 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:11 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:11 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:11 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:11 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:11 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:11 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:12 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:12 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:12 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:12 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:12 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:12 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:12 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:12 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:12 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:12 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:12 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:12 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:12 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:12 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:12 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:12 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:12 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:12 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:12 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:12 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:12 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:12 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:12 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:12 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:12 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:13 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:13 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:13 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:13 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:13 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:13 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:13 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:13 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:13 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:13 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:13 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:13 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:13 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:13 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:13 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:13 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:13 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:13 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:13 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:13 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:13 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:13 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:13 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:13 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:13 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:14 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:14 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:14 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:14 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:14 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:14 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:14 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:14 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:14 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:14 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:14 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:14 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:14 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:14 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:14 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:14 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:14 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:14 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:14 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:14 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:14 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:14 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:14 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:14 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:14 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:15 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:15 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:15 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:15 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:15 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:15 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:15 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:15 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:15 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:15 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:15 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:15 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:15 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:15 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:15 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:15 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:15 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:15 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:15 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:15 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:15 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:15 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:15 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:15 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:15 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:16 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:16 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:16 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:16 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:16 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:16 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:16 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:16 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:16 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:16 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:16 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:16 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:16 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:16 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:16 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:16 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:16 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:16 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:16 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:16 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:16 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:16 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:16 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:16 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:16 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:17 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:17 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:17 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:17 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:17 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:17 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:17 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:17 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:17 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:17 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:17 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:17 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:17 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:17 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:17 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:17 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:17 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:17 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:17 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:17 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:17 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:17 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:17 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:17 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:17 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:18 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:18 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:18 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:18 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:18 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:18 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:18 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:18 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:18 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:18 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:18 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:18 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:18 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:18 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:18 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:18 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:18 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:18 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:18 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:18 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:18 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:18 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:18 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:18 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:18 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:19 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:19 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:19 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:19 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:19 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:19 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:19 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:19 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:19 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:19 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:19 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:19 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:19 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:19 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:19 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:19 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:19 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:19 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:19 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:19 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:19 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:19 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:19 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:19 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:19 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:20 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:20 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:20 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:20 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:20 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:20 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:20 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:20 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:20 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:20 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:20 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:20 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:20 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:20 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:20 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:20 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:20 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:20 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:20 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:20 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:20 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:20 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:20 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:20 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:20 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:21 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:21 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:21 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:21 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:21 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:21 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:21 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:21 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:21 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:21 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:21 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:21 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:21 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:21 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:21 | RabbitmqConsumer.py.check_and_restart_threads <-> [DEBUG] Checking consumer threads health...
+2026-04-29 02:35:21 | RabbitmqConsumer.py.check_and_restart_threads <-> [DEBUG] Thread RabbitMQConsumerThreadAI-Bird_Eye_View-0 is alive
+2026-04-29 02:35:21 | RabbitmqConsumer.py.check_and_restart_threads <-> [DEBUG] Thread RabbitMQConsumerThreadAI-Bird_Eye_View-1 is alive
+2026-04-29 02:35:21 | RabbitmqConsumer.py.check_and_restart_threads <-> [DEBUG] Thread RabbitMQConsumerThreadAI-Bird_Eye_View-2 is alive
+2026-04-29 02:35:21 | RabbitmqConsumer.py.check_and_restart_threads <-> [DEBUG] Thread RabbitMQConsumerThreadAI-Bird_Eye_View-3 is alive
+2026-04-29 02:35:21 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:21 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:21 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:21 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:21 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:21 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:21 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:21 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:21 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:21 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:21 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:22 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:22 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:22 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:22 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:22 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:22 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:22 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:22 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:22 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:22 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:22 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:22 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:22 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:22 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:22 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:22 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:22 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:22 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:22 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:22 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:22 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:22 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:22 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:22 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:22 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:23 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:23 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:23 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:23 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:23 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:23 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:23 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:23 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:23 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:23 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:23 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:23 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:23 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:23 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:23 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:23 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:23 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:23 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:23 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:23 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:23 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:23 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:23 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:23 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:23 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:24 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:24 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:24 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:24 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:24 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:24 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:24 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:24 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:24 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:24 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:24 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:24 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:24 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:24 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:24 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:24 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:24 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:24 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:24 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:24 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:24 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:24 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:24 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:24 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:24 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:25 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:25 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:25 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:25 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:25 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:25 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:25 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:25 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:25 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:25 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:25 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:25 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:25 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:25 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:25 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:25 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:25 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:25 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:25 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:25 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:25 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:25 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:25 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:25 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:25 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:26 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:26 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:26 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:26 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:26 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:26 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:26 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:26 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:26 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:26 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:26 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:26 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:26 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:26 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:26 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:26 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:26 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:26 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:26 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:26 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:26 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:26 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:26 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:26 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:26 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:27 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:27 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:27 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:27 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:27 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:27 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:27 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:27 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:27 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:27 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:27 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:27 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:27 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:27 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:27 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:27 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:27 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:27 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:27 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:27 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:27 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:27 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:27 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:27 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:27 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:28 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:28 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:28 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:28 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:28 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:28 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:28 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:28 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:28 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:28 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:28 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:28 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:28 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:28 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:28 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:28 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:28 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:28 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:28 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:28 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:28 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:28 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:28 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:28 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:28 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:29 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:29 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:29 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:29 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:29 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:29 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:29 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:29 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:29 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:29 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:29 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:29 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:29 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:29 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:29 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:29 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:29 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:29 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:29 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:29 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:29 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:29 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:29 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:29 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:29 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:30 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:30 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:30 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:30 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:30 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:30 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:30 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:30 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:30 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:30 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:30 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:30 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:30 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:30 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:30 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:30 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:30 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:30 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:30 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:30 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:30 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:30 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:30 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:30 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:30 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:31 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:31 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:31 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:31 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:31 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:31 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:31 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:31 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:31 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:31 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:31 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:31 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:31 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:31 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:31 | RabbitmqConsumer.py.check_and_restart_threads <-> [DEBUG] Checking consumer threads health...
+2026-04-29 02:35:31 | RabbitmqConsumer.py.check_and_restart_threads <-> [DEBUG] Thread RabbitMQConsumerThreadAI-Bird_Eye_View-0 is alive
+2026-04-29 02:35:31 | RabbitmqConsumer.py.check_and_restart_threads <-> [DEBUG] Thread RabbitMQConsumerThreadAI-Bird_Eye_View-1 is alive
+2026-04-29 02:35:31 | RabbitmqConsumer.py.check_and_restart_threads <-> [DEBUG] Thread RabbitMQConsumerThreadAI-Bird_Eye_View-2 is alive
+2026-04-29 02:35:31 | RabbitmqConsumer.py.check_and_restart_threads <-> [DEBUG] Thread RabbitMQConsumerThreadAI-Bird_Eye_View-3 is alive
+2026-04-29 02:35:31 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:31 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:31 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:31 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:31 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:31 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:31 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:31 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:31 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:31 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:31 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:32 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:32 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:32 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:32 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:32 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:32 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:32 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:32 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:32 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:32 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:32 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:32 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:32 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:32 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:32 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:32 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:32 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:32 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:32 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:32 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:32 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:32 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:32 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:32 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:33 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:33 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:33 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:33 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:33 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:33 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:33 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:33 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:33 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:33 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:33 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:33 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:33 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:33 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:33 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:33 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:33 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:33 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:33 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:33 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:33 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:33 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:33 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:33 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:33 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:34 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:34 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:34 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:34 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:34 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:34 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:34 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:34 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:34 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:34 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:34 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:34 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:34 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:34 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:34 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:34 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:34 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:34 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:34 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:34 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:34 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:34 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:34 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:34 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:34 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:34 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:35 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:35 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:35 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:35 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:35 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:35 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:35 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:35 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:35 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:35 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:35 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:35 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:35 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:35 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:35 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:35 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:35 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:35 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:35 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:35 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:35 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:35 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:35 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:35 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:35 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:36 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:36 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:36 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:36 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:36 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:36 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:36 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:36 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:36 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:36 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:36 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:36 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:36 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:36 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:36 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:36 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:36 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:36 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:36 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:36 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:36 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:36 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:36 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:36 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:36 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:37 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:37 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:37 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:37 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:37 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:37 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:37 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:37 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:37 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:37 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:37 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:37 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:37 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:37 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:37 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:37 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:37 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:37 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:37 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:37 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:37 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:37 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:37 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:37 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:38 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:38 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:38 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:38 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:38 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:38 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:38 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:38 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:38 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:38 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:38 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:38 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:38 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:38 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:38 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:38 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:38 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:38 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:38 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:38 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:38 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:38 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:38 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:38 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:38 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:38 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:39 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:39 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:39 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:39 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:39 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:39 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:39 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:39 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:39 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:39 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:39 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:39 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:39 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:39 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:39 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:39 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:39 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:39 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:39 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:39 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:39 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:39 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:39 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:39 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:39 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:40 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:40 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:40 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:40 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:40 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:40 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:40 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:40 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:40 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:40 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:40 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:40 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:40 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:40 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:40 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:40 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:40 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:40 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:40 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:40 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:40 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:40 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:40 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:40 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:40 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:41 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:41 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:41 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:41 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:41 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:41 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:41 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:41 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:41 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:41 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:41 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:41 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:41 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:41 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:41 | RabbitmqConsumer.py.check_and_restart_threads <-> [DEBUG] Checking consumer threads health...
+2026-04-29 02:35:41 | RabbitmqConsumer.py.check_and_restart_threads <-> [DEBUG] Thread RabbitMQConsumerThreadAI-Bird_Eye_View-0 is alive
+2026-04-29 02:35:41 | RabbitmqConsumer.py.check_and_restart_threads <-> [DEBUG] Thread RabbitMQConsumerThreadAI-Bird_Eye_View-1 is alive
+2026-04-29 02:35:41 | RabbitmqConsumer.py.check_and_restart_threads <-> [DEBUG] Thread RabbitMQConsumerThreadAI-Bird_Eye_View-2 is alive
+2026-04-29 02:35:41 | RabbitmqConsumer.py.check_and_restart_threads <-> [DEBUG] Thread RabbitMQConsumerThreadAI-Bird_Eye_View-3 is alive
+2026-04-29 02:35:41 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:41 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:41 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:41 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:41 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:41 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:41 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:41 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:41 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:41 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:41 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:42 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:42 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:42 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:42 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:42 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:42 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:42 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:42 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:42 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:42 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:42 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:42 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:42 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:42 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:42 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:42 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:42 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:42 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:42 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:42 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:42 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:42 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:42 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:42 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:43 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:43 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:43 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:43 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:43 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:43 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:43 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:43 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:43 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:43 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:43 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:43 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:43 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:43 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:43 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:43 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:43 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:43 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:43 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:43 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
+2026-04-29 02:35:43 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:43 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:43 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:43 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:43 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - IDLE
+2026-04-29 02:35:43 | main.py.process_vision_stream     <-> [DEBUG] [VISION STREAM] remaining messages in queue: 0
+2026-04-29 02:35:44 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Task wrapper assigned to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:44 | GPUdevicemanager.py.assign_task               <-> [DEBUG] Assigned task to worker 0_0 on GPU/CPU 0
+2026-04-29 02:35:44 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Logging status of all GPU workers.
+2026-04-29 02:35:44 | GPUdevicemanager.py.log_worker_status         <-> [DEBUG] Worker 0_0 on 0 - BUSY
