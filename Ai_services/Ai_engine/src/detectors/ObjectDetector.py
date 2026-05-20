@@ -197,3 +197,41 @@ class ObjectDetector:
         except PredictionError as e:
             self.logger.error(f"Model or attributes not properly initialized: {e}")
             return None
+
+
+
+    def make_prediction_segmentation(self, frame: any, classes_id: list[int], confidence: float, img_size: int = 640) -> list | None:
+        """
+        Perform object segmentation prediction on a given frame using the loaded model.
+        Args:
+            frame (any): The input image/frame to perform prediction on.
+            classes_id (list[int]): List of class IDs to detect.
+            confidence (float): Confidence threshold for predictions (between 0.0 and 1.0).
+            img_size (int, optional): Size to which the input image will be resized. Defaults to 640.
+        Returns:
+            list | None: The prediction results as a list if successful, otherwise None.
+        Raises:
+            ValueError: If the confidence value is not between 0.0 and 1.0.
+            PredictionError: If the model or its attributes are not properly initialized.
+        """
+        try:
+            if not (0.0 <= confidence <= 1.0):
+                raise ValueError("Confidence should be between 0.0 and 1.0")
+
+            if not isinstance(img_size,tuple) and img_size>640:
+                self.logger.warning(f"Image size {img_size} is larger than 640, resizing to 640.")
+                img_size = 640
+            results = self.model.predict(frame, classes=classes_id, conf=confidence,device=self.device,imgsz=img_size)
+
+            if not results or not isinstance(results, list) or len(results) == Constants.ZERO:
+                self.logger.error("Prediction failed: results are empty or invalid.")
+                return None
+
+            if not hasattr(results[Constants.ZERO], "masks"):
+                self.logger.error("Prediction failed: 'masks' attribute not found in results.")
+                return None
+
+            return results
+
+        except PredictionError as e:
+            self.logger.error(f"Model or attributes not properly initialized: {e}")

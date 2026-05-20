@@ -13,10 +13,11 @@ from src.utils.Streamhandler_validation.Streamhandler_validation import Validato
 from src.utils.Logger import LoggingConfig, log_time
 from src.utils.ResultProcessing import process_detection_results
 from src.utils.ResultProcessing import send_msg_to_event_manager
-from src.detectors.AiInferenceClient import AiInferenceDetectionClient, AiInferenceClassificationClient
+from src.detectors.AiInferenceClient import AiInferenceDetectionClient, AiInferenceClassificationClient, AiInferenceSegmentationClient
 
 ai_detection_client = AiInferenceDetectionClient()
 ai_classification_client = AiInferenceClassificationClient()
+ai_segmentation_client = AiInferenceSegmentationClient()
 
 threading_pool_executer = ThreadPoolExecutor(Constants.TWENTY)
 VisionPipeline.queue_name = os.environ.get(Constants.QUEUE_NAME)
@@ -29,12 +30,19 @@ validator = Validator()
 cleaner = ResourcesCleaner()
 
 @log_time("Time taken to complete one batch of processing", True)
-def dispatch_vision_task(detector: Any, secondary_model: Any, validated_msg_with_frames_and_metadatas: List[Dict]) -> None:
+def dispatch_vision_task(detector: Any, secondary_model: Any, segmentation_model: Any, validated_msg_with_frames_and_metadatas: List[Dict]) -> None:
     """Dispatches and executes the appropriate vision detection task for a given use case."""
     
     try:
-        usecase_name = validated_msg_with_frames_and_metadatas[Constants.ZERO][Constants.FRAME_METADATA][Constants.USECASE_NAME]
-        logger.info(f"[TASK] Starting vision task for usecase: {usecase_name}")
+        # usecase_name = validated_msg_with_frames_and_metadatas[Constants.ZERO][Constants.FRAME_METADATA][Constants.USECASE_NAME]
+        # logger.info(f"[TASK] Starting vision task for usecase: {usecase_name}")
+        # raw_usecase = validated_msg_with_frames_and_metadatas[Constants.ZERO][Constants.FRAME_METADATA][Constants.USECASE_NAME]
+        # usecase_name = Constants.USECASE_QUEUE_MAPPING.get(raw_usecase, raw_usecase)
+        # logger.info(f"[TASK] Starting vision task for usecase: {usecase_name} (from: {raw_usecase})")
+        raw_usecase = validated_msg_with_frames_and_metadatas[Constants.ZERO][Constants.FRAME_METADATA][Constants.USECASE_NAME]
+        # Normalize usecase name: handle short names (snake_case to Title_Case) and queue names
+        usecase_name = Constants.USECASE_QUEUE_MAPPING.get(raw_usecase, raw_usecase.replace("_", " ").title().replace(" ", "_"))
+        logger.info(f"[TASK] Starting vision task for usecase: {usecase_name} (raw: {raw_usecase})")
         
         if usecase_name == Constants.LOITERING_DETECTION_USECASE:
             from src.executers.LoiteringDetector_executer import execute_loitering_detection
@@ -51,8 +59,9 @@ def dispatch_vision_task(detector: Any, secondary_model: Any, validated_msg_with
             results = execute_train_arrival_depart_monitor(validated_msg_with_frames_and_metadatas, detector=detector)
         elif usecase_name == Constants.CROWD_DENSITY_USECASE:
             from src.executers.CrowdDensity_executer import execute_crowd_density
-            results = execute_crowd_density(validated_msg_with_frames_and_metadatas, detector=detector)
+            # results = execute_crowd_density(validated_msg_with_frames_and_metadatas, detector=detector)
             # results = execute_crowd_density(validated_msg_with_frames_and_metadatas, detector=secondary_model)
+            results = execute_crowd_density(validated_msg_with_frames_and_metadatas, detector=segmentation_model)
         elif usecase_name == Constants.PERSON_ENTERED_INSIDE_TRAIN_USECASE:
             from src.executers.PersonEnteredInsideTrain_executer import execute_person_entered_inside_train
             results = execute_person_entered_inside_train(validated_msg_with_frames_and_metadatas, detector=detector)
@@ -109,7 +118,7 @@ async def process_vision_stream() -> None:
 
             if validated_msg_with_frames_and_metadatas:
                 # Dispatch the task immediately using the standard thread pool
-                future = threading_pool_executer.submit(dispatch_vision_task, ai_detection_client, ai_classification_client, validated_msg_with_frames_and_metadatas)
+                future = threading_pool_executer.submit(dispatch_vision_task, ai_detection_client, ai_classification_client,ai_segmentation,validated_msg_with_frames_and_metadatas)
                 def handle_exception(f):
                     try:
                         f.result()

@@ -1,69 +1,217 @@
-"""
-Defines the service for handling user usecases and usecases management.
-Includes:
-- Retrieval of camera usecases.
-- Update of camera usecases.
-- Database transaction handling with SQLAlchemy.
-- Error handling for database and server exceptions.
-
-Author: HCLTech
-"""
-from typing import Union, List
-from sqlalchemy.exc import SQLAlchemyError
 from sqlalchemy.orm import Session
-from fastapi import HTTPException
-from ai_vms.models.camera import Camera
+import ai_vms.crud.usecases as usecases_crud
 from ai_vms.models.usecases import Usecase
-from ai_vms.schemas.usecases import *
-from ai_vms.crud.usecases import get_all_usecases
-from datetime import datetime, timedelta
-from ai_vms.constant.constants import Constants as c
-from ai_vms.config.logging_config import LoggingConfig
+from fastapi import HTTPException
 
-logger = LoggingConfig().setup_logging()
+from ai_vms.crud.usecases import (
+    create_usecase,
+    get_all_usecases,
+    get_usecase_by_id,
+    update_usecase,
+    delete_usecase,
+)
 
-class UsecaseService:
+from ai_vms.schemas.usecases import (
+    UsecaseCreateRequest,
+    UsecaseUpdateRequest,UsecaseResponse
+)
+
+
+class AddUsecaseService:
+
     def __init__(self, db: Session):
+
         self.db = db
 
-    def getusecases(self) -> Union[UsecaseDetailsResponse, GetAllUsecaseErrorResponse, GetAllUsecasesSuccessResponse]:
-        """
-        Retrieves camera Usecases.
+
+    def create_usecase(
+        self,
+        payload: UsecaseCreateRequest,
+        actor_id: int
+    ):
         
-        Returns:
-            - UsecaseDetailsResponse: Success response with user Usecase.
-            - GetAllUsecaseErrorResponse: Error response if there is a database failure.
-            - GetAllRoleSuccessResponse: Success response with user roles.
-        """
-        try:
-            logger.info("Retrieving Usecases...")
-            usecases = get_all_usecases(self.db)
+        existing_usecase = usecases_crud.get_usecase_by_name(
+        self.db,
+        payload.name
+        )
+
+        if existing_usecase:
+
+            raise HTTPException(
+                status_code=400,
+                detail="Usecase already exists"
+            )
             
-            filtered_usecases = [usecase for usecase in usecases]
-            
-            if not filtered_usecases:
-                return GetAllUsecaseErrorResponse(code=500, message="No  Usecases found in the system")
-            
-            logger.info("Usecases retrieved successfully")
-            usecases_list = [
-                UsecaseDetailsResponse(
-                    usecaseId=usecase.id,
-                    usecaseName=usecase.name,
-                    classes=[item.class_name for item in (usecase.classes or [])],
-                    tracking=bool(usecase.tracking),
-                    fps=usecase.fps,
-                    batch=usecase.batch,
-                    frameSkip=usecase.frame_skip,
-                    aiResource=usecase.ai_resource.value if hasattr(usecase.ai_resource, "value") else str(usecase.ai_resource)
-                )
-                for usecase in filtered_usecases
-            ]
-            return GetAllUsecasesSuccessResponse(code=200, message="usecases retrieved successfully", usecaseDetails=usecases_list)
-        
-        except SQLAlchemyError as e:
-            logger.error(f"Database error: {e}")
-            raise GetAllUsecaseErrorResponse(code=500, message="Something went wrong | Database error")
-        
-        except Exception as e:
-            logger.error(f"Internal Server error: {e}")
-            raise GetAllUsecaseErrorResponse(code=500, message="Something went wrong | Internal Server error")        
+
+        usecase = Usecase(
+            name=payload.name,
+            description=payload.description,
+            tracking=payload.tracking,
+            fps=payload.fps,
+            batch=payload.batch,
+            frame_skip=payload.frame_skip,
+            ai_resource=payload.ai_resource,
+            is_active=payload.is_active,
+            created_by=actor_id,
+            updated_by=actor_id,
+        )
+
+        return usecases_crud.create_usecase(
+            self.db,
+            usecase
+        )
+
+
+    # def get_all_usecases(self):
+
+    #     usecases = usecases_crud.get_all_usecases(
+    #         self.db
+    #     )
+
+    #     if not usecases:
+
+    #         raise HTTPException(
+    #             status_code=404,
+    #             detail="No usecases found"
+    #         )
+
+    #     return {
+    #         "code": 200,
+    #         "message": "Usecases fetched successfully",
+    #         "data": usecases
+    #     }
+
+
+    def get_all_usecases(self):
+
+        usecases = usecases_crud.get_all_usecases(self.db)
+
+        if not usecases:
+
+            raise HTTPException(
+                status_code=404,
+                detail="No usecases found"
+            )
+
+        response_data = [
+            UsecaseResponse(
+                usecaseId=usecase.id,
+                usecaseName=usecase.name,
+                description=usecase.description,
+
+                classes=[cls.class_name for cls in usecase.classes],
+
+                tracking=usecase.tracking,
+                fps=usecase.fps,
+                batch=usecase.batch,
+
+                frameSkip=usecase.frame_skip,
+                aiResource=usecase.ai_resource,
+
+                is_active=usecase.is_active,
+                created_at=usecase.created_at,
+                updated_at=usecase.updated_at
+            )
+            for usecase in usecases
+        ]
+
+        return {
+            "code": 200,
+            "message": "Usecases fetched successfully",
+            "usecaseDetails": response_data
+        }
+
+
+    def get_usecase_detail(
+        self,
+        usecase_id: int
+    ):
+
+        usecase = usecases_crud.get_usecase_by_id(
+        self.db,
+        usecase_id
+        )
+
+        if not usecase:
+            raise HTTPException(
+                status_code=404,
+                detail="Usecase not found"
+            )
+
+        return usecase
+
+
+    def update_usecase(
+        self,
+        payload: UsecaseUpdateRequest,
+        actor_id: int
+    ):
+
+        usecase = usecases_crud.get_usecase_by_id(
+            self.db,
+            payload.usecase_id
+        )
+
+        if not usecase:
+            raise HTTPException(
+                status_code=404,
+                detail="Usecase not found"
+            )
+
+        if payload.name is not None:
+            usecase.name = payload.name
+
+        if payload.description is not None:
+            usecase.description = payload.description
+
+        if payload.tracking is not None:
+            usecase.tracking = payload.tracking
+
+        if payload.fps is not None:
+            usecase.fps = payload.fps
+
+        if payload.batch is not None:
+            usecase.batch = payload.batch
+
+        if payload.frame_skip is not None:
+            usecase.frame_skip = payload.frame_skip
+
+        if payload.ai_resource is not None:
+            usecase.ai_resource = payload.ai_resource
+
+        if payload.is_active is not None:
+            usecase.is_active = payload.is_active
+
+        usecase.updated_by = actor_id
+
+        return usecases_crud.update_usecase(
+            self.db,
+            usecase
+        )
+
+
+    def delete_usecase(
+        self,
+        usecase_id: int
+    ):
+
+        usecase = usecases_crud.get_usecase_by_id(
+            self.db,
+            usecase_id
+        )
+
+        if not usecase:
+            raise HTTPException(
+                status_code=404,
+                detail="Usecase not found"
+            )
+
+        usecases_crud.delete_usecase(
+            self.db,
+            usecase
+        )
+
+        return {
+            "code": 200,
+            "message": "Deleted successfully"
+        }

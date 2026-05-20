@@ -4,6 +4,7 @@ import React, { useState, useRef, useCallback, useEffect } from 'react';
 import InfoMenu from './InfoMenu';
 import { formatTime } from '../../types/Video.types';
 import type { VideoState } from '../../types/Video.types';
+import WebRTCPlayer from '../../components/WebRTCPlayer';
 
 interface VideoCellProps {
   video: VideoState;
@@ -45,7 +46,7 @@ const VideoCell: React.FC<VideoCellProps> = ({ video, onUpdate }) => {
     if (v) { v.volume = vol; onUpdate(video.id, { volume: vol, isMuted: vol === 0 }); }
   };
 
-  const toggleMute = () => {
+  const handleMuteToggle = () => {
     const v = videoRef.current;
     if (!v) return;
     v.muted = !v.muted;
@@ -83,68 +84,79 @@ const VideoCell: React.FC<VideoCellProps> = ({ video, onUpdate }) => {
         {showMenu && <InfoMenu video={video} onClose={() => setShowMenu(false)} />}
       </div>
 
-      <video
-        ref={videoRef}
-        className="cell-video"
-        src={video.src}
-        onTimeUpdate={handleTimeUpdate}
-        onLoadedMetadata={handleTimeUpdate}
-        muted={video.isMuted}
-        autoPlay
-        loop
-        onClick={togglePlay}
-        playsInline
-      />
-
-      {!video.isPlaying && (
-        <button className="big-play-btn" onClick={togglePlay}>
-          <span className="material-icons">play_arrow</span>
-        </button>
+      {video.isLiveStream ? (
+        <WebRTCPlayer 
+          cameraId={video.id} 
+          className="cell-video" 
+          onResolutionUpdate={(res) => onUpdate(video.id, { resolution: res })}
+        />
+      ) : (
+        <>
+          <video
+            ref={videoRef}
+            className="cell-video"
+            src={video.src}
+            onTimeUpdate={handleTimeUpdate}
+            onLoadedMetadata={handleTimeUpdate}
+            muted={video.isMuted}
+            autoPlay
+            loop
+            onClick={togglePlay}
+            playsInline
+          />
+          {!video.isPlaying && (
+            <button className="big-play-btn" onClick={togglePlay}>
+              <span className="material-icons">play_arrow</span>
+            </button>
+          )}
+        </>
       )}
 
-      <div className="cell-controls visible">
-        <div className="progress-track">
-          <div className="progress-fill" style={{ width: `${progress}%` }} />
-          <input
-            type="range" className="progress-range"
-            min={0} max={video.duration || 100} step={0.1}
-            value={video.currentTime} onChange={handleSeek}
-          />
-        </div>
+      {!video.isLiveStream && (
+        <div className="cell-controls visible">
+          <div className="progress-track">
+            <div className="progress-fill" style={{ width: `${progress}%` }} />
+            <input
+              type="range" className="progress-range"
+              min={0} max={video.duration || 100} step={0.1}
+              value={video.currentTime} onChange={handleSeek}
+            />
+          </div>
 
-        <div className="controls-row">
-          <div className="controls-left">
-            <button className="ctrl-btn" onClick={togglePlay}>
-              <span className="material-icons">{video.isPlaying ? 'pause' : 'play_arrow'}</span>
-            </button>
-            <button className="ctrl-btn" onClick={toggleMute}>
-              <span className="material-icons">
-                {video.isMuted || video.volume === 0
-                  ? 'volume_off'
-                  : video.volume < 0.5 ? 'volume_down' : 'volume_up'}
+          <div className="controls-row">
+            <div className="controls-left">
+              <button className="ctrl-btn" onClick={togglePlay}>
+                <span className="material-icons">{video.isPlaying ? 'pause' : 'play_arrow'}</span>
+              </button>
+              <button className="ctrl-btn" onClick={toggleMute}>
+                <span className="material-icons">
+                  {video.isMuted || video.volume === 0
+                    ? 'volume_off'
+                    : video.volume < 0.5 ? 'volume_down' : 'volume_up'}
+                </span>
+              </button>
+              <div className="volume-wrap">
+                <input
+                  type="range" className="volume-range"
+                  min={0} max={1} step={0.01}
+                  value={video.isMuted ? 0 : video.volume} onChange={handleVolume}
+                />
+              </div>
+              <span className="ctrl-time">
+                {formatTime(video.currentTime)} / {formatTime(video.duration)}
               </span>
-            </button>
-            <div className="volume-wrap">
-              <input
-                type="range" className="volume-range"
-                min={0} max={1} step={0.01}
-                value={video.isMuted ? 0 : video.volume} onChange={handleVolume}
-              />
             </div>
-            <span className="ctrl-time">
-              {formatTime(video.currentTime)} / {formatTime(video.duration)}
-            </span>
-          </div>
 
-          <div className="controls-right">
-            <button className="ctrl-btn" onClick={toggleFullscreen} title="Fullscreen">
-              <span className="material-icons">
-                {isFullscreen ? 'fullscreen_exit' : 'fullscreen'}
-              </span>
-            </button>
+            <div className="controls-right">
+              <button className="ctrl-btn" onClick={toggleFullscreen} title="Fullscreen">
+                <span className="material-icons">
+                  {isFullscreen ? 'fullscreen_exit' : 'fullscreen'}
+                </span>
+              </button>
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };

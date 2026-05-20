@@ -1,455 +1,540 @@
 /* ═══════════════════════════════════════════════════════════
    MultiGridView.css
    ═══════════════════════════════════════════════════════════ */
-.page-container {
-  position: relative;
-}
-/* ── Grid Layout ─────────────────────────────────────────── */
-
-.header-right {
+   .page-container {
+    position: relative;
+  }
+  /* ── Grid Layout ─────────────────────────────────────────── */
+  
+  .header-right {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      background-color: var(--primary-light);
+      height: 100%;
+  }
+  
+  .mgv-grid {
+    display: grid;
+    gap: 10px;
+    padding: 14px;
+    flex: 1;
+    overflow: hidden;
+    background: #f0f4f8;
+    height: calc(100vh - 105px - 60px);
+  }
+  
+  /* 1×1 */
+  .mgv-grid--1 {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
+  
+  /* 2×2 */
+  .mgv-grid--2 {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+  
+  /* 3×3 */
+  .mgv-grid--3 {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
+  
+  /* Hide grid (keep mounted) when a video is maximized */
+  .mgv-grid--hidden {
+    visibility: hidden;
+    pointer-events: none;
+  }
+  
+  /* ── Grid Switcher Buttons ───────────────────────────────── */
+  .grid-switcher {
     display: flex;
     align-items: center;
-    gap: 0;
-    background-color: var(--primary-light);
+    gap: 4px;
+    background: #f0f4f8;
+    border: 1.5px solid #d4dce8;
+    border-radius: 10px;
+    padding: 4px;
+  }
+  
+  .grid-switch-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 7px;
+    border: none;
+    background: transparent;
+    color: #718096;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+    white-space: nowrap;
+    letter-spacing: 0.2px;
+  }
+  
+  .grid-switch-btn:hover:not(.active) {
+    background: #e2e8f0;
+    color: #2d3748;
+  }
+  
+  .grid-switch-btn.active {
+    background: #0a498e;
+    color: #ffffff;
+    box-shadow: 0 2px 6px rgba(10, 73, 142, 0.28);
+  }
+  
+  .grid-switch-btn svg {
+    flex-shrink: 0;
+  }
+  
+  /* ── Maximize Overlay ────────────────────────────────────── */
+  .mgv-maximize-overlay {
+    position: absolute;
+    top: 60px;   /* below page-header */
+    left: 0; right: 0; bottom: 0;
+  }
+  
+  @keyframes mgv-fade-in {
+    from { opacity: 0; transform: scale(0.985); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+  
+  .video-cell--maximized {
+    flex: 1;
+    border-radius: 10px;
+    border-color: var(--primary, #0a498e);
+    box-shadow: 0 0 0 2px rgba(10, 73, 142, 0.4);
+  }
+  
+  /* ── Video Cell ──────────────────────────────────────────── */
+  .video-cell {
+    position: relative;
+    background: #0d1117;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1.5px solid #d4dce8;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .video-cell:hover {
+    border-color: var(--primary);
+    box-shadow: 0 4px 16px rgba(10, 73, 142, 0.22);
+  }
+  
+  /* ── Video Element ───────────────────────────────────────── */
+  .cell-video {
+    width: 100%;
     height: 100%;
-}
-
-.mgv-grid {
-  display: grid;
-  gap: 10px;
-  padding: 14px;
-  flex: 1;
-  overflow: hidden;
-  background: #f0f4f8;
-  height: calc(100vh - 105px - 60px);
-}
-
-/* 1×1 */
-.mgv-grid--1 {
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
-}
-
-/* 2×2 */
-.mgv-grid--2 {
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-}
-
-/* 3×3 */
-.mgv-grid--3 {
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-}
-
-/* Hide grid (keep mounted) when a video is maximized */
-.mgv-grid--hidden {
-  visibility: hidden;
-  pointer-events: none;
-}
-
-/* ── Grid Switcher Buttons ───────────────────────────────── */
-.grid-switcher {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  background: #f0f4f8;
-  border: 1.5px solid #d4dce8;
-  border-radius: 10px;
-  padding: 4px;
-}
-
-.grid-switch-btn {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 12px;
-  border-radius: 7px;
-  border: none;
-  background: transparent;
-  color: #718096;
-  font-size: 12px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.18s, color 0.18s, box-shadow 0.18s;
-  white-space: nowrap;
-  letter-spacing: 0.2px;
-}
-
-.grid-switch-btn:hover:not(.active) {
-  background: #e2e8f0;
-  color: #2d3748;
-}
-
-.grid-switch-btn.active {
-  background: #0a498e;
-  color: #ffffff;
-  box-shadow: 0 2px 6px rgba(10, 73, 142, 0.28);
-}
-
-.grid-switch-btn svg {
-  flex-shrink: 0;
-}
-
-/* ── Maximize Overlay ────────────────────────────────────── */
-.mgv-maximize-overlay {
-  position: absolute;
-  top: 60px;   /* below page-header */
-  left: 0; right: 0; bottom: 0;
-}
-
-@keyframes mgv-fade-in {
-  from { opacity: 0; transform: scale(0.985); }
-  to   { opacity: 1; transform: scale(1); }
-}
-
-.video-cell--maximized {
-  flex: 1;
-  border-radius: 10px;
-  border-color: var(--primary, #0a498e);
-  box-shadow: 0 0 0 2px rgba(10, 73, 142, 0.4);
-}
-
-/* ── Video Cell ──────────────────────────────────────────── */
-.video-cell {
-  position: relative;
-  background: #0d1117;
-  border-radius: 10px;
-  overflow: hidden;
-  border: 1.5px solid #d4dce8;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.video-cell:hover {
-  border-color: var(--primary);
-  box-shadow: 0 4px 16px rgba(10, 73, 142, 0.22);
-}
-
-/* ── Video Element ───────────────────────────────────────── */
-.cell-video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  background: #0d1117;
-}
-
-/* ── Camera Label (top-left) ─────────────────────────────── */
-.cell-label {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  z-index: 10;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  background: rgba(0, 0, 0, 0.55);
-  backdrop-filter: blur(6px);
-  color: #ffffff;
-  font-size: 11px;
-  font-weight: 600;
-  padding: 3px 9px;
-  border-radius: 20px;
-  letter-spacing: 0.4px;
-  pointer-events: none;
-  user-select: none;
-}
-
-.cell-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #22c55e;
-  flex-shrink: 0;
-}
-
-/* ── 3-dot Menu Button (top-right) ───────────────────────── */
-.cell-menu-wrap {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  z-index: 20;
-}
-
-.cell-dots-btn {
-  width: 28px;
-  height: 28px;
-  border-radius: 6px;
-  background: rgba(0, 0, 0, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  color: rgba(255, 255, 255, 0.8);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  backdrop-filter: blur(4px);
-  transition: background 0.15s, color 0.15s;
-  padding: 0;
-}
-
-.cell-dots-btn:hover {
-  background: rgba(10, 73, 142, 0.75);
-  color: #fff;
-  border-color: rgba(255, 255, 255, 0.3);
-}
-
-.cell-dots-btn .material-icons {
-  font-size: 17px;
-  line-height: 1;
-}
-
-/* ── Info Menu Dropdown ──────────────────────────────────── */
-.info-menu {
-  position: absolute;
-  top: 34px;
-  right: 0;
-  z-index: 30;
-  background: rgba(13, 17, 23, 0.97);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 10px;
-  backdrop-filter: blur(14px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.55);
-  min-width: 245px;
-  overflow: hidden;
-  animation: menu-pop 0.14s ease;
-}
-
-@keyframes menu-pop {
-  from { opacity: 0; transform: translateY(-6px) scale(0.97); }
-  to   { opacity: 1; transform: translateY(0) scale(1); }
-}
-
-.info-menu-header {
-  padding: 9px 14px 8px;
-  font-size: 10px;
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.38);
-  letter-spacing: 1.2px;
-  text-transform: uppercase;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.info-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.info-table tr {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-.info-table tr:last-child {
-  border-bottom: none;
-}
-
-.info-key {
-  padding: 8px 14px;
-  font-size: 11px;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.38);
-  white-space: nowrap;
-  width: 88px;
-  vertical-align: top;
-}
-
-.info-val {
-  padding: 8px 14px 8px 0;
-  font-size: 11px;
-  color: rgba(255, 255, 255, 0.85);
-  word-break: break-all;
-  line-height: 1.45;
-}
-
-.info-val--mono {
-  font-family: 'Courier New', monospace;
-  font-size: 10px;
-  color: #7dd3fc;
-}
-
-/* ── Big Centre Play Button ──────────────────────────────── */
-.big-play-btn {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 8;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: rgba(10, 73, 142, 0.85);
-  border: 2px solid rgba(255, 255, 255, 0.5);
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  backdrop-filter: blur(4px);
-  transition: background 0.2s, transform 0.15s;
-}
-
-.big-play-btn:hover {
-  background: var(--primary);
-  transform: translate(-50%, -50%) scale(1.1);
-}
-
-.big-play-btn .material-icons { font-size: 26px; }
-
-/* ── Controls Bar ────────────────────────────────────────── */
-.cell-controls {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 10;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.82) 0%, transparent 100%);
-  padding: 28px 10px 8px;
-  opacity: 0;
-  transform: translateY(6px);
-  transition: opacity 0.22s ease, transform 0.22s ease;
-  pointer-events: none;
-}
-
-.cell-controls.visible {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: all;
-}
-
-/* ── Progress Track ──────────────────────────────────────── */
-.progress-track {
-  position: relative;
-  height: 4px;
-  background: rgba(255, 255, 255, 0.25);
-  border-radius: 4px;
-  margin-bottom: 6px;
-  overflow: visible;
-}
-
-.progress-fill {
-  position: absolute;
-  top: 0; left: 0;
-  height: 100%;
-  background: var(--primary);
-  border-radius: 4px;
-  pointer-events: none;
-  transition: width 0.1s linear;
-}
-
-.progress-range {
-  position: absolute;
-  top: 50%; left: 0;
-  width: 100%;
-  height: 14px;
-  transform: translateY(-50%);
-  opacity: 0;
-  cursor: pointer;
-  margin: 0; padding: 0;
-}
-
-.progress-track:hover .progress-fill { background: var(--accent); }
-
-/* ── Controls Row ────────────────────────────────────────── */
-.controls-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.controls-left,
-.controls-right {
-  display: flex;
-  align-items: center;
-  gap: 2px;
-}
-
-/* ── Control Buttons ─────────────────────────────────────── */
-.ctrl-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 28px;
-  height: 28px;
-  border-radius: 6px;
-  background: transparent;
-  border: none;
-  color: rgba(255, 255, 255, 0.85);
-  cursor: pointer;
-  transition: background 0.15s, color 0.15s;
-  padding: 0;
-  flex-shrink: 0;
-}
-
-.ctrl-btn:hover {
-  background: rgba(255, 255, 255, 0.15);
-  color: #fff;
-}
-
-.ctrl-btn .material-icons { font-size: 17px; line-height: 1; }
-
-/* ── Volume Slider ───────────────────────────────────────── */
-.volume-wrap {
-  display: flex;
-  align-items: center;
-  width: 52px;
-  overflow: hidden;
-}
-
-.volume-range {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 100%;
-  height: 3px;
-  background: rgba(255, 255, 255, 0.35);
-  border-radius: 3px;
-  outline: none;
-  cursor: pointer;
-}
-
-.volume-range::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  width: 10px; height: 10px;
-  border-radius: 50%;
-  background: #fff;
-  cursor: pointer;
-  box-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
-}
-
-.volume-range::-moz-range-thumb {
-  width: 10px; height: 10px;
-  border-radius: 50%;
-  background: #fff;
-  border: none;
-  cursor: pointer;
-}
-
-/* ── Timestamp ───────────────────────────────────────────── */
-.ctrl-time {
-  font-size: 10px;
-  color: rgba(255, 255, 255, 0.75);
-  font-weight: 500;
-  letter-spacing: 0.3px;
-  white-space: nowrap;
-  padding-left: 4px;
-  user-select: none;
-}
-
-/* ── Responsive ──────────────────────────────────────────── */
-@media (max-width: 900px) {
-  .mgv-grid--3 {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: auto;
+    object-fit: cover;
+    display: block;
+    background: #0d1117;
   }
-}
-
-@media (max-width: 600px) {
-  .mgv-grid--3,
-  .mgv-grid--2 {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
+  
+  /* ── Camera Label (top-left) ─────────────────────────────── */
+  .cell-label {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(6px);
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 9px;
+    border-radius: 20px;
+    letter-spacing: 0.4px;
+    pointer-events: none;
+    user-select: none;
   }
-}
+  
+  .cell-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #22c55e;
+    flex-shrink: 0;
+  }
+  
+  /* ── 3-dot Menu Button (top-right) ───────────────────────── */
+  .cell-menu-wrap {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    z-index: 20;
+  }
+  
+  .cell-dots-btn {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    backdrop-filter: blur(4px);
+    transition: background 0.15s, color 0.15s;
+    padding: 0;
+  }
+  
+  .cell-dots-btn:hover {
+    background: rgba(10, 73, 142, 0.75);
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+  
+  .cell-dots-btn .material-icons {
+    font-size: 17px;
+    line-height: 1;
+  }
+  
+  /* ── Info Menu Dropdown ──────────────────────────────────── */
+  .info-menu {
+    position: absolute;
+    top: 34px;
+    right: 0;
+    z-index: 30;
+    background: rgba(13, 17, 23, 0.97);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 10px;
+    backdrop-filter: blur(14px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.55);
+    min-width: 245px;
+    overflow: hidden;
+    animation: menu-pop 0.14s ease;
+  }
+  
+  @keyframes menu-pop {
+    from { opacity: 0; transform: translateY(-6px) scale(0.97); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  
+  .info-menu-header {
+    padding: 9px 14px 8px;
+    font-size: 10px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.38);
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  
+  .info-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .info-table tr {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+  
+  .info-table tr:last-child {
+    border-bottom: none;
+  }
+  
+  .info-key {
+    padding: 8px 14px;
+    font-size: 11px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.38);
+    white-space: nowrap;
+    width: 88px;
+    vertical-align: top;
+  }
+  
+  .info-val {
+    padding: 8px 14px 8px 0;
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.85);
+    word-break: break-all;
+    line-height: 1.45;
+  }
+  
+  .info-val--mono {
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    color: #7dd3fc;
+  }
+  
+  /* ── Big Centre Play Button ──────────────────────────────── */
+  .big-play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 8;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(10, 73, 142, 0.85);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    backdrop-filter: blur(4px);
+    transition: background 0.2s, transform 0.15s;
+  }
+  
+  .big-play-btn:hover {
+    background: var(--primary);
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+  
+  .big-play-btn .material-icons { font-size: 26px; }
+  
+  /* ── Controls Bar ────────────────────────────────────────── */
+  .cell-controls {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.82) 0%, transparent 100%);
+    padding: 28px 10px 8px;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity 0.22s ease, transform 0.22s ease;
+    pointer-events: none;
+  }
+  
+  .cell-controls.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+  }
+  
+  /* ── Progress Track ──────────────────────────────────────── */
+  .progress-track {
+    position: relative;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 4px;
+    margin-bottom: 6px;
+    overflow: visible;
+  }
+  
+  .progress-fill {
+    position: absolute;
+    top: 0; left: 0;
+    height: 100%;
+    background: var(--primary);
+    border-radius: 4px;
+    pointer-events: none;
+    transition: width 0.1s linear;
+  }
+  
+  .progress-range {
+    position: absolute;
+    top: 50%; left: 0;
+    width: 100%;
+    height: 14px;
+    transform: translateY(-50%);
+    opacity: 0;
+    cursor: pointer;
+    margin: 0; padding: 0;
+  }
+  
+  .progress-track:hover .progress-fill { background: var(--accent); }
+  
+  /* ── Controls Row ────────────────────────────────────────── */
+  .controls-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .controls-left,
+  .controls-right {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+  }
+  
+  /* ── Control Buttons ─────────────────────────────────────── */
+  .ctrl-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.85);
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+    padding: 0;
+    flex-shrink: 0;
+  }
+  
+  .ctrl-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+  }
+  
+  .ctrl-btn .material-icons { font-size: 17px; line-height: 1; }
+  
+  /* ── Volume Slider ───────────────────────────────────────── */
+  .volume-wrap {
+    display: flex;
+    align-items: center;
+    width: 52px;
+    overflow: hidden;
+  }
+  
+  .volume-range {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.35);
+    border-radius: 3px;
+    outline: none;
+    cursor: pointer;
+  }
+  
+  .volume-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: #fff;
+    cursor: pointer;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
+  }
+  
+  .volume-range::-moz-range-thumb {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* ── Timestamp ───────────────────────────────────────────── */
+  .ctrl-time {
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.75);
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+    padding-left: 4px;
+    user-select: none;
+  }
+  
+  /* ── Responsive ──────────────────────────────────────────── */
+  @media (max-width: 900px) {
+    .mgv-grid--3 {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: auto;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .mgv-grid--3,
+    .mgv-grid--2 {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+    }
+  }
+  
+  /* ── Pagination ──────────────────────────────────────────── */
+  .pagination-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px 0 8px;
+  }
+  
+  .pagination-arrow-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border: 1.5px solid #d4dce8;
+    border-radius: 6px;
+    background: #fff;
+    color: #4a5568;
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s, color 0.15s;
+    padding: 0;
+  }
+  
+  .pagination-arrow-btn:hover:not(:disabled) {
+    background: #e2e8f0;
+    border-color: #0a498e;
+    color: #0a498e;
+  }
+  
+  .pagination-arrow-btn:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+  }
+  
+  .pagination-arrow-btn .material-icons {
+    font-size: 18px;
+    line-height: 1;
+  }
+  
+  .pagination-input {
+    width: 44px;
+    height: 28px;
+    text-align: center;
+    border: 1.5px solid #d4dce8;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #2d3748;
+    background: #fff;
+    outline: none;
+    -moz-appearance: textfield;
+  }
+  
+  .pagination-input::-webkit-outer-spin-button,
+  .pagination-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  .pagination-input:focus {
+    border-color: #0a498e;
+    box-shadow: 0 0 0 2px rgba(10, 73, 142, 0.15);
+  }
+  
+  .pagination-total {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 26px;
+    text-align: center;
+    border: 1.5px solid #d4dce8;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #2d3748;
+    background: #fff;
+  }
+  .pagination-of {
+    font-size: 13px;
+    color: #718096;
+    font-weight: 500;
+  }

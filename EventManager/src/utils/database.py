@@ -18,6 +18,34 @@ class PostgresManager:
         self.database = cfg.get_env_config(Constants.DB_NAME)
         self.user = cfg.get_env_config(Constants.DB_USER)
         self.password = cfg.get_env_config(Constants.DB_PASSWORD)
+        self.initialize_database()
+
+    def initialize_database(self):
+        """
+        Creates the required tables if they don't exist.
+        """
+        conn = None
+        try:
+            conn = self.get_connection()
+            with conn.cursor() as cursor:
+                create_table_query = """
+                    CREATE TABLE IF NOT EXISTS events (
+                        id SERIAL PRIMARY KEY,
+                        camera_id VARCHAR(255),
+                        usecase_name VARCHAR(255),
+                        evidence_path TEXT,
+                        event_data JSONB,
+                        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                    );
+                """
+                cursor.execute(create_table_query)
+                conn.commit()
+                logger.info("[PostgresManager] Database tables initialized successfully.")
+        except Exception as e:
+            logger.error(f"[PostgresManager] Failed to initialize database: {e}")
+        finally:
+            if conn:
+                conn.close()
 
     def get_connection(self, max_retries=5, delay=2):
         """

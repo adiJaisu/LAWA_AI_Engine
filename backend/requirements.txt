@@ -12,3 +12,5 @@ opencv-python
 aiohttp
 httpx
 psycopg2-binary
+aio-pika
+msgpack

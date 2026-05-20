@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ARCHITECTURE.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> or <div class="page"></div> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="lawa-ai-engine-pipeline-architecture-documentation">LAWA AI Engine: Pipeline Architecture Documentation</h1>
+<h2 id="1-executive-summary">1. Executive Summary</h2>
+<p>The LAWA AI Engine is a high-performance vision processing pipeline designed for real-time video analytics. It utilizes a decoupled, microservices-oriented architecture to ensure scalability, low latency (via Shared Memory), and modularity (via RabbitMQ RPC).</p>
+<hr>
+<h2 id="2-pipeline-flow-diagram">2. Pipeline Flow Diagram</h2>
+<h2 id="2-comprehensive-pipeline-flowchart">2. Comprehensive Pipeline Flowchart</h2>
+<pre><code class="language-mermaid"><div class="mermaid">flowchart TD
+    %% Main Pipeline Nodes
+    SH["Stream Handler / Video Decoder<br/><i>(RTSP / GStreamer / FFmpeg)</i>"]
+    UQ{"Usecase Request Queue<br/><i>(e.g., loitering_requests)</i>"}
+    
+    subgraph "AI Engine (Consumer Worker)"
+        direction TB
+        AE_V["Validation & Preprocessing"]
+        SHM[("(Shared Memory<br/>/dev/shm)")]
+        RPC["RabbitMQ RPC Client<br/><i>(BlockingConnection + Exclusive Callback)</i>"]
+    end
+
+    IQ["Inference Request Queue<br/><i>(e.g., ai_inference_detection_queue)</i>"]
+    
+    subgraph "Inference Service"
+        IS["Inference Engine<br/><i>(YOLOv8 Predictor)</i>"]
+        weights[("(Model Weights<br/>.pt / .onnx)")]
+    end
+
+    BL["Business Case Executer<br/><i>(ByteTrack + ROI pointPolygonTest)</i>"]
+    EQ{"Usecase Event Queue<br/><i>(e.g., loitering_events)</i>"}
+    
+    subgraph "Event Manager (Evidence Node)"
+        EM["Event Consumer"]
+        VP["Video Evidence Processor<br/><b>10 Frames @ 1 FPS -> 10s Video</b>"]
+    end
+
+    DB[("PostgreSQL Database<br/><i>(Path + Meta)</i>")]
+    WS["WebSocket Service<br/><i>(Real-time Broadcast)</i>"]
+    FE["Frontend Dashboard<br/><i>(User Alert)</i>"]
+
+    %% Connections
+    SH -->|Publishes Frame Data| UQ
+    UQ -->|Consumes Batch| AE_V
+    AE_V -->|Saves .raw to| SHM
+    AE_V -->|Triggers| RPC
+    RPC -->|RPC Call: Path + Shape| IQ
+    IQ -->|Loads weights| IS
+    IS --- weights
+    IS -->|Reads Frame Data| SHM
+    IS -->|Returns JSON Results| RPC
+    RPC -->|Detection Results| BL
+    BL -->|If Alert Triggered:<br/>Publishes 10 Frames Batch| EQ
+    EQ --> EM
+    EM --> VP
+    VP -->|Stores video_path| DB
+    VP -->|Broadcast Notify| WS
+    WS --> FE
+
+    %% New Usecase Requirements (Side Boxes)
+    subgraph "NEW USECASE CHECKLIST"
+        direction TB
+        N1["<b>1. Decoder Setup</b><br/>Register new target queue name<br/>in Decoder Publisher config."]
+        N2["<b>2. RMQ Infrastructure</b><br/>Create Request & Event<br/>queues in RabbitMQ."]
+        N3["<b>3. Logic Development</b><br/>- Create business_cases/NewUsecase.py<br/>- Create executers/NewUsecase_executer.py<br/>- Update main.py dispatch switch."]
+        N4["<b>4. Inference Integration</b><br/>- Use existing Detection/Seg client<br/>- OR create new Client for new model."]
+        N5["<b>5. Event Manager</b><br/>Add Event Queue name to<br/>self.event_queues list."]
+    end
+
+    %% Linking Requirements to Flow
+    N1 -.-> SH
+    N2 -.-> UQ
+    N2 -.-> EQ
+    N3 -.-> BL
+    N5 -.-> EM
+
+    %% Styling
+    style N1 fill:#e1f5fe,stroke:#01579b,stroke-width:2px,color:#000
+    style N2 fill:#e1f5fe,stroke:#01579b,stroke-width:2px,color:#000
+    style N3 fill:#e1f5fe,stroke:#01579b,stroke-width:2px,color:#000
+    style N4 fill:#e1f5fe,stroke:#01579b,stroke-width:2px,color:#000
+    style N5 fill:#e1f5fe,stroke:#01579b,stroke-width:2px,color:#000
+    style SHM fill:#eee,stroke:#333,stroke-dasharray: 5 5
+    style VP fill:#fff4dd,stroke:#d4a017,stroke-width:2px,color:#000
+</div></code></pre>
+<hr>
+<h2 id="3-detailed-component-interaction">3. Detailed Component Interaction</h2>
+<h3 id="a-stream-management">A. Stream Management</h3>
+<p>The <strong>Stream Handler</strong> (Video Decoder) serves as the source. It decodes RTSP streams and distributes frames into specific usecase queues. This allows multiple AI models to process the same stream independently without redundant decoding.</p>
+<h3 id="b-the-rpc--shared-memory-technique">B. The RPC &amp; Shared Memory Technique</h3>
+<p>To avoid the overhead of sending large binary image data over RabbitMQ, the <strong>AI Engine</strong> employs a hybrid approach:</p>
+<ol>
+<li><strong>Shared Memory</strong>: The frame is written to <code>/dev/shm</code> (a RAM-based filesystem).</li>
+<li><strong>RPC Payload</strong>: Only the path to the frame and necessary metadata (shape, classes) are sent to the inference service.</li>
+<li><strong>Synchronization</strong>: The engine waits for the model's response using a unique <code>correlation_id</code> on a temporary callback queue.</li>
+</ol>
+<h3 id="c-business-case-logic">C. Business Case Logic</h3>
+<p>Once results (bounding boxes, track IDs, masks) are received, the <strong>Executers</strong> apply spatial and temporal rules. If an event is triggered, the engine gathers the required frames for evidence and publishes them to the Event Manager.</p>
+<h3 id="d-evidence-generation--notification">D. Evidence Generation &amp; Notification</h3>
+<p>When an event is confirmed, a batch of 10 frames is sent to the <strong>Event Manager</strong>.</p>
+<ul>
+<li><strong>Evidence Video</strong>: It generates a 10-second video at 1 FPS.</li>
+<li><strong>Database Persistence</strong>: Camera details, event details, and the video path are stored in PostgreSQL.</li>
+<li><strong>WebSocket Broadcast</strong>: A real-time notification is sent to the frontend for immediate alerting.</li>
+</ul>
+<hr>
+<h2 id="4-extension-guidelines-box-beside-the-box">4. Extension Guidelines (&quot;Box Beside the Box&quot;)</h2>
+<h3 id="adding-a-new-usecase">Adding a New Usecase</h3>
+<blockquote>
+<p>[!NOTE]
+<strong>Checklist for adding a new usecase:</strong></p>
+<ol>
+<li><strong>Queues</strong>: Define <code>usecase_requests</code> and <code>usecase_events</code> in RabbitMQ.</li>
+<li><strong>Logic</strong>: Implement a new class in <code>Ai_engine/src/business_cases/</code>.</li>
+<li><strong>Executer</strong>: Create a wrapper in <code>Ai_engine/src/executers/</code>.</li>
+<li><strong>Routing</strong>: Add the usecase name to the <code>dispatch_vision_task</code> in <code>main.py</code>.</li>
+<li><strong>EventManager</strong>: Add the new event queue to the listener list in <code>EventManager/main.py</code>.</li>
+</ol>
+</blockquote>
+<h3 id="changing-the-model-type">Changing the Model Type</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Scenario</th>
+<th style="text-align:left">Action Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>Same Model (e.g., YOLOv8)</strong></td>
+<td style="text-align:left">Change the <code>classes_id</code> or <code>confidence</code> parameters in the RPC request.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Same Model Task</strong></td>
+<td style="text-align:left">Swap between <code>AiInferenceDetectionClient</code>, <code>AiInferenceSegmentationClient</code>, or <code>AiInferenceClassificationClient</code>.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Custom Model (e.g., ONNX/TensorRT)</strong></td>
+<td style="text-align:left">1. Deploy a new Inference Service container.<br>2. Define a new RabbitMQ queue for this service.<br>3. Add a matching Client class in <code>Ai_engine</code> to handle the new RPC routing.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Trained Weights Update</strong></td>
+<td style="text-align:left">Update the model weights file path in the Inference Service's environment variables.</td>
+</tr>
+</tbody>
+</table>
+
+</body>
+</html>

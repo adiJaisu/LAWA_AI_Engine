@@ -3,6 +3,7 @@ import enum
 class CameraType(str, enum.Enum):
     ip = "rtsp"
     usb = "usb"
+    video="video"
 
 
 class DecodingResource(str, enum.Enum):
@@ -15,6 +16,7 @@ class DecodingPipeline(str, enum.Enum):
     ffmpeg = "ffmpeg"
     opencv = "opencv"
     gstreamer = "gstreamer"
+    deepstream = "deepstream"
 
 
 class DockerMode(str, enum.Enum):

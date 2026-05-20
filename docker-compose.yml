@@ -1,25 +1,32 @@
+name: ai-vms
 version: "3.8"
 
 services:
   rabbitmq:
-    image: rabbitmq:3-management
-    container_name: lawa_rabbitmq
+    image: ai-vms-rabbitmq:latest
+    # build:
+    #   context: ./Video_decoder/docker_env/rabbitmq
+    container_name: rabbitmq_service
+    restart: always
     ports:
-      - "5672:5672"   # AMQP protocol port
-      - "15672:15672" # Management UI port
+      - "5672:5672"
+      - "15672:15672"
     environment:
-      RABBITMQ_DEFAULT_USER: guest
-      RABBITMQ_DEFAULT_PASS: guest
+      RABBITMQ_DEFAULT_USER: "user"
+      RABBITMQ_DEFAULT_PASS: "password"
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
     healthcheck:
-      test: rabbitmq-diagnostics -q ping
+      test: [ "CMD", "rabbitmq-diagnostics", "check_port_connectivity" ]
       interval: 10s
       timeout: 5s
-      retries: 3
+      retries: 5
+      start_period: 10s
     networks:
       - lawa_network
 
   postgres:
-    image: postgres:${PG_IMAGE_VERSION}
+    image: postgres:15
     container_name: postgres_ai_vms
     restart: always
     env_file:
@@ -34,7 +41,7 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${PG_USER} -d ${PG_DATABASE}"]
+      test: [ "CMD-SHELL", "pg_isready -U ${PG_USER} -d ${PG_DATABASE}" ]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -43,7 +50,7 @@ services:
       - lawa_network
 
   db-init:
-    image: postgres:${PG_IMAGE_VERSION}
+    image: postgres:15
     container_name: ai_vms_db_init
     depends_on:
       postgres:
@@ -56,23 +63,22 @@ services:
       - ./postgres-init/create_db_tables.sql:/create_db_tables.sql:ro
       - ./postgres-init/insert_default_data.sql:/insert_default_data.sql:ro
     command: >
-      sh -c "
-      psql -h postgres -U ${PG_USER} -d ${PG_DATABASE} -f /create_db_tables.sql &&
-      psql -h postgres -U ${PG_USER} -d ${PG_DATABASE} -f /insert_default_data.sql
-      "
+      sh -c " psql -h postgres -U ${PG_USER} -d ${PG_DATABASE} -f /create_db_tables.sql && psql -h postgres -U ${PG_USER} -d ${PG_DATABASE} -f /insert_default_data.sql "
     networks:
       - lawa_network
 
   backend:
-    build:
-      context: ./backend
-      dockerfile: Dockerfile
+    image: ai-vms-backend:latest
+    # build:
+    #   context: ./backend
+    #   dockerfile: Dockerfile
     env_file:
       - ./.env
     container_name: ai_vms_api
     working_dir: /app
     volumes:
       - ./backend/ai_vms:/app/ai_vms
+      - ./Video_decoder/input:/app/input
     ports:
       - "${BACKEND_PORT}:8010"
     depends_on:
@@ -83,13 +89,16 @@ services:
       DB_URL_SYNC: postgresql+psycopg2://${PG_USER}:${PG_PASSWORD}@postgres:5432/${PG_DATABASE}
       DB_URL_ASYNC: postgresql+asyncpg://${PG_USER}:${PG_PASSWORD}@postgres:5432/${PG_DATABASE}
       TEST_DB_URL_ASYNC: postgresql+asyncpg://${PG_USER}:${PG_PASSWORD}@postgres:5432/${PG_DATABASE}_test
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     networks:
       - lawa_network
 
   frontend:
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
+    image: ai-vms-frontend:latest
+    # build:
+    #   context: ./frontend
+    #   dockerfile: Dockerfile
     env_file:
       - ./.env
     container_name: ai_vms_frontend
@@ -137,8 +146,8 @@ services:
     environment:
       - RABBITMQ_HOST=rabbitmq
       - RABBITMQ_PORT=5672
-      - RABBITMQ_USERNAME=guest
-      - RABBITMQ_PASSWORD=guest
+      - RABBITMQ_USERNAME=user
+      - RABBITMQ_PASSWORD=password
       - EXCHANGE_NAME=LAWA_exchange
       - EXCHANGE_TYPE=direct
       - DB_HOST=postgres
@@ -162,6 +171,7 @@ services:
       dockerfile: Dockerfile
     container_name: lawa_ai_inference_detection
     ipc: shareable
+    shm_size: 1gb 
     depends_on:
       rabbitmq:
         condition: service_healthy
@@ -175,8 +185,8 @@ services:
     environment:
       - RABBITMQ_HOST=rabbitmq
       - RABBITMQ_PORT=5672
-      - RABBITMQ_USERNAME=guest
-      - RABBITMQ_PASSWORD=guest
+      - RABBITMQ_USERNAME=user
+      - RABBITMQ_PASSWORD=password
       - EXCHANGE_NAME=LAWA_exchange
       - EXCHANGE_TYPE=direct
       - NUMBERS_OF_WORKER=2
@@ -195,6 +205,7 @@ services:
         dockerfile: Dockerfile
       container_name: lawa_ai_inference_classification
       ipc: shareable
+      shm_size: 1gb
       depends_on:
         rabbitmq:
           condition: service_healthy
@@ -208,8 +219,8 @@ services:
       environment:
         - RABBITMQ_HOST=rabbitmq
         - RABBITMQ_PORT=5672
-        - RABBITMQ_USERNAME=guest
-        - RABBITMQ_PASSWORD=guest
+        - RABBITMQ_USERNAME=user
+        - RABBITMQ_PASSWORD=password
         - EXCHANGE_NAME=LAWA_exchange
         - EXCHANGE_TYPE=direct
         - NUMBERS_OF_WORKER=2
@@ -222,23 +233,57 @@ services:
       networks:
         - lawa_network
 
+  ai-inference-segmentation:
+    build:
+      context: ./ai-inference-segmentation
+      dockerfile: Dockerfile
+    container_name: lawa_ai_inference_segmentation
+    ipc: shareable
+    shm_size: 1gb
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    environment:
+      - RABBITMQ_HOST=rabbitmq
+      - RABBITMQ_PORT=5672
+      - RABBITMQ_USERNAME=user
+      - RABBITMQ_PASSWORD=password
+      - EXCHANGE_NAME=LAWA_exchange
+      - EXCHANGE_TYPE=direct
+      - NUMBERS_OF_WORKER=2
+      - DEVICE=cuda
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=compute,utility
+    volumes:
+      - ./logs/ai-inference-segmentation:/app/logs
+      - ./Ai_services/Ai_engine/src:/app/src
+    networks:
+      - lawa_network
+ 
 
   ai-crowd-density:
     build:
       context: ./ai-crowd-density
       dockerfile: Dockerfile
     container_name: lawa_ai_crowd_density
+    # ipc: service:ai-inference-detection
     # ipc: service:ai-inference-classification
-    ipc: service:ai-inference-detection
+    ipc: service:ai-inference-segmentation
     depends_on:
       rabbitmq:
         condition: service_healthy
-
     environment:
       - RABBITMQ_HOST=rabbitmq
       - RABBITMQ_PORT=5672
-      - RABBITMQ_USERNAME=guest
-      - RABBITMQ_PASSWORD=guest
+      - RABBITMQ_USERNAME=user
+      - RABBITMQ_PASSWORD=password
       - EXCHANGE_NAME=LAWA_exchange
       - EXCHANGE_TYPE=direct
       - QUEUE_NAME=queue_crowd_density
@@ -261,8 +306,8 @@ services:
   #   environment:
   #     - RABBITMQ_HOST=rabbitmq
   #     - RABBITMQ_PORT=5672
-  #     - RABBITMQ_USERNAME=guest
-  #     - RABBITMQ_PASSWORD=guest
+  #     - RABBITMQ_USERNAME=user
+  #     - RABBITMQ_PASSWORD=password
   #     - EXCHANGE_NAME=LAWA_exchange
   #     - EXCHANGE_TYPE=direct
   #     - QUEUE_NAME=queue_bird_eye_view
@@ -285,8 +330,8 @@ services:
   #   environment:
   #     - RABBITMQ_HOST=rabbitmq
   #     - RABBITMQ_PORT=5672
-  #     - RABBITMQ_USERNAME=guest
-  #     - RABBITMQ_PASSWORD=guest
+  #     - RABBITMQ_USERNAME=user
+  #     - RABBITMQ_PASSWORD=password
   #     - EXCHANGE_NAME=LAWA_exchange
   #     - EXCHANGE_TYPE=direct
   #     - QUEUE_NAME=queue_in_out_person_count
@@ -309,8 +354,8 @@ services:
   #   environment:
   #     - RABBITMQ_HOST=rabbitmq
   #     - RABBITMQ_PORT=5672
-  #     - RABBITMQ_USERNAME=guest
-  #     - RABBITMQ_PASSWORD=guest
+  #     - RABBITMQ_USERNAME=user
+  #     - RABBITMQ_PASSWORD=password
   #     - EXCHANGE_NAME=LAWA_exchange
   #     - EXCHANGE_TYPE=direct
   #     - QUEUE_NAME=queue_loitering_detection
@@ -333,8 +378,8 @@ services:
   #   environment:
   #     - RABBITMQ_HOST=rabbitmq
   #     - RABBITMQ_PORT=5672
-  #     - RABBITMQ_USERNAME=guest
-  #     - RABBITMQ_PASSWORD=guest
+  #     - RABBITMQ_USERNAME=user
+  #     - RABBITMQ_PASSWORD=password
   #     - EXCHANGE_NAME=LAWA_exchange
   #     - EXCHANGE_TYPE=direct
   #     - QUEUE_NAME=queue_person_count_inside_compartment
@@ -357,8 +402,8 @@ services:
   #   environment:
   #     - RABBITMQ_HOST=rabbitmq
   #     - RABBITMQ_PORT=5672
-  #     - RABBITMQ_USERNAME=guest
-  #     - RABBITMQ_PASSWORD=guest
+  #     - RABBITMQ_USERNAME=user
+  #     - RABBITMQ_PASSWORD=password
   #     - EXCHANGE_NAME=LAWA_exchange
   #     - EXCHANGE_TYPE=direct
   #     - QUEUE_NAME=queue_person_entered_inside_train
@@ -381,8 +426,8 @@ services:
   #   environment:
   #     - RABBITMQ_HOST=rabbitmq
   #     - RABBITMQ_PORT=5672
-  #     - RABBITMQ_USERNAME=guest
-  #     - RABBITMQ_PASSWORD=guest
+  #     - RABBITMQ_USERNAME=user
+  #     - RABBITMQ_PASSWORD=password
   #     - EXCHANGE_NAME=LAWA_exchange
   #     - EXCHANGE_TYPE=direct
   #     - QUEUE_NAME=queue_queue_management
@@ -405,8 +450,8 @@ services:
   #   environment:
   #     - RABBITMQ_HOST=rabbitmq
   #     - RABBITMQ_PORT=5672
-  #     - RABBITMQ_USERNAME=guest
-  #     - RABBITMQ_PASSWORD=guest
+  #     - RABBITMQ_USERNAME=user
+  #     - RABBITMQ_PASSWORD=password
   #     - EXCHANGE_NAME=LAWA_exchange
   #     - EXCHANGE_TYPE=direct
   #     - QUEUE_NAME=queue_restroom_person_tracking
@@ -429,8 +474,8 @@ services:
   #   environment:
   #     - RABBITMQ_HOST=rabbitmq
   #     - RABBITMQ_PORT=5672
-  #     - RABBITMQ_USERNAME=guest
-  #     - RABBITMQ_PASSWORD=guest
+  #     - RABBITMQ_USERNAME=user
+  #     - RABBITMQ_PASSWORD=password
   #     - EXCHANGE_NAME=LAWA_exchange
   #     - EXCHANGE_TYPE=direct
   #     - QUEUE_NAME=queue_tailgate_detection
@@ -453,8 +498,8 @@ services:
   #   environment:
   #     - RABBITMQ_HOST=rabbitmq
   #     - RABBITMQ_PORT=5672
-  #     - RABBITMQ_USERNAME=guest
-  #     - RABBITMQ_PASSWORD=guest
+  #     - RABBITMQ_USERNAME=user
+  #     - RABBITMQ_PASSWORD=password
   #     - EXCHANGE_NAME=LAWA_exchange
   #     - EXCHANGE_TYPE=direct
   #     - QUEUE_NAME=queue_train_arrival_depart_monitor
@@ -465,9 +510,48 @@ services:
   #   networks:
   #     - lawa_network
 
+  video_decoder:
+    # image: ai-vms-video_decoder:latest
+    build:
+      context: ./Video_decoder
+      dockerfile: Dockerfile
+    container_name: ai_vms_video_decoder
+    restart: unless-stopped
+    network_mode: host
+    env_file:
+      - ./.env
+    environment:
+      PG_HOST: localhost
+      PG_PORT: "5432"
+      PG_USER: ${PG_USER}
+      PG_PASSWORD: ${PG_PASSWORD}
+      PG_DATABASE: ${PG_DATABASE}
+      RABBITMQ_HOST: localhost
+      RABBITMQ_PORT: "5672"
+      PYTHONUNBUFFERED: "1"
+      HOST_APP_PATH: ${PWD}/Video_decoder
+    depends_on:
+      db-init:
+        condition: service_completed_successfully
+      rabbitmq:
+        condition: service_healthy
+      backend:
+        condition: service_started
+      frontend:
+        condition: service_started
+    volumes:
+      - ./Video_decoder/config.yaml:/app/config.yaml:ro
+      - ./Video_decoder/input:/app/input
+      - ./Video_decoder/logs:/app/logs
+      - ./Video_decoder:/app
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /dev/dri:/dev/dri
+    privileged: true
+    user: "0:0"
 
 volumes:
   postgres_data:
+  rabbitmq_data:
   event_evidence:
 
 networks:

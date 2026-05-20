@@ -1,0 +1,4 @@
+2026-05-14 14:57:02 | Streamhandler_validation.py.validate_message          | [INFO ] | No valid ROIs found. Using full-frame fallback for camera cam1 (Usecase: Crowd_Density)
+2026-05-14 14:57:02 | Streamhandler_validation.py.validate_message          | [INFO ] | No valid ROIs found. Using full-frame fallback for camera cam_crowd (Usecase: Crowd_Density)
+2026-05-14 14:59:12 | Streamhandler_validation.py.validate_message          | [INFO ] | No valid ROIs found. Using full-frame fallback for camera cam1 (Usecase: Crowd_Density)
+2026-05-14 14:59:12 | Streamhandler_validation.py.validate_message          | [INFO ] | No valid ROIs found. Using full-frame fallback for camera cam_crowd (Usecase: Crowd_Density)

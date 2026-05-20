@@ -48,12 +48,15 @@ ON CONFLICT (name) DO NOTHING;
 
 INSERT INTO usecases (name, description, is_active, created_at, updated_at)
 VALUES 
-    ('Cash Handling', 'Monitor cash handling operations', true, NOW(), NOW()),
-    ('Teller Operations', 'Teller desk monitoring and transaction verification', true, NOW(), NOW()),
-    ('Vault Access', 'Vault access and security monitoring', true, NOW(), NOW()),
-    ('Customer Interactions', 'Monitor customer service areas', true, NOW(), NOW()),
-    ('Exit/Entry', 'Track entry and exit points', true, NOW(), NOW()),
-    ('Storage Area', 'Monitor storage and archive areas', true, NOW(), NOW())
+    ('loitering_detection', 'Detect persons loitering in restricted areas', true, NOW(), NOW()),
+    ('tailgate_detection', 'Detect tailgating at entry/exit points', true, NOW(), NOW()),
+    ('in_out_person_count', 'Count persons entering and exiting', true, NOW(), NOW()),
+    ('train_arrival_depart_monitor', 'Monitor train arrival and departure', true, NOW(), NOW()),
+    ('crowd_density', 'Monitor crowd density in public spaces', true, NOW(), NOW()),
+    ('person_entered_inside_train', 'Detect persons entering inside the train', true, NOW(), NOW()),
+    ('restroom_person_tracking', 'Track person movement in restroom areas', true, NOW(), NOW()),
+    ('person_count_inside_compartment', 'Count persons inside train compartments', true, NOW(), NOW()),
+    ('queue_management', 'Monitor and manage queues', true, NOW(), NOW())
 ON CONFLICT (name) DO NOTHING;
 
 -- =============================================================================

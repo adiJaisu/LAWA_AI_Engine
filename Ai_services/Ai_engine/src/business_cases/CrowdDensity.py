@@ -150,13 +150,20 @@ class CrowdDensity:
 
             # ---------------- DETECTION ----------------
             try:
-                results = detector.make_prediction_with_tracking(
+                # results = detector.make_prediction_with_tracking(
+                #     frame=frame,
+                #     classes_id=[self.person_class_id],
+                #     confidence=self.confidence,
+                #     tracker=self.tracker_name,
+                #     iou=0.35
+                # )
+                results = detector.make_prediction_segmentation(
                     frame=frame,
                     classes_id=[self.person_class_id],
                     confidence=self.confidence,
-                    tracker=self.tracker_name,
-                    iou=0.35
+                    
                 )
+
                 # results = detector.make_prediction_with_classification(
                 #     frame=frame,
                 #     confidence=self.confidence

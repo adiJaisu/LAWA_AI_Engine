@@ -37,7 +37,7 @@ class UsecaseInfoResponse(BaseModel):
 
 class CameraCreateRequest(BaseModel):
     name: str
-    type: Literal["rtsp", "usb"]
+    type: Literal["rtsp", "usb","video"]
     rtspUrl: Optional[str] = None
     resolution: Optional[str] = None
     height: Optional[float] = None

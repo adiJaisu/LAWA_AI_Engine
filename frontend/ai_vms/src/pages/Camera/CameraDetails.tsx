@@ -24,6 +24,7 @@ const formatDecodingPipeline = (value?: string) => {
   const normalized = value.toLowerCase();
   if (normalized === "opencv") return "OpenCV";
   if (normalized === "gstreamer") return "GStreamer";
+  if (normalized === "deepstream") return "Deepstream";
   return "FFmpeg";
 };
 

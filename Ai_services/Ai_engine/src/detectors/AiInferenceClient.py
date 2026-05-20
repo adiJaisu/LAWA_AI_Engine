@@ -141,6 +141,13 @@ class AiInferenceDetectionClient:
         except Exception as e:
             logger.error(f"RPC Prediction Error: {e}")
             return None
+        finally:
+            # Clean up temporary shm file
+            if 'shm_path' in locals() and os.path.exists(shm_path):
+                try:
+                    os.remove(shm_path)
+                except Exception as cleanup_err:
+                    logger.warning(f"Failed to delete temporary shm file {shm_path}: {cleanup_err}")
 
     def make_prediction_with_tracking(self, frame: np.ndarray, classes_id: list[int], confidence: float, inference_image_size: int = 640, tracker: str = "bytetrack.yaml", iou: float = Constants.ZERO_POINT_FIVE) -> list:
         """Mimics ObjectDetector.make_prediction_with_tracking"""
@@ -178,6 +185,13 @@ class AiInferenceDetectionClient:
         except Exception as e:
             logger.error(f"RPC Prediction Tracking Error: {e}")
             return []
+        finally:
+            # Clean up temporary shm file
+            if 'shm_path' in locals() and os.path.exists(shm_path):
+                try:
+                    os.remove(shm_path)
+                except Exception as cleanup_err:
+                    logger.warning(f"Failed to delete temporary shm file {shm_path}: {cleanup_err}")
 
 
 
@@ -294,3 +308,116 @@ class AiInferenceClassificationClient:
         except Exception as e:
             logger.error(f"RPC Classification Prediction Error: {e}")
             return []
+        finally:
+            # Clean up temporary shm file
+            if 'shm_path' in locals() and os.path.exists(shm_path):
+                try:
+                    os.remove(shm_path)
+                except Exception as cleanup_err:
+                    logger.warning(f"Failed to delete temporary shm file {shm_path}: {cleanup_err}")
+
+
+
+
+class RemoteMasks:
+    def __init__(self, xy):
+        self.xy = [np.array(pts) for pts in xy]
+
+class RemoteYoloSegmentationResult:
+    def __init__(self, xyxy, ids, masks):
+        self.boxes = RemoteBoxes(xyxy, ids)
+        self.masks = RemoteMasks(masks)
+
+class AiInferenceSegmentationClient:
+    """
+    Client to send frames to the centralized AI Inference Segmentation Service via RabbitMQ RPC and Shared Memory.
+    """
+    def __init__(self):
+        self.local = threading.local()
+        self.host = os.environ.get(Constants.RABBITMQ_HOST, cfg.get_value_config(Constants.DEFAULT_ENVIRONMENT, Constants.RABBITMQ_HOST))
+        self.port = int(os.environ.get(Constants.RABBITMQ_PORT, cfg.get_value_config(Constants.DEFAULT_ENVIRONMENT, Constants.RABBITMQ_PORT)))
+        self.username = os.environ.get(Constants.RABBITMQ_USERNAME, cfg.get_value_config(Constants.DEFAULT_ENVIRONMENT, Constants.RABBITMQ_USERNAME))
+        self.password = os.environ.get(Constants.RABBITMQ_PASSWORD, cfg.get_value_config(Constants.DEFAULT_ENVIRONMENT, Constants.RABBITMQ_PASSWORD))
+        self.ai_inference_segmentation_queue = str(os.environ.get(Constants.AI_INFERENCE_SEGMENTATION_QUEUE, cfg.get_value_config(Constants.DEFAULT_ENVIRONMENT, Constants.AI_INFERENCE_SEGMENTATION_QUEUE)))
+        self.shm_dir = "/dev/shm"
+    def _get_connection(self):
+        """Get or create a thread-local RabbitMQ connection and callback queue."""
+        if not hasattr(self.local, 'connection') or self.local.connection.is_closed:
+            credentials = pika.PlainCredentials(self.username, self.password)
+            parameters = pika.ConnectionParameters(host=self.host, port=self.port, credentials=credentials, heartbeat=600)
+            self.local.connection = pika.BlockingConnection(parameters)
+            self.local.channel = self.local.connection.channel()
+            result = self.local.channel.queue_declare(queue='', exclusive=True)
+            self.local.callback_queue = result.method.queue
+            self.local.channel.basic_consume(
+                queue=self.local.callback_queue,
+                on_message_callback=self._on_response,
+                auto_ack=True
+            )
+            self.local.response = None
+            self.local.corr_id = None
+        return self.local.channel
+    
+    def _on_response(self, ch, method, props, body):
+        if self.local.corr_id == props.correlation_id:
+            self.local.response = body
+
+    def _call_rpc(self, payload: dict, timeout: int = Constants.TEN_SEC) -> dict:
+        channel = self._get_connection()
+        self.local.response = None
+        self.local.corr_id = str(uuid.uuid4())
+        channel.basic_publish(
+            exchange='',
+            routing_key=self.ai_inference_segmentation_queue,
+            properties=pika.BasicProperties(
+                reply_to=self.local.callback_queue,
+                correlation_id=self.local.corr_id,
+            ),
+            body=json.dumps(payload)
+        )
+        start_time = time.time()
+        while self.local.response is None:
+            self.local.connection.process_data_events(time_limit=0.01)
+            time.sleep(0.001)
+            if time.time() - start_time > timeout:
+                logger.error(f"RPC call timed out after {timeout} seconds for queue {self.ai_inference_segmentation_queue}")
+                return {"error": "Timeout", "xyxy": [], "ids": None, "masks": []}
+        response_data = json.loads(self.local.response)
+        return response_data
+    
+    def _write_shm(self, frame: np.ndarray) -> str:
+        file_id = str(uuid.uuid4())
+        shm_path = os.path.join(self.shm_dir, f"frame_{file_id}.raw")
+        with open(shm_path, "wb") as f:
+            f.write(frame.tobytes())
+        return shm_path
+    
+    def make_prediction_segmentation(self, frame: np.ndarray, classes_id: list[int], confidence: float, img_size: int = 640) -> list | None:
+        try:
+            shm_path = self._write_shm(frame)
+            payload = {
+                "method": "make_prediction_segmentation",
+                "shm_path": shm_path,
+                "shape": frame.shape,
+                "dtype": str(frame.dtype),
+                "kwargs": {
+                    "classes_id": classes_id,
+                    "confidence": confidence,
+                    "img_size": img_size
+                }
+            }
+            response = self._call_rpc(payload)
+            if response.get("error"):
+                logger.error(f"Inference Server Error: {response['error']}")
+                return None
+            xyxy = response.get("xyxy", [])
+            ids = response.get("ids", None)
+            masks = response.get("masks", [])
+            if not xyxy and not masks:
+                return []
+            logger.info(f"Response from AI Segmentation Server: {response}")    
+            return [RemoteYoloSegmentationResult(xyxy, ids, masks)]
+        except Exception as e:
+            logger.error(f"RPC Prediction Error: {e}")
+            return None
+ 

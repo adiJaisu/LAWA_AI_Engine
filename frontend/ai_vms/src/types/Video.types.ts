@@ -12,6 +12,8 @@ export interface VideoState {
   rtspUrl: string;
   resolution: string;
   usecase: string;
+  isLiveStream?: boolean;
+  liveFrame?: string;
 }
 
 export type GridSize = 1 | 2 | 3;
@@ -31,9 +33,10 @@ export const INITIAL_VIDEOS: VideoState[] = Array.from({ length: 9 }, (_, i) => 
   currentTime: 0,
   duration: 0,
   label: `Camera ${i + 1}`,
-  src: `https://www.w3schools.com/html/mov_bbb.mp4`,
+  src: ``,
   rtspUrl: i % 2 === 0 ? `rtsp://192.168.1.${10 + i}:554/stream1` : 'NA',
   resolution: ['1920×1080', '1280×720', '3840×2160'][i % 3],
-  usecase: ['Storage Area Exit/Entry', 'Customer Interactions', 'Cash Handling',
-            'Vault Access', 'Teller Operations', 'None'][i % 6],
+  usecase: ['loitering_detection', 'tailgate_detection', 'in_out_person_count',
+            'train_arrival_depart_monitor', 'crowd_density', 'person_entered_inside_train'][i % 6],
+  isLiveStream: true,
 }));

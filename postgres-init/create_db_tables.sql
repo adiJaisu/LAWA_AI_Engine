@@ -13,7 +13,7 @@ CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 DO $$ 
 BEGIN
     IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'camera_type') THEN
-        CREATE TYPE camera_type AS ENUM ('ip', 'usb');
+        CREATE TYPE camera_type AS ENUM ('ip', 'usb', 'video');
     END IF;
 END
 $$;
@@ -29,7 +29,7 @@ $$;
 DO $$
 BEGIN
     IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'decoding_pipeline_type') THEN
-        CREATE TYPE decoding_pipeline_type AS ENUM ('ffmpeg', 'opencv', 'gstreamer');
+        CREATE TYPE decoding_pipeline_type AS ENUM ('ffmpeg', 'opencv', 'gstreamer', 'deepstream');
     END IF;
 END
 $$;
@@ -248,22 +248,5 @@ CREATE TABLE IF NOT EXISTS camera_usecase (
 
 CREATE INDEX IF NOT EXISTS ix_camera_usecase_camera ON camera_usecase(camera_id);
 CREATE INDEX IF NOT EXISTS ix_camera_usecase_usecase ON camera_usecase(usecase_id);
-
--- =============================================================================
--- CREATE EVENTS TABLE
--- =============================================================================
-
-CREATE TABLE IF NOT EXISTS events (
-    id BIGSERIAL PRIMARY KEY,
-    camera_id VARCHAR(150) NOT NULL,
-    usecase_name VARCHAR(120) NOT NULL,
-    evidence_path TEXT,
-    event_data JSONB,
-    created_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW()
-);
-
-CREATE INDEX IF NOT EXISTS ix_events_camera_id ON events(camera_id);
-CREATE INDEX IF NOT EXISTS ix_events_usecase_name ON events(usecase_name);
-CREATE INDEX IF NOT EXISTS ix_events_created_at ON events(created_at);
 
 -- All tables created successfully!

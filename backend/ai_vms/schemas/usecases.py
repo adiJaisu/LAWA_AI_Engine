@@ -1,81 +1,80 @@
-"""
-Defines request and response models for role-based permissions.
-
-Includes:
-- Role creation and retrieval.
-- Permission management.
-- Access control mapping.
-- Data validation using Pydantic.
-
-Author: HCLTech
-"""
 from pydantic import BaseModel
 from typing import Optional, List
+from datetime import datetime
 
-class UsecaseDetailsResponse(BaseModel):
-    """
-    Model for Usecase-specific details.
-    Attributes:
-        UsecaseId (int): Unique identifier for the usecase.
-        UsecaseName (str): Name of the usecase.
-    """
-    usecaseId: int
-    usecaseName: str
-    classes: List[str] = []
+from ai_vms.models.enums import AIResource
+
+
+class UsecaseCreateRequest(BaseModel):
+    name: str
+    description: Optional[str] = None
     tracking: bool = False
     fps: Optional[float] = None
     batch: Optional[int] = None
-    frameSkip: Optional[int] = None
-    aiResource: str = "cpu"
+    frame_skip: Optional[int] = None
+    ai_resource: AIResource = AIResource.cpu
+    is_active: bool = True
 
-class GetAllUsecasesSuccessResponse(BaseModel):
-    """
-    Response model for successful usecases retrieval.
-    Attributes:
-        code (int): HTTP status code (default: 200).
-        message (str): Success message.
-        roleDetails (List[usecaseDetailsResponse]): List of usecase details.
-    """
-    code: int = 200
-    message: str = "usecases Details Retrieved Successfully"
-    usecaseDetails: List[UsecaseDetailsResponse]
 
-class GetAllUsecaseErrorResponse(BaseModel):
-    """
-    Response model for failed usecase retrieval.
-    Attributes:
-        code (int): HTTP status code (default: 500).
-        message (str): Error message.
-    """
-    code: int = 500
-    message: str
+class UsecaseUpdateRequest(BaseModel):
+    usecase_id: int
 
-class UpdateUsecaseApiRequest(BaseModel):
-    """
-    Request model for updating usecase permissions.
-    Attributes:
-        roleId (int): Unique identifier for the usecase.
-        userId (int): Unique identifier for the usecase.
-    """
+    name: Optional[str] = None
+    description: Optional[str] = None
+    tracking: Optional[bool] = None
+    fps: Optional[float] = None
+    batch: Optional[int] = None
+    frame_skip: Optional[int] = None
+    ai_resource: Optional[AIResource] = None
+    is_active: Optional[bool] = None
+
+
+# class UsecaseResponse(BaseModel):
+#     id: int
+#     name: str
+#     description: Optional[str]
+#     tracking: bool
+#     fps: Optional[float]
+#     batch: Optional[int]
+#     frame_skip: Optional[int]
+#     ai_resource: AIResource
+#     is_active: bool
+#     created_at: datetime
+#     updated_at: datetime
+
+#     class Config:
+#         from_attributes = True
+
+
+
+
+# class GetAllUsecasesResponse(BaseModel):
+#     code: int
+#     message: str
+#     data: List[UsecaseResponse]
+
+
+class UsecaseResponse(BaseModel):
     usecaseId: int
-    cameraId: int
-
-class UpdateUsecaseApiSuccessResponse(BaseModel):
-    """
-    Response model for successful usecase permission update.
-    Attributes:
-        code (int): HTTP status code (default: 200).
-        message (str): Success message.
-    """
-    code: int = 200
-    message: str = "User usecase Updated Successfully"
-
-class UpdateUsecaseApiErrorResponse(BaseModel):
-    """
-    Response model for failed usecase permission update.
-    Attributes:
-        code (int): HTTP status code (default: 500).
-        message (str): Error message.
-    """
-    code: int = 500
+    usecaseName: str
+    description: Optional[str]
+    classes: List[str]=[]
+    tracking: bool
+    fps: Optional[float]
+    batch: Optional[int]
+    frameSkip: Optional[int]
+    aiResource: AIResource
+    is_active: bool
+    created_at: datetime
+    updated_at: datetime
+ 
+    class Config:
+        from_attributes = True
+ 
+ 
+ 
+ 
+class GetAllUsecasesResponse(BaseModel):
+    code: int
     message: str
+    usecaseDetails: List[UsecaseResponse]

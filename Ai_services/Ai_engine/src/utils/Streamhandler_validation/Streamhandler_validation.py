@@ -15,18 +15,18 @@ class Validator:
     """
     
 
-    # @staticmethod
-    # def getFullFrameRoi(frameHeight,frameWidth):
-    #     """ Helper function to generate full frame roi if roi is not given in metadata"""
-    #     # Full-frame ROI fallback
-    #     full_frame_roi = [[
-    #         [Constants.ZERO, Constants.ZERO],
-    #         [frameWidth - Constants.ONE, Constants.ZERO],
-    #         [frameWidth - Constants.ONE, frameHeight - Constants.ONE],
-    #         [Constants.ZERO, frameHeight - Constants.ONE]
-    #     ]]
+    @staticmethod
+    def getFullFrameRoi(frameHeight, frameWidth):
+        """ Helper function to generate full frame roi if roi is not given in metadata"""
+        # Full-frame ROI fallback
+        full_frame_roi = [[
+            [Constants.ZERO, Constants.ZERO],
+            [frameWidth - Constants.ONE, Constants.ZERO],
+            [frameWidth - Constants.ONE, frameHeight - Constants.ONE],
+            [Constants.ZERO, frameHeight - Constants.ONE]
+        ]]
 
-    #     return full_frame_roi
+        return full_frame_roi
 
     def validate_polygons(self, polygons, cameraName, frame_shape, usecase=None):
         """
@@ -43,11 +43,21 @@ class Validator:
         """
         valid_polygons = []
         invalid_indices = []
-        height, width = frame_shape
+        height, width = int(frame_shape[0]), int(frame_shape[1])
         
         min_points = Constants.TWO if usecase == Constants.IN_OUT_PERSON_COUNT_USECASE else Constants.THREE
         
+        if not isinstance(polygons, (list, tuple)):
+            logger.error(f"ROIs for camera {cameraName} is not a list/tuple: {type(polygons)}")
+            return [], []
+
         for idx, polygon in enumerate(polygons):
+            # Ensure polygon is a list/tuple
+            if not isinstance(polygon, (list, tuple)):
+                logger.error(f"Polygon at index {idx} is not a list for camera {cameraName}")
+                invalid_indices.append(idx)
+                continue
+
             # Check if polygon has at least min_points
             if len(polygon) < min_points:
                 logger.error(f"Polygon at index {idx} has less than {min_points} points for camera {cameraName}")
@@ -55,10 +65,17 @@ class Validator:
                 continue
 
             # Check all points are within frame bounds
-            is_inside_frame = all(
-                Constants.ZERO <= point[Constants.ZERO] < width and Constants.ZERO <= point[Constants.ONE] < height 
-                for point in polygon
-            )
+            try:
+                is_inside_frame = all(
+                    isinstance(point, (list, tuple)) and len(point) >= Constants.TWO and
+                    Constants.ZERO <= int(point[Constants.ZERO]) < width and 
+                    Constants.ZERO <= int(point[Constants.ONE]) < height 
+                    for point in polygon
+                )
+            except (ValueError, TypeError, IndexError) as e:
+                logger.error(f"Polygon at index {idx} has invalid point format for {cameraName}: {e}")
+                invalid_indices.append(idx)
+                continue
 
             if not is_inside_frame:
                 logger.error(f"Polygon at index {idx} contains points outside frame boundsfor {cameraName}")
@@ -111,7 +128,7 @@ class Validator:
         ]
         required_camera_fields = [
             Constants.CAMERA_ID, Constants.LOCATION_ID, Constants.CAMERA_NAME,
-            Constants.CODEC, Constants.RESOLUTION, Constants.MODEL,
+            Constants.CODEC, Constants.MODEL,
             Constants.CAMERA_HEIGHT, Constants.RTSP_URL
         ]
 
@@ -126,20 +143,26 @@ class Validator:
             return None
 
         cam_name = cam_meta[Constants.CAMERA_NAME]
-        usecase = frame_meta[Constants.USECASE_NAME]
+        raw_usecase = frame_meta[Constants.USECASE_NAME]
+        usecase = Constants.USECASE_QUEUE_MAPPING.get(raw_usecase, raw_usecase)
 
         strm_rois = frame_meta[Constants.ROIS]
+        is_dict_roi = isinstance(strm_rois, list) and len(strm_rois) > 0 and isinstance(strm_rois[0], dict)
 
-        valid_polygons, _ = self.validate_polygons(
-            strm_rois,
-            cam_name,
-            (frame_meta[Constants.FRAME_SIZE_H], frame_meta[Constants.FRAME_SIZE_W]),
-            usecase=usecase
-        )
+        # For Crowd Density or default dict-based ROIs, we use full-frame ROI directly
+        if usecase == Constants.CROWD_DENSITY_USECASE or is_dict_roi:
+            valid_polygons = self.getFullFrameRoi(int(frame_meta[Constants.FRAME_SIZE_H]), int(frame_meta[Constants.FRAME_SIZE_W]))
+        else:
+            valid_polygons, _ = self.validate_polygons(
+                strm_rois,
+                cam_name,
+                (frame_meta[Constants.FRAME_SIZE_H], frame_meta[Constants.FRAME_SIZE_W]),
+                usecase=usecase
+            )
 
-        if not valid_polygons:
-            logger.debug(f"No valid ROIs found in the message from camera {cam_meta[Constants.CAMERA_ID]}.")
-            return None
+            if not valid_polygons:
+                logger.debug(f"No valid ROIs found in the message from camera {cam_meta[Constants.CAMERA_ID]}.")
+                return None
 
         self.set_global_configuration(msg)
         mexico_time = datetime.datetime.now(datetime.timezone.utc).astimezone(ZoneInfo(Constants.TIME_ZONE_INFO))

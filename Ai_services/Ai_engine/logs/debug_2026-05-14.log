@@ -1,0 +1,11 @@
+2026-05-14 14:41:41 | Streamhandler_validation.py.validate_polygons         <-> [ERROR] Polygon at index 0 is not a list for camera TestCam
+2026-05-14 14:41:41 | Streamhandler_validation.py.validate_polygons         <-> [ERROR] Polygon at index 1 is not a list for camera TestCam
+2026-05-14 14:41:41 | Streamhandler_validation.py.validate_message          <-> [DEBUG] No valid ROIs found in the message from camera cam1.
+2026-05-14 14:57:02 | Streamhandler_validation.py.validate_polygons         <-> [ERROR] Polygon at index 0 is not a list for camera TestCam
+2026-05-14 14:57:02 | Streamhandler_validation.py.validate_polygons         <-> [ERROR] Polygon at index 1 is not a list for camera TestCam
+2026-05-14 14:57:02 | Streamhandler_validation.py.set_global_configuration  <-> [ERROR] Failed to set global configuration: 'config_metadata'
+2026-05-14 14:57:02 | Streamhandler_validation.py.set_global_configuration  <-> [ERROR] Failed to set global configuration: 'config_metadata'
+2026-05-14 14:59:12 | Streamhandler_validation.py.validate_polygons         <-> [ERROR] Polygon at index 0 is not a list for camera TestCam
+2026-05-14 14:59:12 | Streamhandler_validation.py.validate_polygons         <-> [ERROR] Polygon at index 1 is not a list for camera TestCam
+2026-05-14 14:59:12 | Streamhandler_validation.py.set_global_configuration  <-> [ERROR] Failed to set global configuration: 'config_metadata'
+2026-05-14 14:59:12 | Streamhandler_validation.py.set_global_configuration  <-> [ERROR] Failed to set global configuration: 'config_metadata'
